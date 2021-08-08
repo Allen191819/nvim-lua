@@ -1,0 +1,33 @@
+-- General
+require('plugins')
+require('keymappings')
+require('settings')
+require('colorscheme')
+require('function')
+
+-- Lsp
+require('lsp.lua-ls')
+
+-- Plugins
+require('nv-nvim-tree')
+require('nv-lsp-conf')
+require('nv-telescope')
+require('nv-treesitter')
+require('nv-compe')
+require('nv-galaxyline')
+require('nv-colorizer')
+require('nv-diffview')
+require('nv-bufferline')
+require('nv-undotree')
+require('nv-floaterm')
+require('nv-indent-blankline')
+require('nv-easymotion')
+require('nv-commenter')
+require('nv-folder')
+require('nv-git')
+require('nv-autopair')
+require('nv-dashboard')
+require('nv-markdown')
+require('nv-coderun')
+require('nv-debugger')
+require('nv-focus')
