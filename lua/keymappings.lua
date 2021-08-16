@@ -8,6 +8,7 @@ vim.api.nvim_set_keymap('n','<leader>h',':set hlsearch!<CR>',{ noremap=true,sile
 -- explore tree
 vim.api.nvim_set_keymap('n','<leader>e',':NvimTreeToggle<CR>',{ noremap=true,silent=true })
 vim.api.nvim_set_keymap('n','<F1>',':Vista!!<CR>',{ noremap=true,silent=true })
+vim.api.nvim_set_keymap('n','L',':UndotreeToggle<CR>',{silent=true})
 
 -- window movement
 vim.api.nvim_set_keymap('n','<C-j>','<C-w>j',{ silent=true })
@@ -54,14 +55,14 @@ vim.api.nvim_set_keymap('n','k','<Plug>(accelerated_jk_gk)',{ silent=true })
 -- Easy term
 vim.api.nvim_set_keymap('n','<leader>th',':ToggleTerm size=20 direction=horizontal<Cr>',{ silent=true })
 vim.api.nvim_set_keymap('n','<leader>tw',':ToggleTerm direction=window<Cr>',{ silent=true })
-vim.api.nvim_set_keymap('n','<leader>tv',':ToggleTerm direction=vertical<Cr>',{ silent=true })
+vim.api.nvim_set_keymap('n','<leader>tv',':ToggleTerm size=100 direction=vertical<Cr>',{ silent=true })
 
 -- Shortcut
 vim.api.nvim_set_keymap('n','W',':Autoformat<Cr>:w<Cr>',{ silent=true })
 vim.api.nvim_set_keymap('n','Q',':q<Cr>',{ silent=true })
 
-vim.api.nvim_set_keymap('n','<Leader>tr','<Plug>TranslateW',{ silent=true })
-vim.api.nvim_set_keymap('v','<Leader>tr','<Plug>TranslateWV',{ silent=true })
+vim.api.nvim_set_keymap('n',',tr','<Plug>TranslateW',{ silent=true })
+vim.api.nvim_set_keymap('v',',tr','<Plug>TranslateWV',{ silent=true })
 
 
 vim.api.nvim_set_keymap('n',',f','<Esc>/<++><CR>:nohlsearch<CR>c4l',{ silent=true,noremap=true })
@@ -93,11 +94,17 @@ vim.api.nvim_set_keymap('n', ',q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR
 vim.api.nvim_set_keymap('n', ',f', '<cmd>lua vim.lsp.buf.formatting()<CR>',{silent=true,noremap=true})
 
 -- Snippet
-vim.g.UltiSnipsExpandTrigger="<A-n>"
-vim.g.UltiSnipsJumpForwardTrigger="<A-n>"
-vim.g.UltiSnipsJumpBackwardTrigger="<A-b>"
+vim.g.UltiSnipsExpandTrigger="<M-j>"
+vim.g.UltiSnipsJumpForwardTrigger="<M-j>"
+vim.g.UltiSnipsJumpBackwardTrigger="<M-k>"
 vim.g.UltiSnipsEditSplit="vertical"
+vim.cmd([[
+imap <expr> <M-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<M-j>'
+smap <expr> <M-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<M-j>'
 
+imap <expr> <M-k> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'  : '<M-k>'
+smap <expr> <M-k> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'  : '<M-k>'
+]])
 
 -- DashBoard / Telescope
 vim.api.nvim_set_keymap('n','<Leader>fh',':DashboardFindHistory<CR>', { noremap = true , silent = false })
@@ -110,5 +117,27 @@ vim.api.nvim_set_keymap('n','<Leader>tc',':DashboardChangeColorscheme<CR>', { no
 vim.api.nvim_set_keymap('n','<Leader>fm',':Telescope media_files<CR>', { noremap = true , silent = false })
 
 -- Debugger
-vim.api.nvim_set_keymap('n','M',':e .vimspector.json<Cr> :r! cat /home/allen/.config/nvim/sample_vimspector_json',{ silent=true })
-vim.api.nvim_set_keymap('n','Z',':lua require(\'telescope\').extensions.vimspector.configurations()<Cr>',{ silent=true })
+--vim.api.nvim_set_keymap('n','M',':e .vimspector.json<Cr> :r! cat /home/allen/.config/nvim/sample_vimspector_json',{ silent=true })
+--vim.api.nvim_set_keymap('n','Z',':lua require(\'telescope\').extensions.vimspector.configurations()<Cr>',{ silent=true })
+
+--Markdown
+vim.api.nvim_set_keymap('n','<Leader>mn',':MkdnNextLink<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>mp',':MkdnPrevLink<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>mc',':MkdnCreateLink<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>mf',':MkdnFollowPath<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>mg',':MkdnGetPath<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>mi',':PasteImg<Cr>', { noremap = true , silent = false })
+
+-- Easy swap
+vim.api.nvim_set_keymap('n',',sp',':ISwap<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n',',sw',':ISwapWith<Cr>', { noremap = true , silent = false })
+
+-- Snip run
+vim.api.nvim_set_keymap('n',',sr',':SnipRun<Cr>',{ noremap=true,silent=true })
+vim.api.nvim_set_keymap('v',',sr',':\'<,\'>SnipRun<Cr>',{ noremap=true,silent=true })
+vim.api.nvim_set_keymap('n',',sl',':SnipClose<Cr>',{ noremap=true,silent=true })
+
+vim.api.nvim_set_keymap('n',',cc',':AddHeader<Cr>',{ noremap=true,silent=true })
+
+-- Align
+vim.api.nvim_set_keymap('x','ga',':\'<,\'>EasyAlign<Cr>',{ noremap=true,silent=true })

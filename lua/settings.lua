@@ -8,7 +8,7 @@ vim.o.hidden = true
 vim.o.secure = true
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.background = 'light'
+vim.o.background = 'dark'
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.autoread = true
@@ -40,7 +40,7 @@ vim.o.cmdheight = 1
 vim.o.clipboard = 'unnamedplus'
 vim.o.linespace = 0
 vim.o.updatetime = 300
-vim.o.timeoutlen = 250
+vim.o.timeoutlen = 300
 vim.o.showmode = false
 vim.o.backup = true
 vim.o.writebackup = true
@@ -56,8 +56,7 @@ vim.o.showmatch = true
 vim.o.matchtime = 1
 vim.o.shortmess = vim.o.shortmess..'c'
 vim.cmd([[
-set fillchars=eob:\ ,vert:\┊
-set list lcs=tab:\ \ ,trail:▫
+	set fillchars=eob:\ ,vert:\┊
 ]])
 --vim.o.t_Co = '256'
 vim.o.conceallevel = 1
@@ -70,7 +69,7 @@ vim.o.directory='/home/allen/.config/nvim/tmp/backup'
 --vim.cmd('silent !mkdir -p ~/.config/nvim/tmp/sessions')
 if vim.fn.has('persistent_undo')
 then
-    vim.o.undofile=true
-    vim.o.undodir='/home/allen/.config/nvim/tmp/undo'
+	vim.o.undofile=true
+	vim.o.undodir='/home/allen/.config/nvim/tmp/undo'
 end
 

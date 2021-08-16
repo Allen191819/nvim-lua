@@ -34,3 +34,12 @@ vim.g.nvim_tree_bindings = {
     { key = "q",                            cb = tree_cb("close") },
     { key = "g?",                           cb = tree_cb("toggle_help") },
 }
+vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
+vim.g.nvim_tree_auto_close = 1 
+vim.g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' }
+vim.g.nvim_tree_follow = 1
+vim.g.nvim_tree_indent_markers = 1
+vim.g.nvim_tree_highlight_opened_files = 1
+vim.g.nvim_tree_tab_open = 1
+vim.g.nvim_tree_quit_on_open = 1
+vim.g.nvim_tree_update_cwd = 1 

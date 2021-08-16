@@ -24,6 +24,7 @@ require'compe'.setup {
         path = true;
         buffer = true;
         calc = true;
+        vim_dadbod_completion = true,
         ultisnips = true;
         nvim_lsp = true;
         nvim_lua = true;
@@ -46,6 +47,7 @@ local check_back_space = function()
     end
 end
 
+
 _G.tab_complete = function()
     if vim.fn.pumvisible() == 1 then
         return t "<C-n>"
@@ -67,9 +69,6 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", { expr = true,silent=true,noremap=true })
-vim.api.nvim_set_keymap("s", "<CR>", "compe#confirm(luaeval(\"require \'nvim-autopairs\'.autopairs_cr()\"))", { expr = true,silent=true,noremap=true })
-vim.api.nvim_set_keymap("s", "<C-e>", "compe#close(\'<C-e>\')", { expr = true,silent=true,noremap=true })
-vim.api.nvim_set_keymap("s", "<A-f>", "compe#scroll({ \'delta\': +4 })", { expr = true,silent=true,noremap=true })
-vim.api.nvim_set_keymap("s", "<A-d>", "compe#scroll({ \'delta\': -4 })", { expr = true,silent=true,noremap=true })
 
+vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
+vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })

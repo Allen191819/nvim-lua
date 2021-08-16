@@ -28,7 +28,16 @@ require'sniprun'.setup({
     inline_messages = 0,             --" inline_message (0/1) is a one-line way to display messages
     --" to workaround sniprun not being able to display anything
 
-    borders = 'double'               --" display borders around floating windows
+    borders = 'single'               --" display borders around floating windows
     --" possible values are 'none', 'single', 'double', or 'shadow'
 })
 
+---- this is a config example
+--require('code_runner').setup {
+--  term = {
+--    position = "",
+--    size = 2
+--  },
+--  map = "R",
+--  json_path = "/home/allen/.config/nvim/lua/nv-coderun/code_runner.json"
+--}

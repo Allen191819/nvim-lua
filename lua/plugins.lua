@@ -1,3 +1,6 @@
+-- TODO: nv-debugger  nv_DB
+
+
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -7,16 +10,18 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute 'packadd packer.nvim'
 end
 
---local use = require('packer').userequire('packer').startup( { function() use { 'wbthomason/packer.nvim', opt = true } } )
 return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     -- Highlight motion
-    use 'danilamihailov/beacon.nvim'
+    use {'edluffy/specs.nvim'}
 
     -- Simple plugins can be specified as strings
     use 'kyazdani42/nvim-tree.lua'
+
+    -- Troublu integration
+    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
 
     -- Config my lsp
     use 'neovim/nvim-lspconfig'
@@ -29,8 +34,11 @@ return require('packer').startup(function()
     use 'hrsh7th/nvim-compe'
 
     -- Snippets
+    use 'hrsh7th/vim-vsnip'
+    use "rafamadriz/friendly-snippets"
     use 'SirVer/ultisnips'
     use 'honza/vim-snippets'
+    use 'thomasfaingnaert/vim-lsp-ultisnips'
 
     -- Colorscheme
     use 'marko-cerovac/material.nvim'
@@ -52,10 +60,17 @@ return require('packer').startup(function()
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-media-files.nvim'
-    use {"nvim-telescope/telescope-frecency.nvim", config = function() requires = {"tami5/sql.nvim"} end }
+    use {
+        "nvim-telescope/telescope-frecency.nvim",
+        config = function()
+            requires = {"tami5/sql.nvim"}
+        end
+    }
     use 'tami5/sql.nvim'
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use 'nvim-telescope/telescope-vimspector.nvim'
+    use 'fhill2/telescope-ultisnips.nvim'
+    use { 'mark-coyle/telescope-dbcli.nvim' }
+    --use 'nvim-telescope/telescope-vimspector.nvim'
 
     -- Dev icons
     use 'kyazdani42/nvim-web-devicons'
@@ -73,6 +88,9 @@ return require('packer').startup(function()
     -- Diffview
     use 'sindrets/diffview.nvim'
 
+    --Align code
+    use 'junegunn/vim-easy-align'
+
     -- Undotree
     use 'mbbill/undotree'
 
@@ -89,8 +107,8 @@ return require('packer').startup(function()
     use 'jiangmiao/auto-pairs'
 
     -- Indent line
-    -- use "lukas-reineke/indent-blankline.nvim"
-    use 'glepnir/indent-guides.nvim'
+    use 'Yggdroot/indentLine'
+    -- use 'glepnir/indent-guides.nvim'
 
     -- Switch quickly
     use 'AndrewRadev/switch.vim'
@@ -100,6 +118,9 @@ return require('packer').startup(function()
 
     -- Comment quickly
     use 'terrortylor/nvim-comment'
+
+    -- Interesting todo comment
+    use 'folke/todo-comments.nvim'
 
     -- Simply fold
     use 'tmhedberg/SimpylFold'
@@ -120,7 +141,10 @@ return require('packer').startup(function()
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
 
     -- Table mode for markdown
-    use {'dhruvasagar/vim-table-mode'}
+    use 'dhruvasagar/vim-table-mode'
+    use 'ekickx/clipboard-image.nvim'
+    use 'jakewvincent/mkdnflow.nvim'
+
 
     -- Better J&K
     use 'rhysd/accelerated-jk'
@@ -132,19 +156,12 @@ return require('packer').startup(function()
     use 'psliwka/vim-smoothie'
 
     -- Git
-    use {
-        'lewis6991/gitsigns.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim'
-        }
-    }
+    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }}
     use 'kdheepak/lazygit.nvim'
 
     -- Code run
     use { 'michaelb/sniprun', run = 'bash ./install.sh 1'}
-
-    -- Interesting
-    use 'ron89/thesaurus_query.vim'
+    -- use 'CRAG666/code_runner.nvim'
 
     -- Tagbar
     use 'liuchengxu/vista.vim'
@@ -158,8 +175,23 @@ return require('packer').startup(function()
     -- Window focus
     use 'beauwilliams/focus.nvim'
 
+    -- Startup time
+    use 'dstein64/vim-startuptime'
+
+    -- Easy swap
+    use 'mizlan/iswap.nvim'
+
+    -- File header
+    use 'alpertuna/vim-header'
+
+    -- Database
+    use 'tpope/vim-dadbod'
+    use 'kristijanhusak/vim-dadbod-ui'
+    use 'pbogut/vim-dadbod-ssh'
+    use 'kristijanhusak/vim-dadbod-completion'
     -- Debugger
-    use 'puremourning/vimspector'
-    --use 'mfussenegger/nvim-dap'
-    --use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    -- use 'puremourning/vimspector'
+    -- use 'mfussenegger/nvim-dap'
+    -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    -- use "Pocco81/DAPInstall.nvim"
 end)

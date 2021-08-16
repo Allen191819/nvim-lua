@@ -52,7 +52,7 @@ saga.init_lsp_saga {
     finder_reference_icon = '  ',
     max_preview_lines = 10, -- preview lines of lsp_finder and definition preview
     finder_action_keys = {
-        open = 'o', vsplit = 's',split = 'i',quit = 'q',scroll_down = '<A-f>', scroll_up = '<A-b>' -- quit can be a table
+        open = 'o', vsplit = 's',split = 'i',quit = 'q',scroll_down = '<M-f>', scroll_up = '<M-b>' -- quit can be a table
     },
     code_action_keys = {
         quit = 'q',exec = '<CR>'
@@ -128,9 +128,11 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
 
 
 -- Vista
+vim.g.vista_close_on_jump = 0 
 vim.g.vista_icon_indent = { "╰─▸ ", "├─▸ " }
 vim.g.vista_executive_for = {
     cpp= 'nvim_lsp',
+    c= 'nvim_lsp',
     php= 'nvim_lsp',
     python='nvim_lsp',
     go='nvim_lsp',

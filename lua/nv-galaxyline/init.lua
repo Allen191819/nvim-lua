@@ -1,8 +1,13 @@
+--[[--
+File              : init.lua
+Date              : 12.08.2021
+Last Modified Date: 12.08.2021
+--]]--
 local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
 local gls = gl.section
 local colors={
-    bg = '#323232',
+    bg = '#000000',
     fg = '#bbc2cf',
     yellow = '#ECBE7B',
     cyan = '#008080',
@@ -13,8 +18,9 @@ local colors={
     magenta = '#c678dd',
     blue = '#51afef';
     red = '#ec5f67';
+    transparent = '#414863';
 }
-gl.short_line_list = {'NvimTree','vista_kind','dbui','packer','undotree'}
+gl.short_line_list = {'NvimTree','vista_kind','dbui','packer','undotree','toggleterm'}
 
 gls.left[1] = {
     RainbowRed = {
@@ -107,6 +113,8 @@ gls.left[11] = {
     DiagnosticInfo = {
         provider = 'DiagnosticInfo',
         icon = '  ',
+        separator = ' ',
+        separator_highlight = {colors.bg,colors.transparent},
         highlight = {colors.blue,colors.bg},
     }
 }
@@ -122,7 +130,7 @@ gls.mid[1] = {
             return true
         end,
         icon = ' LSP:',
-        highlight = {colors.yellow,colors.bg,'bold'}
+        highlight = {colors.yellow,colors.transparent,'bold'}
     }
 }
 
@@ -131,8 +139,8 @@ gls.right[1] = {
         provider = 'FileEncode',
         condition = condition.hide_in_width,
         icon='',
-        separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
+        separator = ' ',
+        separator_highlight = {colors.bg,colors.transparent},
         highlight = {colors.green,colors.bg,'bold'}
     }
 }

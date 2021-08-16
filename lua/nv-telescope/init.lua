@@ -22,7 +22,21 @@ require('telescope').setup{
             override_file_sorter = true,     -- override the file sorter
             case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
-        }
+        },
+        dbcli = {
+            pgcli = {
+                prompt_title = 'Pgcli History',
+                history_file = os.getenv('HOME') .. "/.config/pgcli/history",
+            },
+            mssql_cli = {
+                prompt_title = 'Mssql-cli History',
+                history_file = os.getenv('HOME') .. "/.config/mssqlcli/history",
+            },
+            on_query_select = {
+                open_in_scratch_buffer = true,
+                add_query_to_register = false
+            },
+        },
     },
     prompt_prefix = "> ",
     selection_caret = "> ",
@@ -59,3 +73,5 @@ require('telescope').setup{
 require('telescope').load_extension('media_files')
 require('telescope').load_extension("frecency")
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('ultisnips')
+require('telescope').load_extension('dbcli')
