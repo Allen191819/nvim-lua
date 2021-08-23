@@ -1,3 +1,8 @@
+--[[--
+File              : init.lua
+Date              : 22.08.2021
+Last Modified Date: 22.08.2021
+--]]--
 require("bufferline").setup{
 options = {
 	numbers = "none",
@@ -16,12 +21,7 @@ options = {
 	close_icon = '',
 	left_trunc_marker = '',
 	right_trunc_marker = '',
-	--- name_formatter can be used to change the buffer's label in the bufferline.
-	--- Please note some names can/will break the
-	--- bufferline so use this at your discretion knowing that it has
-	--- some limitations that will *NOT* be fixed.
 	name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
-	-- remove extension from markdown files for example
 	if buf.name:match('%.md') then
 		return vim.fn.fnamemodify(buf.name, ':t:r')
 	end
@@ -35,30 +35,26 @@ return "("..count..")"
 	end,
 	-- NOTE: this will be called a lot so don't do any heavy processing here
 	custom_filter = function(buf_number)
-	-- filter out filetypes you don't want to see
 	if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
 		return true
 	end
-	-- filter out by buffer name
 	if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
 		return true
 	end
-	-- filter out based on arbitrary rules
-	-- e.g. filter out vim wiki buffer from tabline in your work repo
 	if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
 		return true
 	end
 end,
 offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"},
            {filetype = "undotree", text = "Undo History", text_align = "left"},
-           {filetype = "vista_kind", text = "Vista Window", text_align = "right"}},
+           {filetype = "Outline", text = "Outline Window", text_align = "right"},
+           {filetype = "dbui", text = "Dbui", text_align = "left"},
+           {filetype = "toggleterm", text = "Terminal", text_align = "right"}},
 show_buffer_icons = true, -- disable filetype icons for buffers
 show_buffer_close_icons = false,
 show_close_icon = false,
 show_tab_indicators = true,
 persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
--- can also be a table containing 2 custom separators
--- [focused and unfocused]. eg: { '|', '|' }
 separator_style = "thick",
 	enforce_regular_tabs = false,
 	always_show_bufferline = true,

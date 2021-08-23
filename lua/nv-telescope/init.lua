@@ -70,8 +70,15 @@ require('telescope').setup{
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
 }
+require('neoclip').setup({
+    history = 1000,
+    filter = nil,
+})
 require('telescope').load_extension('media_files')
 require('telescope').load_extension("frecency")
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('neoclip')
 require('telescope').load_extension('ultisnips')
 require('telescope').load_extension('dbcli')
+require('telescope').load_extension('projects')
+require('telescope').load_extension('vim_bookmarks')

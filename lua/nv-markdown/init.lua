@@ -12,20 +12,10 @@ source ~/.config/nvim/md-snippets.vim
 autocmd BufRead,BufNewFile *.md setlocal spell
 ]])
 
-require('mkdnflow').setup({
-    default_mappings = false,
-
-    create_dirs = true,
-
-    links_relative_to = 'first',
-
-    filetypes = {md = true, rmd = true, markdown = true},
-
-    evaluate_prefix = true,
-
-    new_file_prefix = [[os.date('%Y-%m-%d_')]]
-})
-
+require 'simple-wiki'.setup {
+  path = '~/MyNote', -- your wiki directory - must be set
+  link_key_mapping = '<cr>' -- open or create note form link - default: <cr>
+}
 
 require'clipboard-image'.setup {
     default = {
@@ -38,3 +28,5 @@ require'clipboard-image'.setup {
         affix = '![](%s)'
     },
 }
+
+

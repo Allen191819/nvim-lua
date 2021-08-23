@@ -7,8 +7,9 @@ vim.api.nvim_set_keymap('n','<leader>h',':set hlsearch!<CR>',{ noremap=true,sile
 
 -- explore tree
 vim.api.nvim_set_keymap('n','<leader>e',':NvimTreeToggle<CR>',{ noremap=true,silent=true })
-vim.api.nvim_set_keymap('n','<F1>',':Vista!!<CR>',{ noremap=true,silent=true })
+vim.api.nvim_set_keymap('n','<leader>b',':SymbolsOutline<CR>',{ noremap=true,silent=true })
 vim.api.nvim_set_keymap('n','L',':UndotreeToggle<CR>',{silent=true})
+vim.api.nvim_set_keymap('n','<leader>y',':Telescope neoclip<CR>',{silent=true})
 
 -- window movement
 vim.api.nvim_set_keymap('n','<C-j>','<C-w>j',{ silent=true })
@@ -21,7 +22,6 @@ vim.api.nvim_set_keymap('v','<','<gv',{ noremap = true,silent=true })
 vim.api.nvim_set_keymap('v','>','>gv',{ noremap = true,silent=true })
 
 -- switch
-
 vim.api.nvim_set_keymap('n','<TAB>',':bnext<CR>',{ noremap = true,silent=true })
 vim.api.nvim_set_keymap('n','<S-TAB>',':bprevious<CR>',{ noremap = true,silent=true })
 
@@ -64,7 +64,6 @@ vim.api.nvim_set_keymap('n','Q',':q<Cr>',{ silent=true })
 vim.api.nvim_set_keymap('n',',tr','<Plug>TranslateW',{ silent=true })
 vim.api.nvim_set_keymap('v',',tr','<Plug>TranslateWV',{ silent=true })
 
-
 vim.api.nvim_set_keymap('n',',f','<Esc>/<++><CR>:nohlsearch<CR>c4l',{ silent=true,noremap=true })
 vim.api.nvim_set_keymap('i',',f','<Esc>/<++><CR>:nohlsearch<CR>c4l',{ silent=true,noremap=true })
 
@@ -73,9 +72,9 @@ vim.api.nvim_set_keymap('n','gh',':Lspsaga lsp_finder<CR>',{ silent=true, norema
 vim.api.nvim_set_keymap('n','<leader>ca',':Lspsaga code_action<CR>',{ silent=true, noremap=true })
 vim.api.nvim_set_keymap('v','<leader>ca',':<C-U>Lspsaga range_code_action<CR>',{ silent=true, noremap=true })
 vim.api.nvim_set_keymap('n','K',':Lspsaga hover_doc<CR>',{ silent=true, noremap=true })
-vim.api.nvim_set_keymap('n','gn',':Lspsaga signature_help<CR>',{ silent=true, noremap=true })
-vim.api.nvim_set_keymap('n','<A-f>','<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>',{ silent=true, noremap=true })
-vim.api.nvim_set_keymap('n','<A-b>','<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>',{ silent=true, noremap=true })
+vim.api.nvim_set_keymap('n','gs',':Lspsaga signature_help<CR>',{ silent=true, noremap=true })
+vim.api.nvim_set_keymap('n','<C-[>','<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>',{ silent=true, noremap=true })
+vim.api.nvim_set_keymap('n','<C-]>','<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>',{ silent=true, noremap=true })
 vim.api.nvim_set_keymap('n','<leader>r',':Lspsaga rename<CR>',{ silent=true, noremap=true })
 vim.api.nvim_set_keymap('n','gp',':Lspsaga preview_definition<CR>',{ silent=true, noremap=true })
 vim.api.nvim_set_keymap('n','<leader>cd','<cmd>lua require\'lspsaga.diagnostic\'.show_line_diagnostics()<CR>',{ silent=true, noremap=true })
@@ -121,12 +120,12 @@ vim.api.nvim_set_keymap('n','<Leader>fm',':Telescope media_files<CR>', { noremap
 --vim.api.nvim_set_keymap('n','Z',':lua require(\'telescope\').extensions.vimspector.configurations()<Cr>',{ silent=true })
 
 --Markdown
-vim.api.nvim_set_keymap('n','<Leader>mn',':MkdnNextLink<Cr>', { noremap = true , silent = false })
-vim.api.nvim_set_keymap('n','<Leader>mp',':MkdnPrevLink<Cr>', { noremap = true , silent = false })
-vim.api.nvim_set_keymap('n','<Leader>mc',':MkdnCreateLink<Cr>', { noremap = true , silent = false })
-vim.api.nvim_set_keymap('n','<Leader>mf',':MkdnFollowPath<Cr>', { noremap = true , silent = false })
-vim.api.nvim_set_keymap('n','<Leader>mg',':MkdnGetPath<Cr>', { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n','<Leader>mi',':PasteImg<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>md',':lua require "simple-wiki".index()<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>ms',':lua require "simple-wiki".search()<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>mc',':lua require "simple-wiki".open_or_create()<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>mn',':lua require("nabla").action()<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>mv',':lua require "simple-wiki".create(true)<Cr>', { noremap = true , silent = false })
 
 -- Easy swap
 vim.api.nvim_set_keymap('n',',sp',':ISwap<Cr>', { noremap = true , silent = false })
@@ -137,7 +136,8 @@ vim.api.nvim_set_keymap('n',',sr',':SnipRun<Cr>',{ noremap=true,silent=true })
 vim.api.nvim_set_keymap('v',',sr',':\'<,\'>SnipRun<Cr>',{ noremap=true,silent=true })
 vim.api.nvim_set_keymap('n',',sl',':SnipClose<Cr>',{ noremap=true,silent=true })
 
-vim.api.nvim_set_keymap('n',',cc',':AddHeader<Cr>',{ noremap=true,silent=true })
+-- Add header
+vim.api.nvim_set_keymap('n','<F3>',':AddHeader<Cr>',{ noremap=true,silent=true })
 
 -- Align
 vim.api.nvim_set_keymap('x','ga',':\'<,\'>EasyAlign<Cr>',{ noremap=true,silent=true })

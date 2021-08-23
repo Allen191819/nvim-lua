@@ -157,6 +157,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/mkdnflow.nvim"
   },
+  ["noteflow.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/noteflow.nvim"
+  },
   ["nvim-bufferline.lua"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
@@ -188,6 +192,10 @@ _G.packer_plugins = {
   ["nvim-lspinstall"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+  },
+  ["nvim-neoclip.lua"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-neoclip.lua"
   },
   ["nvim-toggleterm.lua"] = {
     loaded = true,
@@ -253,6 +261,15 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/switch.vim"
   },
+  ["telescope-dbcli.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-dbcli.nvim"
+  },
+  ["telescope-frecency.nvim"] = {
+    config = { "\27LJ\1\2/\0\0\1\0\2\0\0033\0\0\0005\0\1\0G\0\1\0\rrequires\1\2\0\0\19tami5/sql.nvim\0" },
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-frecency.nvim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim"
@@ -261,6 +278,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim"
   },
+  ["telescope-ultisnips.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-ultisnips.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -268,6 +289,10 @@ _G.packer_plugins = {
   ["todo-comments.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
+  },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/trouble.nvim"
   },
   ultisnips = {
     loaded = true,
@@ -280,6 +305,22 @@ _G.packer_plugins = {
   ["vim-autoformat"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-autoformat"
+  },
+  ["vim-dadbod"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-dadbod"
+  },
+  ["vim-dadbod-completion"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-dadbod-completion"
+  },
+  ["vim-dadbod-ssh"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-dadbod-ssh"
+  },
+  ["vim-dadbod-ui"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui"
   },
   ["vim-easy-align"] = {
     loaded = true,
@@ -348,6 +389,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: telescope-frecency.nvim
+time([[Config for telescope-frecency.nvim]], true)
+try_loadstring("\27LJ\1\2/\0\0\1\0\2\0\0033\0\0\0005\0\1\0G\0\1\0\rrequires\1\2\0\0\19tami5/sql.nvim\0", "config", "telescope-frecency.nvim")
+time([[Config for telescope-frecency.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

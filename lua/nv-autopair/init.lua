@@ -1,6 +1,6 @@
 
-vim.g.AutoPairsShortcutJump = '<A-n>'
-vim.g.AutoPairsShortcutBackInsert = '<A-b>'
+vim.g.AutoPairsShortcutJump = ',an'
+vim.g.AutoPairsShortcutBackInsert = ',ap'
 vim.g.AutoPairsMapBS = 1
 vim.g.AutoPairsMapCh = 1
 vim.g.AutoPairsMapCR = 1

@@ -33,15 +33,18 @@ return require('packer').startup(function()
     -- Complete of nvim
     use 'hrsh7th/nvim-compe'
 
+    -- Show function signature when you type
+    use { "ray-x/lsp_signature.nvim" }
+
     -- Snippets
     use 'hrsh7th/vim-vsnip'
     use "rafamadriz/friendly-snippets"
     use 'SirVer/ultisnips'
     use 'honza/vim-snippets'
-    use 'thomasfaingnaert/vim-lsp-ultisnips'
 
     -- Colorscheme
-    use 'marko-cerovac/material.nvim'
+    -- use 'marko-cerovac/material.nvim'
+    use 'folke/tokyonight.nvim'
 
     -- Switch Surround thing
     use 'tpope/vim-surround'
@@ -60,6 +63,7 @@ return require('packer').startup(function()
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-media-files.nvim'
+    use 'AckslD/nvim-neoclip.lua'
     use {
         "nvim-telescope/telescope-frecency.nvim",
         config = function()
@@ -70,6 +74,7 @@ return require('packer').startup(function()
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'fhill2/telescope-ultisnips.nvim'
     use { 'mark-coyle/telescope-dbcli.nvim' }
+    use 'tom-anders/telescope-vim-bookmarks.nvim'
     --use 'nvim-telescope/telescope-vimspector.nvim'
 
     -- Dev icons
@@ -108,7 +113,6 @@ return require('packer').startup(function()
 
     -- Indent line
     use 'Yggdroot/indentLine'
-    -- use 'glepnir/indent-guides.nvim'
 
     -- Switch quickly
     use 'AndrewRadev/switch.vim'
@@ -140,11 +144,11 @@ return require('packer').startup(function()
     -- markdown-preview
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
 
-    -- Table mode for markdown
+    -- Plugins for markdown
     use 'dhruvasagar/vim-table-mode'
     use 'ekickx/clipboard-image.nvim'
-    use 'jakewvincent/mkdnflow.nvim'
-
+    use 'rafcamlet/simple-wiki.nvim'
+    use 'jbyuki/nabla.nvim'
 
     -- Better J&K
     use 'rhysd/accelerated-jk'
@@ -153,7 +157,8 @@ return require('packer').startup(function()
     use 'voldikss/vim-translator'
 
     -- Smoothly scroll
-    use 'psliwka/vim-smoothie'
+    -- use 'psliwka/vim-smoothie'
+    use 'karb94/neoscroll.nvim'
 
     -- Git
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }}
@@ -164,7 +169,7 @@ return require('packer').startup(function()
     -- use 'CRAG666/code_runner.nvim'
 
     -- Tagbar
-    use 'liuchengxu/vista.vim'
+    use 'simrat39/symbols-outline.nvim'
 
     -- Mulit cursors
     use 'mg979/vim-visual-multi'
@@ -187,8 +192,20 @@ return require('packer').startup(function()
     -- Database
     use 'tpope/vim-dadbod'
     use 'kristijanhusak/vim-dadbod-ui'
-    use 'pbogut/vim-dadbod-ssh'
     use 'kristijanhusak/vim-dadbod-completion'
+    --use 'pbogut/vim-dadbod-ssh'
+
+    -- project
+    use 'ahmedkhalf/project.nvim'
+
+    -- Tabout
+    use 'abecodes/tabout.nvim'
+
+    -- Jump livly
+    use 'nacro90/numb.nvim'
+    
+    -- Bookmark
+    use 'MattesGroeger/vim-bookmarks'
     -- Debugger
     -- use 'puremourning/vimspector'
     -- use 'mfussenegger/nvim-dap'

@@ -1,7 +1,7 @@
 --[[--
 File              : init.lua
-Date              : 12.08.2021
-Last Modified Date: 12.08.2021
+Date              : 22.08.2021
+Last Modified Date: 22.08.2021
 --]]--
 local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
@@ -18,9 +18,9 @@ local colors={
     magenta = '#c678dd',
     blue = '#51afef';
     red = '#ec5f67';
-    transparent = '#414863';
+    transparent = '#1f2335';
 }
-gl.short_line_list = {'NvimTree','vista_kind','dbui','packer','undotree','toggleterm'}
+gl.short_line_list = {'NvimTree','vista_kind','dbui','packer','undotree','toggleterm','Outline'}
 
 gls.left[1] = {
     RainbowRed = {
