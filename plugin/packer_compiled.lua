@@ -73,13 +73,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/SimpylFold"
   },
-  ["accelerated-jk"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/accelerated-jk"
-  },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/auto-pairs"
+  },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/bufferline.nvim"
   },
   ["calendar.vim"] = {
     loaded = true,
@@ -88,6 +88,10 @@ _G.packer_plugins = {
   ["clipboard-image.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/clipboard-image.nvim"
+  },
+  ["compe-tabnine"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/compe-tabnine"
   },
   ["dashboard-nvim"] = {
     loaded = true,
@@ -117,6 +121,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
+  ["glow.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/glow.nvim"
+  },
   ["incsearch-easymotion.vim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/incsearch-easymotion.vim"
@@ -137,6 +145,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/lazygit.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
@@ -149,21 +161,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
   },
-  ["material.nvim"] = {
+  ["neoscroll.nvim"] = {
     loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/material.nvim"
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
   },
-  ["mkdnflow.nvim"] = {
+  ["numb.nvim"] = {
     loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/mkdnflow.nvim"
-  },
-  ["noteflow.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/noteflow.nvim"
-  },
-  ["nvim-bufferline.lua"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/numb.nvim"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -245,13 +249,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["project.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/project.nvim"
+  },
+  ["simple-wiki.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/simple-wiki.nvim"
+  },
   sniprun = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/sniprun"
-  },
-  ["specs.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/specs.nvim"
   },
   ["sql.nvim"] = {
     loaded = true,
@@ -260,6 +268,14 @@ _G.packer_plugins = {
   ["switch.vim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/switch.vim"
+  },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
+  },
+  ["tabout.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/tabout.nvim"
   },
   ["telescope-dbcli.nvim"] = {
     loaded = true,
@@ -282,6 +298,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-ultisnips.nvim"
   },
+  ["telescope-vim-bookmarks.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-vim-bookmarks.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -289,6 +309,10 @@ _G.packer_plugins = {
   ["todo-comments.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
@@ -306,6 +330,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-autoformat"
   },
+  ["vim-bookmarks"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-bookmarks"
+  },
   ["vim-dadbod"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-dadbod"
@@ -313,10 +341,6 @@ _G.packer_plugins = {
   ["vim-dadbod-completion"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-dadbod-completion"
-  },
-  ["vim-dadbod-ssh"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-dadbod-ssh"
   },
   ["vim-dadbod-ui"] = {
     loaded = true,
@@ -342,17 +366,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-header"
   },
-  ["vim-lsp-ultisnips"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-lsp-ultisnips"
-  },
   ["vim-matchup"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-matchup"
-  },
-  ["vim-smoothie"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-smoothie"
   },
   ["vim-snippets"] = {
     loaded = true,
@@ -382,9 +398,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   },
-  ["vista.vim"] = {
+  ["vim-vsnip-integ"] = {
     loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vista.vim"
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
   }
 }
 

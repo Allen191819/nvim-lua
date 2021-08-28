@@ -1,3 +1,8 @@
+--[[--
+File              : keymappings.lua
+Date              : 28.08.2021
+Last Modified Date: 28.08.2021
+--]]--
 vim.api.nvim_set_keymap('n','<Space>','<NOP>',{ noremap=true,silent=true })
 
 vim.g.mapleader = ' '
@@ -48,10 +53,6 @@ vim.api.nvim_set_keymap('n','T','<Plug>(eft-T)',{ silent=true })
 vim.api.nvim_set_keymap('x','T','<Plug>(eft-T)',{ silent=true })
 vim.api.nvim_set_keymap('o','T','<Plug>(eft-T)',{ silent=true })
 
--- better j & k
-vim.api.nvim_set_keymap('n','j','<plug>(accelerated_jk_gj)',{ silent=true })
-vim.api.nvim_set_keymap('n','k','<Plug>(accelerated_jk_gk)',{ silent=true })
-
 -- Easy term
 vim.api.nvim_set_keymap('n','<leader>th',':ToggleTerm size=20 direction=horizontal<Cr>',{ silent=true })
 vim.api.nvim_set_keymap('n','<leader>tw',':ToggleTerm direction=window<Cr>',{ silent=true })
@@ -61,11 +62,11 @@ vim.api.nvim_set_keymap('n','<leader>tv',':ToggleTerm size=100 direction=vertica
 vim.api.nvim_set_keymap('n','W',':Autoformat<Cr>:w<Cr>',{ silent=true })
 vim.api.nvim_set_keymap('n','Q',':q<Cr>',{ silent=true })
 
-vim.api.nvim_set_keymap('n',',tr','<Plug>TranslateW',{ silent=true })
-vim.api.nvim_set_keymap('v',',tr','<Plug>TranslateWV',{ silent=true })
+vim.api.nvim_set_keymap('n','\\','<Plug>TranslateW',{ silent=true })
+vim.api.nvim_set_keymap('v','\\','<Plug>TranslateWV',{ silent=true })
 
-vim.api.nvim_set_keymap('n',',f','<Esc>/<++><CR>:nohlsearch<CR>c4l',{ silent=true,noremap=true })
-vim.api.nvim_set_keymap('i',',f','<Esc>/<++><CR>:nohlsearch<CR>c4l',{ silent=true,noremap=true })
+vim.api.nvim_set_keymap('n','<Space><Space>','<Esc>/<++><CR>:nohlsearch<CR>c4l',{ silent=true,noremap=true })
+vim.api.nvim_set_keymap('i','<Space><Space>','<Esc>/<++><CR>:nohlsearch<CR>c4l',{ silent=true,noremap=true })
 
 -- Lsp
 vim.api.nvim_set_keymap('n','gh',':Lspsaga lsp_finder<CR>',{ silent=true, noremap=true })
@@ -73,8 +74,8 @@ vim.api.nvim_set_keymap('n','<leader>ca',':Lspsaga code_action<CR>',{ silent=tru
 vim.api.nvim_set_keymap('v','<leader>ca',':<C-U>Lspsaga range_code_action<CR>',{ silent=true, noremap=true })
 vim.api.nvim_set_keymap('n','K',':Lspsaga hover_doc<CR>',{ silent=true, noremap=true })
 vim.api.nvim_set_keymap('n','gs',':Lspsaga signature_help<CR>',{ silent=true, noremap=true })
-vim.api.nvim_set_keymap('n','<C-[>','<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>',{ silent=true, noremap=true })
-vim.api.nvim_set_keymap('n','<C-]>','<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>',{ silent=true, noremap=true })
+vim.api.nvim_set_keymap('n','<[>','<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>',{ silent=true, noremap=true })
+vim.api.nvim_set_keymap('n','<]>','<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>',{ silent=true, noremap=true })
 vim.api.nvim_set_keymap('n','<leader>r',':Lspsaga rename<CR>',{ silent=true, noremap=true })
 vim.api.nvim_set_keymap('n','gp',':Lspsaga preview_definition<CR>',{ silent=true, noremap=true })
 vim.api.nvim_set_keymap('n','<leader>cd','<cmd>lua require\'lspsaga.diagnostic\'.show_line_diagnostics()<CR>',{ silent=true, noremap=true })
@@ -124,8 +125,9 @@ vim.api.nvim_set_keymap('n','<Leader>mi',':PasteImg<Cr>', { noremap = true , sil
 vim.api.nvim_set_keymap('n','<Leader>md',':lua require "simple-wiki".index()<Cr>', { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n','<Leader>ms',':lua require "simple-wiki".search()<Cr>', { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n','<Leader>mc',':lua require "simple-wiki".open_or_create()<Cr>', { noremap = true , silent = false })
-vim.api.nvim_set_keymap('n','<Leader>mn',':lua require("nabla").action()<Cr>', { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n','<Leader>mv',':lua require "simple-wiki".create(true)<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>mn',':lua require("nabla").action()<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<Leader>mt',':TableModeToggle<Cr>', { noremap = true , silent = false })
 
 -- Easy swap
 vim.api.nvim_set_keymap('n',',sp',':ISwap<Cr>', { noremap = true , silent = false })
@@ -141,3 +143,5 @@ vim.api.nvim_set_keymap('n','<F3>',':AddHeader<Cr>',{ noremap=true,silent=true }
 
 -- Align
 vim.api.nvim_set_keymap('x','ga',':\'<,\'>EasyAlign<Cr>',{ noremap=true,silent=true })
+
+

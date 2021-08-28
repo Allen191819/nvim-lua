@@ -21,19 +21,35 @@ require'compe'.setup {
         min_height = 1,
     };
     source = {
-        path = true;
-        buffer = true;
-        calc = true;
-        vim_dadbod_completion = true,
-        ultisnips = true;
+        ultisnips = { kind='' };
+        vsnip = { kind='' };
+        tabnine = {kind = ''};
         nvim_lsp = true;
         nvim_lua = true;
-        spell = true;
-        tags = true;
-        vsnip = true;
+        path = {kind = ''};
+        calc = {kind = ''};
+        buffer = {kind='﬘'};
+        vim_dadbod_completion = { kind = '' },
+        spell = { kind = '暈' };
+        tags = {kind=''};
         treesitter = true;
     };
 }
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {
+        'documentation',
+        'detail',
+        'additionalTextEdits',
+    }
+}
+
+require'lspconfig'.rust_analyzer.setup {
+    capabilities = capabilities,
+}
+
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -46,7 +62,6 @@ local check_back_space = function()
         return false
     end
 end
-
 
 _G.tab_complete = function()
     if vim.fn.pumvisible() == 1 then

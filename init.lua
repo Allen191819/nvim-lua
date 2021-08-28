@@ -1,3 +1,15 @@
+--[[
+--     
+      ________   _______   ________  ___      ___ ___  _____ ______      
+     |\   ___  \|\  ___ \ |\   __  \|\  \    /  /|\  \|\   _ \  _   \    
+     \ \  \\ \  \ \   __/|\ \  \|\  \ \  \  /  / | \  \ \  \\\__\ \  \   
+      \ \  \\ \  \ \  \_|/_\ \  \\\  \ \  \/  / / \ \  \ \  \\|__| \  \  
+       \ \  \\ \  \ \  \_|\ \ \  \\\  \ \    / /   \ \  \ \  \    \ \  \ 
+        \ \__\\ \__\ \_______\ \_______\ \__/ /     \ \__\ \__\    \ \__\
+         \|__| \|__|\|_______|\|_______|\|__|/       \|__|\|__|     \|__|
+                                                                         
+
+-- ]]
 -- General
 require('plugins')
 require('keymappings')
@@ -10,6 +22,7 @@ require('lsp.lua-ls')
 require('lsp.md-ls')
 require('lsp.py-ls')
 require('lsp.ccls-ls')
+require('lsp.vim-ls')
 require('lsp.sql-ls')
 
 -- Plugins
@@ -38,7 +51,6 @@ require('nv-numb')
 require('nv-nvim-tree')
 require('nv-project')
 require('nv-neoscroll')
-require('nv-specs')
 require('nv-tabout')
 require('nv-telescope')
 require('nv-treesitter')

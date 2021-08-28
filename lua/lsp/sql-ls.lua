@@ -6,10 +6,11 @@ require'lspconfig'.sqls.setup{
     end,
     settings = {
         sqls = {
+            lowercaseKeywords = true;
             connections = {
                 {
                    driver = 'mysql',
-                   dataSourceName = 'root:903108759@tcp(127.0.0.1:3306)/mysql',
+                   dataSourceName = 'root:903108759@tcp(127.0.0.1:3306)/mydb',
                 }
             },
         },

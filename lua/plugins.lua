@@ -14,9 +14,6 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Highlight motion
-    use {'edluffy/specs.nvim'}
-
     -- Simple plugins can be specified as strings
     use 'kyazdani42/nvim-tree.lua'
 
@@ -39,6 +36,7 @@ return require('packer').startup(function()
     -- Snippets
     use 'hrsh7th/vim-vsnip'
     use "rafamadriz/friendly-snippets"
+    use "hrsh7th/vim-vsnip-integ"
     use 'SirVer/ultisnips'
     use 'honza/vim-snippets'
 
@@ -85,7 +83,7 @@ return require('packer').startup(function()
     --use 'hoob3rt/lualine.nvim'
 
     -- Bufferline
-    use 'akinsho/nvim-bufferline.lua'
+    use 'akinsho/bufferline.nvim'
 
     -- Colorizer
     use 'norcalli/nvim-colorizer.lua'
@@ -148,16 +146,17 @@ return require('packer').startup(function()
     use 'dhruvasagar/vim-table-mode'
     use 'ekickx/clipboard-image.nvim'
     use 'rafcamlet/simple-wiki.nvim'
-    use 'jbyuki/nabla.nvim'
-
-    -- Better J&K
-    use 'rhysd/accelerated-jk'
+    use {
+        "ellisonleao/glow.nvim",
+        run = function ()
+            require('glow').download_glow()
+        end
+    }
 
     -- Translate
     use 'voldikss/vim-translator'
 
     -- Smoothly scroll
-    -- use 'psliwka/vim-smoothie'
     use 'karb94/neoscroll.nvim'
 
     -- Git
@@ -203,9 +202,13 @@ return require('packer').startup(function()
 
     -- Jump livly
     use 'nacro90/numb.nvim'
-    
+
     -- Bookmark
     use 'MattesGroeger/vim-bookmarks'
+
+    -- Tabnine source
+    use {'tzachar/compe-tabnine', run='./install.sh'}
+
     -- Debugger
     -- use 'puremourning/vimspector'
     -- use 'mfussenegger/nvim-dap'
