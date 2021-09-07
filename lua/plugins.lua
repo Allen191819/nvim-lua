@@ -1,3 +1,8 @@
+--[[--
+File              : plugins.lua
+Date              : 01.09.2021
+Last Modified Date: 01.09.2021
+--]]--
 -- TODO: nv-debugger  nv_DB
 
 
@@ -29,6 +34,11 @@ return require('packer').startup(function()
 
     -- Complete of nvim
     use 'hrsh7th/nvim-compe'
+    -- use 'hrsh7th/nvim-cmp'
+    -- use 'hrsh7th/cmp-buffer'
+
+    -- Notify
+    use 'rcarriga/nvim-notify'
 
     -- Show function signature when you type
     use { "ray-x/lsp_signature.nvim" }
@@ -152,6 +162,7 @@ return require('packer').startup(function()
             require('glow').download_glow()
         end
     }
+    -- use {'mnowotnik/noteflow.nvim', run = 'bash build.sh'}
 
     -- Translate
     use 'voldikss/vim-translator'
@@ -187,6 +198,9 @@ return require('packer').startup(function()
 
     -- File header
     use 'alpertuna/vim-header'
+
+    -- Draw
+    use "jbyuki/venn.nvim"
 
     -- Database
     use 'tpope/vim-dadbod'

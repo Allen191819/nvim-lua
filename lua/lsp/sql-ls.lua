@@ -1,5 +1,5 @@
 require'lspconfig'.sqls.setup{
-    cmd = { "sqls" },
+    cmd = { "/home/allen/go/bin/sqls" },
     filetypes = { "sql", "mysql" },
     root_dir = function(fname)
         return vim.fn.getcwd()

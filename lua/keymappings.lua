@@ -66,7 +66,6 @@ vim.api.nvim_set_keymap('n','\\','<Plug>TranslateW',{ silent=true })
 vim.api.nvim_set_keymap('v','\\','<Plug>TranslateWV',{ silent=true })
 
 vim.api.nvim_set_keymap('n','<Space><Space>','<Esc>/<++><CR>:nohlsearch<CR>c4l',{ silent=true,noremap=true })
-vim.api.nvim_set_keymap('i','<Space><Space>','<Esc>/<++><CR>:nohlsearch<CR>c4l',{ silent=true,noremap=true })
 
 -- Lsp
 vim.api.nvim_set_keymap('n','gh',':Lspsaga lsp_finder<CR>',{ silent=true, noremap=true })
