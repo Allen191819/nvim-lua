@@ -28,6 +28,7 @@ require('lsp.md-ls')
 require('lsp.py-ls')
 require('lsp.ccls-ls')
 require('lsp.sql-ls')
+require('lsp.tex-ls')
 
 -- Plugins
 require('nv-autopair')

@@ -5,7 +5,6 @@ Last Modified Date: 01.09.2021
 --]]--
 -- TODO: nv-debugger  nv_DB
 
-
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -95,7 +94,6 @@ return require('packer').startup(function()
 
     -- Statusline
     use {'glepnir/galaxyline.nvim', branch = 'main'}
-    --use 'hoob3rt/lualine.nvim'
 
     -- Bufferline
     use 'akinsho/bufferline.nvim'
@@ -156,7 +154,7 @@ return require('packer').startup(function()
 
     -- Plugins for markdown
     use 'dhruvasagar/vim-table-mode'
-    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
+    use {'iamcco/markdown-preview.nvim', config = "vim.call('mkdp#util#install')"}
     use 'ekickx/clipboard-image.nvim'
     use 'rafcamlet/simple-wiki.nvim'
     use {
@@ -169,7 +167,7 @@ return require('packer').startup(function()
     -- Talex
     use 'jbyuki/nabla.nvim'
     use 'jakewvincent/texmagic.nvim'
-    use 'xuhdev/vim-latex-live-preview'
+    use {'xuhdev/vim-latex-live-preview',ft={'tex'}}
 
     -- Translate
     use 'voldikss/vim-translator'

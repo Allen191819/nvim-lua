@@ -1,6 +1,6 @@
 -- enable or disable keymappings for venn
 function _G.toggle_venn()
-    local venn_enabled = vim.inspect(vim.b.venn_enabled) 
+    local venn_enabled = vim.inspect(vim.b.venn_enabled)
     if(venn_enabled == "nil") then
         vim.b.venn_enabled = true
         vim.cmd[[setlocal ve=all]]
