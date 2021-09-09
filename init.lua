@@ -1,3 +1,8 @@
+--[[--
+File              : init.lua
+Date              : 08.09.2021
+Last Modified Date: 08.09.2021
+--]]--
 --[[
 --     
       ________   _______   ________  ___      ___ ___  _____ ______      
@@ -30,7 +35,7 @@ require('nv-bufferline')
 require('nv-coderun')
 require('nv-colorizer')
 require('nv-commenter')
-require('nv-compe')
+require('nv-cmp')
 require('nv-dadbod')
 require('nv-dashboard')
 -- require('nv-debugger')
@@ -44,6 +49,7 @@ require('nv-git')
 require('nv-header')
 require('nv-indent-blankline')
 require('nv-iswap')
+require('nv-latex')
 require('nv-lsp-conf')
 require('nv-markdown')
 require('nv-notify')
@@ -56,3 +62,4 @@ require('nv-telescope')
 require('nv-treesitter')
 require('nv-undotree')
 require('nv-venn')
+

@@ -92,19 +92,6 @@ vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>',{sile
 vim.api.nvim_set_keymap('n', ',q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',{silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', ',f', '<cmd>lua vim.lsp.buf.formatting()<CR>',{silent=true,noremap=true})
 
--- Snippet
-vim.g.UltiSnipsExpandTrigger="<M-j>"
-vim.g.UltiSnipsJumpForwardTrigger="<M-j>"
-vim.g.UltiSnipsJumpBackwardTrigger="<M-k>"
-vim.g.UltiSnipsEditSplit="vertical"
-vim.cmd([[
-imap <expr> <M-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<M-j>'
-smap <expr> <M-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<M-j>'
-
-imap <expr> <M-k> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'  : '<M-k>'
-smap <expr> <M-k> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'  : '<M-k>'
-]])
-
 -- DashBoard / Telescope
 vim.api.nvim_set_keymap('n','<Leader>fh',':DashboardFindHistory<CR>', { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n','<Leader>sl',':<C-u>SessionLoad<CR>', { noremap = true , silent = false })
@@ -127,6 +114,9 @@ vim.api.nvim_set_keymap('n','<Leader>mc',':lua require "simple-wiki".open_or_cre
 vim.api.nvim_set_keymap('n','<Leader>mv',':lua require "simple-wiki".create(true)<Cr>', { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n','<Leader>mn',':lua require("nabla").action()<Cr>', { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n','<Leader>mt',':TableModeToggle<Cr>', { noremap = true , silent = false })
+
+--Latex
+vim.api.nvim_set_keymap('n','<F5>',':lua require("nabla").action()<CR>',{noremap = true , silent = true})
 
 -- Easy swap
 vim.api.nvim_set_keymap('n',',sp',':ISwap<Cr>', { noremap = true , silent = false })

@@ -33,9 +33,17 @@ return require('packer').startup(function()
     use 'kabouzeid/nvim-lspinstall'
 
     -- Complete of nvim
-    use 'hrsh7th/nvim-compe'
-    -- use 'hrsh7th/nvim-cmp'
-    -- use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-nvim-lua'
+    use "quangnguyen30192/cmp-nvim-ultisnips"
+    use 'PaterJason/cmp-conjure'
+    use 'Olical/conjure'
+    use "kdheepak/cmp-latex-symbols"
+    use { 'f3fora/cmp-nuspell', rocks={'lua-nuspell'} }
+    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
     -- Notify
     use 'rcarriga/nvim-notify'
@@ -44,9 +52,6 @@ return require('packer').startup(function()
     use { "ray-x/lsp_signature.nvim" }
 
     -- Snippets
-    use 'hrsh7th/vim-vsnip'
-    use "rafamadriz/friendly-snippets"
-    use "hrsh7th/vim-vsnip-integ"
     use 'SirVer/ultisnips'
     use 'honza/vim-snippets'
 
@@ -149,11 +154,9 @@ return require('packer').startup(function()
     -- Same word highlight
     use 'xiyaowong/nvim-cursorword'
 
-    -- markdown-preview
-    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
-
     -- Plugins for markdown
     use 'dhruvasagar/vim-table-mode'
+    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
     use 'ekickx/clipboard-image.nvim'
     use 'rafcamlet/simple-wiki.nvim'
     use {
@@ -162,7 +165,11 @@ return require('packer').startup(function()
             require('glow').download_glow()
         end
     }
-    -- use {'mnowotnik/noteflow.nvim', run = 'bash build.sh'}
+
+    -- Talex
+    use 'jbyuki/nabla.nvim'
+    use 'jakewvincent/texmagic.nvim'
+    use 'xuhdev/vim-latex-live-preview'
 
     -- Translate
     use 'voldikss/vim-translator'

@@ -47,7 +47,7 @@ vim.o.writebackup = true
 vim.o.mouse='a'
 vim.o.wildmenu = true
 vim.cmd[[
-    "set guifont = 'JetBrainsMono\\ Nerd\\ Font\\ Mono:h12'"
+set guifont = 'JetBrainsMono\\ Nerd\\ Font\\ Mono:h12'
 ]]
 vim.o.whichwrap = vim.o.whichwrap..'<,>,h,l'
 --vim.o.iskeyword = vim.o.iskeyword..'_,$,@,%,#,-'
