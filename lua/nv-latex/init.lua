@@ -27,7 +27,9 @@ require('texmagic').setup{
         }
     }
 }
-
-vim.g.livepreview_previewer = 'okular'
+vim.g.livepreview_previewer = 'evince'
 vim.g.livepreview_engine = 'pdflatex'
-
+vim.g.tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
+vim.g.tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
+vim.g.tex_conceal_frac=1
+vim.g.tex_conceal="abdgm"

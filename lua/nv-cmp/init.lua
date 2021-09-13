@@ -29,16 +29,13 @@ cmp.setup {
             vim.fn["UltiSnips#Anon"](args.body)
         end,
     },
+    completion = { keyword_length=2 },
     mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-        },
         ["<C-Space>"] = cmp.mapping(function(fallback)
             if vim.fn.pumvisible() == 1 then
                 if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
@@ -86,22 +83,22 @@ cmp.setup {
     },
     sources = {
         { name = 'nvim_lsp',
-            max_item_count = 2
+            max_item_count = 3
         },
         { name = 'ultisnips',
             max_item_count = 2
         },
         { name = 'buffer',
-            max_item_count = 2
+            max_item_count = 3
         },
         { name = 'nvim_lua',
             max_item_count = 2
         },
         { name = 'path',
-            max_item_count = 2
+            max_item_count = 3
         },
         { name = 'cmp_tabnine',
-            max_item_count = 2
+            max_item_count = 3
         },
         { name = 'nuspell',
             max_item_count = 2
@@ -114,7 +111,10 @@ cmp.setup {
         },
         { name = "latex_symbols",
             max_item_count = 2
-        }
+        },
+        { name = 'vim-dadbod-completion',
+            max_item_count = 2
+        },
     },
     formatting = {
         format = function(entry, vim_item)
@@ -125,7 +125,7 @@ cmp.setup {
             vim_item.menu =
             ({
                     buffer = "[Buffer]",
-                    ultisnips = "[Snip]",
+                    ultisnips = "[UltiSnip]",
                     nvim_lsp = "[LSP]",
                     nvim_lua = "[Lua]",
                     cmp_tabnine = "[TN]",
@@ -133,6 +133,7 @@ cmp.setup {
                     conjure = "[Conjure]",
                     nuspell = "[Spell]",
                     path = "[Path]",
+                    vim_dadbod_completion = "[DB]",
                     latex_symbols = "[Latex]"
 
                 })[entry.source.name]
@@ -140,4 +141,3 @@ cmp.setup {
         end
     }
 }
-

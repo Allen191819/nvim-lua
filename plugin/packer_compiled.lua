@@ -89,9 +89,49 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/clipboard-image.nvim"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+  },
+  ["cmp-conjure"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-conjure"
+  },
+  ["cmp-latex-symbols"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-latex-symbols"
+  },
+  ["cmp-nuspell"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-nuspell"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua"
+  },
+  ["cmp-nvim-ultisnips"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-path"
+  },
+  ["cmp-tabnine"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-tabnine"
+  },
   ["compe-tabnine"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/compe-tabnine"
+  },
+  conjure = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/conjure"
   },
   ["dashboard-nvim"] = {
     loaded = true,
@@ -108,10 +148,6 @@ _G.packer_plugins = {
   ["focus.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/focus.nvim"
-  },
-  ["friendly-snippets"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/friendly-snippets"
   },
   ["galaxyline.nvim"] = {
     loaded = true,
@@ -158,8 +194,13 @@ _G.packer_plugins = {
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
   ["markdown-preview.nvim"] = {
+    config = { "vim.call('mkdp#util#install')" },
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
+  },
+  ["nabla.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/nabla.nvim"
   },
   ["neoscroll.nvim"] = {
     loaded = true,
@@ -169,6 +210,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/numb.nvim"
   },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-cmp"
+  },
   ["nvim-colorizer.lua"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
@@ -176,10 +221,6 @@ _G.packer_plugins = {
   ["nvim-comment"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-comment"
-  },
-  ["nvim-compe"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-cursorword"] = {
     loaded = true,
@@ -200,6 +241,10 @@ _G.packer_plugins = {
   ["nvim-neoclip.lua"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-neoclip.lua"
+  },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-notify"
   },
   ["nvim-toggleterm.lua"] = {
     loaded = true,
@@ -273,10 +318,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
   },
-  ["tabout.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/tabout.nvim"
-  },
   ["telescope-dbcli.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-dbcli.nvim"
@@ -306,6 +347,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["texmagic.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/texmagic.nvim"
+  },
   ["todo-comments.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
@@ -325,6 +370,10 @@ _G.packer_plugins = {
   undotree = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/undotree"
+  },
+  ["venn.nvim"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/venn.nvim"
   },
   ["vim-autoformat"] = {
     loaded = true,
@@ -366,6 +415,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-header"
   },
+  ["vim-latex-live-preview"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/vim-latex-live-preview"
+  },
   ["vim-matchup"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-matchup"
@@ -393,22 +447,25 @@ _G.packer_plugins = {
   ["vim-visual-multi"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-visual-multi"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-vsnip"
-  },
-  ["vim-vsnip-integ"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: markdown-preview.nvim
+time([[Config for markdown-preview.nvim]], true)
+vim.call('mkdp#util#install')
+time([[Config for markdown-preview.nvim]], false)
 -- Config for: telescope-frecency.nvim
 time([[Config for telescope-frecency.nvim]], true)
 try_loadstring("\27LJ\1\2/\0\0\1\0\2\0\0033\0\0\0005\0\1\0G\0\1\0\rrequires\1\2\0\0\19tami5/sql.nvim\0", "config", "telescope-frecency.nvim")
 time([[Config for telescope-frecency.nvim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType tex ++once lua require("packer.load")({'vim-latex-live-preview'}, { ft = "tex" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

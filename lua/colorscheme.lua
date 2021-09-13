@@ -10,3 +10,5 @@
 vim.cmd[[colorscheme tokyonight]]
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_sidebars = {'NvimTree','vista_kind','dbui','packer','undotree','toggleterm','Outline'}
+vim.g.tokyonight_transparent = false
+vim.g.tokyonight_transparent_sidebar = false

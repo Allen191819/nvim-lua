@@ -1,7 +1,7 @@
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 USER = vim.fn.expand('$USER')
 
-local sumneko_root_path = ""
+local sumneko_root_path = "/home/allen/lua"
 local sumneko_binary = ""
 
 if vim.fn.has("mac") == 1 then
