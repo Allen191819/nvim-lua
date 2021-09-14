@@ -17,8 +17,6 @@ func! CompileRunGcc()
 		:FloatermNew python3 %
 	elseif &filetype == 'markdown'
 		exec "MarkdownPreview"
-	elseif &filetype == 'vimwiki'
-		exec "MarkdownPreview"
 	elseif &filetype == 'tex'
         exec "LLPStartPreview"
 	elseif &filetype == 'html'

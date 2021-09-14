@@ -4,12 +4,12 @@ Date              : 08.09.2021
 Last Modified Date: 08.09.2021
 --]]--
 
-local tabnine = require('cmp_tabnine.config')
-tabnine:setup({
-    max_lines = 1000;
-    max_num_results = 20;
-    sort = true;
-})
+-- local tabnine = require('cmp_tabnine.config')
+-- tabnine:setup({
+--     max_lines = 1000;
+--     max_num_results = 20;
+--     sort = true;
+-- })
 
 vim.g.UltiSnipsRemoveSelectModeMappings = 0
 
@@ -97,9 +97,9 @@ cmp.setup {
         { name = 'path',
             max_item_count = 3
         },
-        { name = 'cmp_tabnine',
-            max_item_count = 3
-        },
+        -- { name = 'cmp_tabnine',
+        --     max_item_count = 3
+        -- },
         { name = 'nuspell',
             max_item_count = 2
         },
@@ -128,7 +128,7 @@ cmp.setup {
                     ultisnips = "[UltiSnip]",
                     nvim_lsp = "[LSP]",
                     nvim_lua = "[Lua]",
-                    cmp_tabnine = "[TN]",
+                    -- cmp_tabnine = "[TN]",
                     calc = "[Calc]",
                     conjure = "[Conjure]",
                     nuspell = "[Spell]",

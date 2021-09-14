@@ -65,7 +65,8 @@ vim.api.nvim_set_keymap('n','Q',':q<Cr>',{ silent=true })
 vim.api.nvim_set_keymap('n','\\','<Plug>TranslateW',{ silent=true })
 vim.api.nvim_set_keymap('v','\\','<Plug>TranslateWV',{ silent=true })
 
-vim.api.nvim_set_keymap('i',',f','<Esc>/<++><CR>:nohlsearch<CR>"_c4l',{ silent=true,noremap=true })
+vim.api.nvim_set_keymap('i','<A-p>','<Esc>/<++><CR>:nohlsearch<CR>"_c4l',{ silent=true,noremap=true })
+vim.api.nvim_set_keymap('n','<A-p>','<Esc>/<++><CR>:nohlsearch<CR>"_c4l',{ silent=true,noremap=true })
 
 -- Lsp
 vim.api.nvim_set_keymap('n','gh',':Lspsaga lsp_finder<CR>',{ silent=true, noremap=true })
@@ -114,6 +115,7 @@ vim.api.nvim_set_keymap('n','<Leader>mc',':lua require "simple-wiki".open_or_cre
 vim.api.nvim_set_keymap('n','<Leader>mv',':lua require "simple-wiki".create(true)<Cr>', { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n','<Leader>mn',':lua require("nabla").action()<Cr>', { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n','<Leader>mt',':TableModeToggle<Cr>', { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n','<A-r>',':Glow<Cr>', { noremap = true , silent = false })
 
 --Latex
 vim.api.nvim_set_keymap('n','<F5>',':lua require("nabla").action()<CR>',{noremap = true , silent = true})

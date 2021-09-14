@@ -39,9 +39,9 @@ return require('packer').startup(
         use "quangnguyen30192/cmp-nvim-ultisnips"
         use 'PaterJason/cmp-conjure'
         use 'Olical/conjure'
-        use "kdheepak/cmp-latex-symbols"
-        use { 'f3fora/cmp-nuspell', rocks={'lua-nuspell'} }
-        use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+        use {"kdheepak/cmp-latex-symbols",ft={"tex","markdown"}}
+        use {'f3fora/cmp-nuspell', rocks={'lua-nuspell'} ,ft={"tex","markdown"} }
+        --use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
         -- Notify
         use 'rcarriga/nvim-notify'
@@ -128,9 +128,6 @@ return require('packer').startup(
         -- Switch quickly
         use 'AndrewRadev/switch.vim'
 
-        -- calendar
-        use 'itchyny/calendar.vim'
-
         -- Comment quickly
         use 'terrortylor/nvim-comment'
 
@@ -147,7 +144,9 @@ return require('packer').startup(
         use 'Chiel92/vim-autoformat'
 
         -- Better f & t
-        use 'hrsh7th/vim-eft' -- Same word highlight
+        use 'hrsh7th/vim-eft'
+
+        -- Highlight current word
         use 'xiyaowong/nvim-cursorword'
 
         -- Plugins for markdown
@@ -165,7 +164,6 @@ return require('packer').startup(
 
         -- Talex
         use 'jbyuki/nabla.nvim'
-        use 'jakewvincent/texmagic.nvim'
         use {'xuhdev/vim-latex-live-preview',ft={'tex'}}
 
         -- Translate
@@ -220,9 +218,6 @@ return require('packer').startup(
 
         -- Bookmark
         use 'MattesGroeger/vim-bookmarks'
-
-        -- Tabnine source
-        use {'tzachar/compe-tabnine', run='./install.sh'}
 
         -- Debugger
         -- use 'puremourning/vimspector'

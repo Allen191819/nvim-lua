@@ -28,9 +28,9 @@ vim.o.scrolloff = 5
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.incsearch = true
-vim.o.history = 5000
+vim.o.history = 100
 vim.o.swapfile = false
-vim.o.wrap = false
+vim.o.wrap = true
 vim.o.gdefault = true
 vim.o.encoding = 'utf-8'
 vim.o.fencs = 'utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936'
@@ -76,3 +76,7 @@ then
 	vim.o.undodir='/home/allen/.config/nvim/tmp/undo'
 end
 
+vim.g.python_host_skip_check=1
+vim.g.python_host_prog="/usr/bin/python2"
+vim.g.python3_host_skip_check=1
+vim.g.python3_host_prog="/home/allen/.miniconda/bin/python3"
