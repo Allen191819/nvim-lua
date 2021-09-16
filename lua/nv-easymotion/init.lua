@@ -1,9 +1,9 @@
 --<Leader>f{char} to move to {char}
-vim.api.nvim_set_keymap('','<Leader>z','<Plug>(easymotion-bd-f)',{ silent=true })
-vim.api.nvim_set_keymap('n','<Leader>z','<Plug>(easymotion-overwin-f)',{ silent=true })
+vim.api.nvim_set_keymap('','<Leader>t','<Plug>(easymotion-bd-f)',{ silent=true })
+vim.api.nvim_set_keymap('n','<Leader>t','<Plug>(easymotion-overwin-f)',{ silent=true })
 
 --s{char}{char} to move to {char}{char}
-vim.api.nvim_set_keymap('n','<Leader>x','<Plug>(easymotion-overwin-f2)',{ silent=true })
+vim.api.nvim_set_keymap('n','<Leader>v','<Plug>(easymotion-overwin-f2)',{ silent=true })
 
 --Move to line
 vim.api.nvim_set_keymap('','<Leader>l','<Plug>(easymotion-bd-jk)',{ silent=true })

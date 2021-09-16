@@ -18,7 +18,8 @@ func! CompileRunGcc()
 	elseif &filetype == 'markdown'
 		exec "MarkdownPreview"
 	elseif &filetype == 'tex'
-        exec "LLPStartPreview"
+        silent! exec "VimtexStop"
+		silent! exec "VimtexCompile"
 	elseif &filetype == 'html'
 		silent! exec "!".g:mkdp_browser." % &"
 	elseif &filetype == 'javascript'

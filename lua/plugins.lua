@@ -39,8 +39,8 @@ return require('packer').startup(
         use "quangnguyen30192/cmp-nvim-ultisnips"
         use 'PaterJason/cmp-conjure'
         use 'Olical/conjure'
-        use {"kdheepak/cmp-latex-symbols",ft={"tex","markdown"}}
-        use {'f3fora/cmp-nuspell', rocks={'lua-nuspell'} ,ft={"tex","markdown"} }
+        use {"kdheepak/cmp-latex-symbols"}
+        --use {'f3fora/cmp-nuspell', rocks={'lua-nuspell'}}
         --use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
         -- Notify
@@ -87,7 +87,6 @@ return require('packer').startup(
         use 'fhill2/telescope-ultisnips.nvim'
         use { 'mark-coyle/telescope-dbcli.nvim' }
         use 'tom-anders/telescope-vim-bookmarks.nvim'
-        --use 'nvim-telescope/telescope-vimspector.nvim'
 
         -- Dev icons
         use 'kyazdani42/nvim-web-devicons'
@@ -124,6 +123,7 @@ return require('packer').startup(
 
         -- Indent line
         use 'Yggdroot/indentLine'
+        use 'winston0410/smart-cursor.nvim'
 
         -- Switch quickly
         use 'AndrewRadev/switch.vim'
@@ -151,20 +151,17 @@ return require('packer').startup(
 
         -- Plugins for markdown
         use 'dhruvasagar/vim-table-mode'
-        use {'iamcco/markdown-preview.nvim', config = "vim.call('mkdp#util#install')"}
+        use {'yaocccc/markdown-preview.nvim', config = "vim.call('mkdp#util#install')"}
         use '520Matches/fcitx5.vim'
         use 'ekickx/clipboard-image.nvim'
         use 'rafcamlet/simple-wiki.nvim'
-        use {
-            "ellisonleao/glow.nvim",
-            run = function ()
-                require('glow').download_glow()
-            end
-        }
+        use { "ellisonleao/glow.nvim", run = function () require('glow').download_glow() end }
+        use { "brymer-meneses/grammar-guard.nvim", }
 
         -- Talex
         use 'jbyuki/nabla.nvim'
-        use {'xuhdev/vim-latex-live-preview',ft={'tex'}}
+        --use {'xuhdev/vim-latex-live-preview'}
+        use 'lervag/vimtex'
 
         -- Translate
         use 'voldikss/vim-translator'
@@ -178,7 +175,6 @@ return require('packer').startup(
 
         -- Code run
         use { 'michaelb/sniprun', run = 'bash ./install.sh 1'}
-        -- use 'CRAG666/code_runner.nvim'
 
         -- Tagbar
         use 'simrat39/symbols-outline.nvim'
@@ -188,9 +184,6 @@ return require('packer').startup(
 
         -- Replace
         use 'brooth/far.vim'
-
-        -- Window focus
-        use 'beauwilliams/focus.nvim'
 
         -- Startup time
         use 'dstein64/vim-startuptime'

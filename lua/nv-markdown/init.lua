@@ -7,6 +7,7 @@ vim.g.mkdp_markdown_css = ''
 vim.g.mkdp_highlight_css = ''
 vim.g.mkdp_page_title = '「${name}」'
 vim.g.mkdp_filetypes = {'markdown'}
+vim.g.mkdp_preview_options = { theme = 'dark' }
 vim.cmd([[
 source ~/.config/nvim/md-snippets.vim
 autocmd BufRead,BufNewFile *.md setlocal spell

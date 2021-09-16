@@ -1,5 +1,4 @@
 vim.o.tabstop = 4
-vim.o.conceallevel=2
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.smarttab = true
@@ -22,7 +21,7 @@ vim.o.foldenable = true
 vim.o.foldmethod = 'indent'
 vim.o.confirm = true
 vim.o.autoindent = true
-vim.o.cindent = true
+vim.o.cindent = false
 vim.o.smartindent = true
 vim.o.scrolloff = 5
 vim.o.ignorecase = true
@@ -76,7 +75,7 @@ then
 	vim.o.undodir='/home/allen/.config/nvim/tmp/undo'
 end
 
-vim.g.python_host_skip_check=1
-vim.g.python_host_prog="/usr/bin/python2"
-vim.g.python3_host_skip_check=1
-vim.g.python3_host_prog="/home/allen/.miniconda/bin/python3"
+--vim.g.python_host_skip_check=1
+--vim.g.python_host_prog="/usr/bin/python2"
+--vim.g.python3_host_skip_check=1
+--vim.g.python3_host_prog="/home/allen/.miniconda/bin/python3"

@@ -32,12 +32,3 @@ require'sniprun'.setup({
     --" possible values are 'none', 'single', 'double', or 'shadow'
 })
 
----- this is a config example
---require('code_runner').setup {
---  term = {
---    position = "",
---    size = 2
---  },
---  map = "R",
---  json_path = "/home/allen/.config/nvim/lua/nv-coderun/code_runner.json"
---}

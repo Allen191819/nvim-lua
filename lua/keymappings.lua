@@ -25,6 +25,8 @@ vim.api.nvim_set_keymap('n','<C-l>','<C-w>l',{ silent=true })
 -- indent
 vim.api.nvim_set_keymap('v','<','<gv',{ noremap = true,silent=true })
 vim.api.nvim_set_keymap('v','>','>gv',{ noremap = true,silent=true })
+vim.api.nvim_set_keymap('i','<Cr>','<CR>x<BS>',{ noremap = true,silent=true })
+vim.api.nvim_set_keymap('n', 'o', 'o<cmd>lua require("smart-cursor").indent_cursor()<cr>', {silent = true, noremap = true})
 
 -- switch
 vim.api.nvim_set_keymap('n','<TAB>',':bnext<CR>',{ noremap = true,silent=true })
