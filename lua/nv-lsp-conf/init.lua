@@ -50,7 +50,7 @@ saga.init_lsp_saga {
     },
     finder_definition_icon = '  ',
     finder_reference_icon = '  ',
-    max_preview_lines = 10, -- preview lines of lsp_finder and definition preview
+    max_preview_lines = 13, -- preview lines of lsp_finder and definition preview
     finder_action_keys = {
         open = 'o', vsplit = 's',split = 'i',quit = 'q',scroll_down = '<M-f>', scroll_up = '<M-b>' -- quit can be a table
     },
@@ -61,7 +61,7 @@ saga.init_lsp_saga {
         quit = '<C-c>',exec = '<CR>'  -- quit can be a table
     },
     definition_preview_icon = ' ',
-    border_style = "round",
+    border_style = "plus",
     rename_prompt_prefix = '➤',
     server_filetype_map = {metals = {'sbt', 'scala'}},
 }

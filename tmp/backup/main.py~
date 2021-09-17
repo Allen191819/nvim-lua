@@ -1,0 +1,33 @@
+from urllib import parse,request
+import requests
+
+headers = {'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36'}
+
+kw = {'wd':'中国'}
+# data = {'data':1000,'age':'十一','greet':'hello'}
+
+# qs = parse.urlencode(data)
+
+# print(qs)
+
+# print(parse.parse_qs(qs))
+
+url = 'https://piaofang.maoyan.com/dashboard-ajax?orderType=0&uuid=8812d0ec-1006-4bb4-94c9-0fc8435cff5f'
+
+# rq = request.Request(url,headers=headers)
+
+# resp = request.urlopen(rq)
+
+# print(resp.read())
+
+# hander = request.ProxyHandler({'211.65.197.93':'80'})
+
+# opener = request.build_opener(hander)
+
+# resp = opener.open(url)
+
+# print(resp.read())
+
+response = requests.get(url,headers=headers,params=kw)
+
+print(response.text)

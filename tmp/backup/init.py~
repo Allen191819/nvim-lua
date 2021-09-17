@@ -1,0 +1,51 @@
+class UserInfo:
+
+    def __init__(self,age):
+        self.name = 'allen'
+        self.age  = age
+
+    def login(self):
+        user = input("输入用户名")
+        pwd = input("输入密码")
+        if user == self.name and pwd == '903108759':
+            self.name=user
+            while True:
+                print("""
+                    1.查看用户信息
+                    2.查看用户帐单
+                    3.购买抱枕
+                    """)
+                opt=int(input("请输入选项:"))
+                if(opt==1):
+                    self.userInfo()
+                elif opt==2:
+                    self.userAccount()
+                elif opt==3:
+                    self.userBuy()
+        else:
+            print("登陆失败")
+
+    def userInfo(self):
+        print(self.name+' is a good people')
+        print("He is "+self.age+" years old.")
+
+    def userBuy(self):
+        print(self.name+' buy something')
+
+    def userAccount(self):
+        print(self.name+' has 100$')
+
+class Buyer(UserInfo):
+
+    def __init__(self, age, money):
+        super.__init__(age)
+        self.money = money
+
+    def userInfo(self):
+        print("hhhhhhhhhh")
+
+obj = UserInfo()
+obj.login()
+
+
+print(  )
