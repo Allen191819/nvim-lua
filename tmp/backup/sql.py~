@@ -1,7 +1,0 @@
-import pymysql
-
-db = pymysql.connect(host = '127.0.0.1',port=3306,user='root',password='903108759',database="mydb")
-
-cursor = db.cursor()
-
-cursor.execute("select * from mytable")

@@ -14,6 +14,7 @@ Last Modified Date: 08.09.2021
          \|__| \|__|\|_______|\|_______|\|__|/       \|__|\|__|     \|__|
 
 -- ]]
+--
 -- General
 require('plugins')
 require('keymappings')
