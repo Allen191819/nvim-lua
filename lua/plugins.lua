@@ -3,7 +3,7 @@ File              : plugins.lua
 Date              : 01.09.2021
 Last Modified Date: 01.09.2021
 --]] --
--- TODO: nv-debugger  nv_DB
+-- TODO
 
 local execute = vim.api.nvim_command
 local fn = vim.fn
@@ -51,7 +51,7 @@ return require("packer").startup(
 
         -- Snippets
         use "SirVer/ultisnips"
-        use "honza/vim-snippets"
+        use "Allen191819/vim-snippets"
 
         -- Colorscheme
         -- use 'marko-cerovac/material.nvim'
@@ -157,7 +157,8 @@ return require("packer").startup(
         use "lervag/vimtex"
 
         -- Translate
-        use "voldikss/vim-translator"
+        --use "voldikss/vim-translator"
+        use "ianva/vim-youdao-translater"
 
         -- Smoothly scroll
         use "karb94/neoscroll.nvim"
@@ -212,3 +213,4 @@ return require("packer").startup(
         -- use "Pocco81/DAPInstall.nvim"
     end
 )
+

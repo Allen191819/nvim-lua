@@ -1,5 +1,6 @@
-vim.api.nvim_set_keymap('n','R',':call CompileRunGcc()<CR>',{ silent=true,noremap=true })
-vim.cmd([[
+vim.api.nvim_set_keymap("n", "R", ":call CompileRunGcc()<CR>", {silent = true, noremap = true})
+vim.cmd(
+    [[
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
@@ -28,4 +29,5 @@ func! CompileRunGcc()
 		:FloatermNew go run .
 	endif
 endfunc
-]])
+]]
+)
