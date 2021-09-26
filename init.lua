@@ -18,13 +18,14 @@ Last Modified Date: 08.09.2021
 -- General
 require('plugins')
 require('keymappings')
-require('settings')
 require('colorscheme')
 require('function')
+require('settings')
 
 -- Lsp
 --require('lsp.lua-ls')
 require('lsp.py-ls')
+require('lsp.java-ls')
 require('lsp.ccls-ls')
 require('lsp.sql-ls')
 require('lsp.guard-ls')
@@ -60,4 +61,5 @@ require('nv-telescope')
 require('nv-treesitter')
 require('nv-undotree')
 require('nv-venn')
+
 

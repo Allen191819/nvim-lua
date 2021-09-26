@@ -32,7 +32,7 @@ vim.g.nvim_tree_bindings = {
     { key = "-",                            cb = tree_cb("dir_up") },
     { key = "s",                            cb = tree_cb("system_open") },
     { key = "q",                            cb = tree_cb("close") },
-    { key = "g?",                           cb = tree_cb("toggle_help") },
+    { key = "?",                           cb = tree_cb("toggle_help") },
 }
 vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
 vim.g.nvim_tree_auto_close = 1 

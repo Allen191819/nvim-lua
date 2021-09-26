@@ -2,12 +2,13 @@ vim.g.mkdp_auto_start = 0
 vim.g.mkdp_auto_close = 1
 vim.g.mkdp_refresh_slow = 0
 vim.g.mkdp_command_for_global = 0
-vim.g.mkdp_browser = 'chromium'
+vim.g.mkdp_browser = 'surf'
 vim.g.mkdp_markdown_css = ''
 vim.g.mkdp_highlight_css = ''
 vim.g.mkdp_page_title = '「${name}」'
 vim.g.mkdp_filetypes = {'markdown'}
-vim.g.mkdp_preview_options = { theme = 'dark' }
+vim.g.mkdp_preview_options = {hide_yaml_meta = 1, disable_filename = 1, theme = 'dark' }
+vim.g.mkdp_markdown_css = '/home/allen/.config/nvim/colors/markdown.css'
 vim.cmd([[
 source ~/.config/nvim/md-snippets.vim
 autocmd BufRead,BufNewFile *.md setlocal spell

@@ -110,6 +110,9 @@ return require("packer").startup(
         use "haya14busa/incsearch-easymotion.vim"
         use "Lokaltog/vim-easymotion"
 
+        -- Region
+        use "Allen191819/vim-expand-region"
+
         -- Automatically pair
         use "jiangmiao/auto-pairs"
 
