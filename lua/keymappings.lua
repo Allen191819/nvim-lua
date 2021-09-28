@@ -124,8 +124,8 @@ vim.api.nvim_set_keymap('n',   '<A-r>',       ':Glow<Cr>',                      
 vim.api.nvim_set_keymap('n',   '<F5>',        ':lua require("nabla").action()<CR>',                                              { noremap = true , silent = true})
 
 -- Easy swap
-vim.api.nvim_set_keymap('n',   ',sp',         ':ISwap<Cr>',                                                                  { noremap = true , silent = false })
-vim.api.nvim_set_keymap('n',   ',sw',         ':ISwapWith<Cr>',                                                              { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n',   '<A-w>',         ':ISwap<Cr>',                                                                  { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n',   '<A-q>',         ':ISwapWith<Cr>',                                                              { noremap = true , silent = false })
 
 -- Snip run
 vim.api.nvim_set_keymap('n',   ',sr',         ':SnipRun<Cr>',                                                                { noremap=true,silent=true })

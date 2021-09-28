@@ -3,7 +3,6 @@ File              : plugins.lua
 Date              : 01.09.2021
 Last Modified Date: 01.09.2021
 --]] --
--- TODO
 
 local execute = vim.api.nvim_command
 local fn = vim.fn
@@ -37,11 +36,11 @@ return require("packer").startup(
         use "hrsh7th/cmp-path"
         use "hrsh7th/cmp-nvim-lua"
         use "quangnguyen30192/cmp-nvim-ultisnips"
-        use "PaterJason/cmp-conjure"
-        use "Olical/conjure"
+        -- use "PaterJason/cmp-conjure"
+        -- use "Olical/conjure"
         use {"kdheepak/cmp-latex-symbols"}
-        --use {'f3fora/cmp-nuspell', rocks={'lua-nuspell'}}
-        --use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+        -- use {'f3fora/cmp-nuspell', rocks={'lua-nuspell'}}
+        -- use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
         -- Notify
         use "rcarriga/nvim-notify"
@@ -197,8 +196,8 @@ return require("packer").startup(
         -- Database
         use "tpope/vim-dadbod"
         use "kristijanhusak/vim-dadbod-ui"
-        use "kristijanhusak/vim-dadbod-completion"
-        --use 'pbogut/vim-dadbod-ssh'
+        -- use "kristijanhusak/vim-dadbod-completion"
+        -- use 'pbogut/vim-dadbod-ssh'
 
         -- project
         use "ahmedkhalf/project.nvim"

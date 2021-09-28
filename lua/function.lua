@@ -11,6 +11,8 @@ func! CompileRunGcc()
 		:FloatermNew time ./%<
 	elseif &filetype == 'java'
 		:FloatermNew javac % && time java %<
+    elseif &filetype == 'lua'
+		:FloatermNew time lua %
 	elseif &filetype == 'sh'
 		:!time bash %
 	elseif &filetype == 'python'

@@ -2,8 +2,8 @@ require("grammar-guard").init()
 require("lspconfig").grammar_guard.setup({
 	settings = {
 		ltex = {
-			enabled = { "latex", "tex", "bib", "markdown" },
-			language = "en",
+			enabled = { "tex", "bib", "markdown" },
+			language = "zh",
 			diagnosticSeverity = "information",
 			setenceCacheSize = 2000,
 			additionalRules = {

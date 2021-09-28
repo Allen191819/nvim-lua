@@ -30,6 +30,7 @@ require('lsp.java-ls')
 require('lsp.ccls-ls')
 require('lsp.sql-ls')
 require('lsp.guard-ls')
+require('lsp.tex-ls')
 
 -- Plugins
 require('nv-autopair')
@@ -61,5 +62,6 @@ require('nv-telescope')
 require('nv-treesitter')
 require('nv-undotree')
 require('nv-venn')
+
 
 
