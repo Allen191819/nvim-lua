@@ -42,7 +42,6 @@ cmp.setup {
                     if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
                         return vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
                     end
-
                     vim.fn.feedkeys(t("<C-n>"), "n")
                 elseif check_back_space() then
                     vim.fn.feedkeys(t("<cr>"), "n")
@@ -134,6 +133,10 @@ cmp.setup {
         {
             name = "vim-dadbod-completion",
             max_item_count = 2
+        },
+        {
+            name = 'emoji',
+            max_item_count = 3;
         }
     },
     formatting = {
@@ -145,6 +148,7 @@ cmp.setup {
             vim_item.menu =
                 ({
                 buffer = "[Buffer]",
+                emoji = "[Emoji]",
                 ultisnips = "[UltiSnip]",
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[Lua]",

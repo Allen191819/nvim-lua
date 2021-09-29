@@ -35,6 +35,7 @@ return require("packer").startup(
         use "hrsh7th/cmp-nvim-lsp"
         use "hrsh7th/cmp-path"
         use "hrsh7th/cmp-nvim-lua"
+        use "hrsh7th/cmp-emoji"
         use "quangnguyen30192/cmp-nvim-ultisnips"
         -- use "PaterJason/cmp-conjure"
         -- use "Olical/conjure"
@@ -152,7 +153,8 @@ return require("packer").startup(
         use {"ellisonleao/glow.nvim", run = function()
                 require("glow").download_glow()
             end}
-        use {"brymer-meneses/grammar-guard.nvim"}
+        -- use {"brymer-meneses/grammar-guard.nvim"}
+        use 'mzlogin/vim-markdown-toc'
 
         -- Talex
         use "jbyuki/nabla.nvim"

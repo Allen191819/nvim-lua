@@ -9,6 +9,8 @@ vim.g.mkdp_page_title = '「${name}」'
 vim.g.mkdp_filetypes = {'markdown'}
 vim.g.mkdp_preview_options = {hide_yaml_meta = 1, disable_filename = 1, theme = 'dark' }
 vim.g.mkdp_markdown_css = '/home/allen/.config/nvim/colors/markdown.css'
+
+vim.g.vmt_auto_update_on_save = 1
 vim.cmd([[
 source ~/.config/nvim/md-snippets.vim
 autocmd BufRead,BufNewFile *.md setlocal spell
