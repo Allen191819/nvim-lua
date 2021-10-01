@@ -29,7 +29,7 @@ cmp.setup {
             vim.fn["UltiSnips#Anon"](args.body)
         end
     },
-    completion = {keyword_length = 2},
+    completion = {keyword_length = 1},
     mapping = {
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -91,12 +91,12 @@ cmp.setup {
     },
     sources = {
         {
-            name = "nvim_lsp",
+            name = "ultisnips",
             max_item_count = 3
         },
         {
-            name = "ultisnips",
-            max_item_count = 2
+            name = "nvim_lsp",
+            max_item_count = 3
         },
         {
             name = "buffer",

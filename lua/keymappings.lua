@@ -140,3 +140,7 @@ vim.api.nvim_set_keymap('x',   'ga',          ':\'<,\'>EasyAlign<Cr>',          
 
 -- Spell
 vim.api.nvim_set_keymap('n',   '<F6>',        ':setlocal spell! spelllang=en_us<Cr>',                                            { noremap=true,silent=true })
+
+-- Lazygit
+vim.api.nvim_set_keymap('n',   'lg',          ':LazyGit<CR>',                                                                    { noremap=true,silent=true })
+

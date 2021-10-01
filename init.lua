@@ -63,5 +63,3 @@ require('nv-treesitter')
 require('nv-undotree')
 require('nv-venn')
 
-
-
