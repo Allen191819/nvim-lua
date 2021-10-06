@@ -72,6 +72,7 @@ end
 
 vim.cmd([[
 set fillchars=eob:\ ,vert:\┊
+set guifont=mononoki\ Nerd\ Font:h8:ib8
 ]])
 --vim.g.python_host_skip_check=1
 --vim.g.python_host_prog="/usr/bin/python2"

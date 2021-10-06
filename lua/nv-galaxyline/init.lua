@@ -1,9 +1,5 @@
---[[--
-File              : init.lua
-Date              : 22.08.2021
-Last Modified Date: 22.08.2021
---]]--
 local gl = require('galaxyline')
+
 local condition = require('galaxyline.condition')
 local gls = gl.section
 local colors={
@@ -141,7 +137,7 @@ gls.right[1] = {
         icon='',
         separator = ' ',
         separator_highlight = {colors.bg,colors.transparent},
-        highlight = {colors.green,colors.bg,'bold'}
+        highlight = {colors.blue,colors.bg,'bold'}
     }
 }
 
@@ -152,7 +148,7 @@ gls.right[2] = {
         icon=' ',
         separator = ' ',
         separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.green,colors.bg,'bold'}
+        highlight = {colors.cyan,colors.bg,'bold'}
     }
 }
 

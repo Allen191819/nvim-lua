@@ -14,7 +14,8 @@ Last Modified Date: 08.09.2021
          \|__| \|__|\|_______|\|_______|\|__|/       \|__|\|__|     \|__|
 
 -- ]]
---
+-- TODO: Add debug fulture.
+-- INFO: It very nice!
 -- General
 require('plugins')
 require('keymappings')

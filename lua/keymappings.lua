@@ -144,3 +144,12 @@ vim.api.nvim_set_keymap('n',   '<F6>',        ':setlocal spell! spelllang=en_us<
 -- Lazygit
 vim.api.nvim_set_keymap('n',   'lg',          ':LazyGit<CR>',                                                                    { noremap=true,silent=true })
 
+
+vim.api.nvim_set_keymap('n',   ',tx',          ':r !figlet',                                                                     { noremap=true,silent=true })
+
+
+vim.api.nvim_set_keymap('n',   '<up>',          ':res +5<CR>',                                                                     { noremap=true,silent=true })
+vim.api.nvim_set_keymap('n',   '<down>',          ':res -5<CR>',                                                                     { noremap=true,silent=true })
+vim.api.nvim_set_keymap('n',   '<left>',          ':vertical resize-5<CR>',                                                                     { noremap=true,silent=true })
+vim.api.nvim_set_keymap('n',   '<right>',          ':vertical resize+5<CR>',                                                                     { noremap=true,silent=true })
+
