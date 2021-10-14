@@ -28,7 +28,7 @@ func! CompileRunGcc()
 	elseif &filetype == 'javascript'
 		:FloatermNew export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
 	elseif &filetype == 'go'
-		:FloatermNew go run .
+		:FloatermNew go run %
 	endif
 endfunc
 ]]

@@ -12,7 +12,6 @@ require "nvim-tree".setup {
     open_on_tab = true,
     hijack_cursor = false,
     update_cwd = true,
-    lsp_diagnostics = false,
     view = {
         width = 30,
         side = "left",

@@ -3,7 +3,6 @@ File              : init.lua
 Date              : 08.09.2021
 Last Modified Date: 08.09.2021
 --]] --
-
 -- local tabnine = require('cmp_tabnine.config')
 -- tabnine:setup({
 --     max_lines = 50;
@@ -12,7 +11,7 @@ Last Modified Date: 08.09.2021
 -- })
 
 vim.g.UltiSnipsRemoveSelectModeMappings = 0
-
+local types = require('cmp.types')
 local cmp = require "cmp"
 
 local t = function(str)
@@ -29,13 +28,13 @@ cmp.setup {
             vim.fn["UltiSnips#Anon"](args.body)
         end
     },
-    completion = {keyword_length = 1},
     mapping = {
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping.confirm({select = true}),
         ["<C-Space>"] = cmp.mapping(
             function(fallback)
                 if vim.fn.pumvisible() == 1 then
@@ -135,9 +134,16 @@ cmp.setup {
             max_item_count = 2
         },
         {
-            name = 'emoji',
-            max_item_count = 3;
-        }
+            name = "emoji",
+            max_item_count = 3
+        },
+		{
+			name = 'spell'
+		},
+		{
+			name = 'treesitter',
+            max_item_count = 3
+		}
     },
     formatting = {
         format = function(entry, vim_item)
@@ -148,6 +154,7 @@ cmp.setup {
             vim_item.menu =
                 ({
                 buffer = "[Buffer]",
+                treesitter = "[TS]",
                 emoji = "[Emoji]",
                 ultisnips = "[UltiSnip]",
                 nvim_lsp = "[LSP]",
@@ -155,12 +162,58 @@ cmp.setup {
                 cmp_tabnine = "[TN]",
                 calc = "[Calc]",
                 conjure = "[Conjure]",
-                nuspell = "[Spell]",
+                spell = "[Spell]",
                 path = "[Path]",
                 vim_dadbod_completion = "[DB]",
                 latex_symbols = "[Latex]"
             })[entry.source.name]
             return vim_item
         end
+    },
+    experimental = {
+        native_menu = false,
+        ghost_text = true
+    },
+	preselect = types.cmp.PreselectMode.Item,
+completion = {
+      autocomplete = {
+        types.cmp.TriggerEvent.TextChanged,
+      },
+      completeopt = 'menu,menuone,noselect',
+      keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\)]],
+      keyword_length = 2,
+      get_trigger_characters = function(trigger_characters)
+        return trigger_characters
+      end,
     }
 }
+
+require('lspconfig').lua.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+
+require('lspconfig').python.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+require('lspconfig').ccls.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+require('lspconfig').texlab.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+require('lspconfig').html.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+require('lspconfig').sqls.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+require('lspconfig').java_language_server.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+require('lspconfig').pylsp.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+require('lspconfig').go.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+

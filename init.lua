@@ -14,7 +14,7 @@ Last Modified Date: 08.09.2021
          \|__| \|__|\|_______|\|_______|\|__|/       \|__|\|__|     \|__|
 
 -- ]]
--- TODO: Add debug fulture.
+-- TODO: Add debug in future
 -- INFO: It very nice!
 -- General
 require('plugins')
@@ -50,6 +50,7 @@ require('nv-folder')
 require('nv-galaxyline')
 require('nv-git')
 require('nv-header')
+require('nv-hlchunk')
 require('nv-indent-blankline')
 require('nv-iswap')
 require('nv-latex')
@@ -63,4 +64,3 @@ require('nv-telescope')
 require('nv-treesitter')
 require('nv-undotree')
 require('nv-venn')
-
