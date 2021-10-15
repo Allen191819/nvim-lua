@@ -11,7 +11,7 @@ Last Modified Date: 08.09.2021
 -- })
 
 vim.g.UltiSnipsRemoveSelectModeMappings = 0
-local types = require('cmp.types')
+local types = require("cmp.types")
 local cmp = require "cmp"
 
 local t = function(str)
@@ -137,13 +137,13 @@ cmp.setup {
             name = "emoji",
             max_item_count = 3
         },
-		{
-			name = 'spell'
-		},
-		{
-			name = 'treesitter',
+        {
+            name = "spell"
+        },
+        {
+            name = "treesitter",
             max_item_count = 3
-		}
+        }
     },
     formatting = {
         format = function(entry, vim_item)
@@ -174,46 +174,42 @@ cmp.setup {
         native_menu = false,
         ghost_text = true
     },
-	preselect = types.cmp.PreselectMode.Item,
-completion = {
-      autocomplete = {
-        types.cmp.TriggerEvent.TextChanged,
-      },
-      completeopt = 'menu,menuone,noselect',
-      keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\)]],
-      keyword_length = 2,
-      get_trigger_characters = function(trigger_characters)
-        return trigger_characters
-      end,
+    preselect = types.cmp.PreselectMode.Item,
+    completion = {
+        autocomplete = {
+            types.cmp.TriggerEvent.TextChanged
+        },
+        completeopt = "menu,menuone,noselect",
+        keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\)]],
+        keyword_length = 2,
+        get_trigger_characters = function(trigger_characters)
+            return trigger_characters
+        end
     }
 }
 
-require('lspconfig').lua.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
+require("lspconfig").lua.setup {
+    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
 
-require('lspconfig').python.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-require('lspconfig').ccls.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-require('lspconfig').texlab.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-require('lspconfig').html.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-require('lspconfig').sqls.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-require('lspconfig').java_language_server.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-require('lspconfig').pylsp.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-require('lspconfig').go.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-
+require("lspconfig").python.setup {
+    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require("lspconfig").ccls.setup {
+    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require("lspconfig").texlab.setup {
+    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require("lspconfig").html.setup {
+    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require("lspconfig").sqls.setup {
+    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require("lspconfig").pylsp.setup {
+    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require("lspconfig").go.setup {
+    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
