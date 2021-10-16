@@ -1,215 +1,203 @@
---[[--
-File              : init.lua
-Date              : 08.09.2021
-Last Modified Date: 08.09.2021
---]] --
--- local tabnine = require('cmp_tabnine.config')
--- tabnine:setup({
---     max_lines = 50;
---     max_num_results = 5;
---     sort = true;
--- })
+-- Lspkind
+require('lspkind').init({
+    with_text = false,
+    preset = 'codicons',
+    symbol_map = {
+        TreeSitter = "侮",
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "ﴯפּ",
+        Event = "",
+        Operator = "",
+        TypeParameter = "ﰧ"
+    },
+})
 
-vim.g.UltiSnipsRemoveSelectModeMappings = 0
-local types = require("cmp.types")
-local cmp = require "cmp"
+-- Lspsaga
+local saga = require 'lspsaga'
+saga.init_lsp_saga {
+    use_saga_diagnostic_sign = true,
+    error_sign = '✗',
+    warn_sign = '',
+    hint_sign = '',
+    infor_sign = '',
+    dianostic_header_icon = '   ',
+    code_action_icon = ' ',
+    code_action_prompt = {
+        enable = true,
+        sign = true,
+        sign_priority = 20,
+        virtual_text = true,
+    },
+    finder_definition_icon = '  ',
+    finder_reference_icon = '  ',
+    max_preview_lines = 13, -- preview lines of lsp_finder and definition preview
+    finder_action_keys = {
+        open = 'o', vsplit = 's',split = 'i',quit = 'q',scroll_down = '<M-f>', scroll_up = '<M-b>' -- quit can be a table
+    },
+    code_action_keys = {
+        quit = 'q',exec = '<CR>'
+    },
+    rename_action_keys = {
+        quit = '<C-c>',exec = '<CR>'  -- quit can be a table
+    },
+    definition_preview_icon = ' ',
+    border_style = "plus",
+    rename_prompt_prefix = '➤',
+    server_filetype_map = {metals = {'sbt', 'scala'}},
+}
 
-local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
 
-local check_back_space = function()
-    local col = vim.fn.col(".") - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
-end
-cmp.setup {
-    snippet = {
-        expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)
-        end
+-- Lightbulb
+require'nvim-lightbulb'.update_lightbulb {
+    sign = {
+        enabled = true,
+        -- Priority of the gutter sign
+        priority = 10,
     },
-    mapping = {
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-e>"] = cmp.mapping.close(),
-        ["<CR>"] = cmp.mapping.confirm({select = true}),
-        ["<C-Space>"] = cmp.mapping(
-            function(fallback)
-                if vim.fn.pumvisible() == 1 then
-                    if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-                        return vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
-                    end
-                    vim.fn.feedkeys(t("<C-n>"), "n")
-                elseif check_back_space() then
-                    vim.fn.feedkeys(t("<cr>"), "n")
-                else
-                    fallback()
-                end
-            end,
-            {
-                "i",
-                "s"
-            }
-        ),
-        ["<Tab>"] = cmp.mapping(
-            function(fallback)
-                if vim.fn.complete_info()["selected"] == -1 and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-                    vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
-                elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.fn.feedkeys(t("<ESC>:call UltiSnips#JumpForwards()<CR>"))
-                elseif vim.fn.pumvisible() == 1 then
-                    vim.fn.feedkeys(t("<C-n>"), "n")
-                elseif check_back_space() then
-                    vim.fn.feedkeys(t("<tab>"), "n")
-                else
-                    fallback()
-                end
-            end,
-            {
-                "i",
-                "s"
-            }
-        ),
-        ["<S-Tab>"] = cmp.mapping(
-            function(fallback)
-                if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.fn.feedkeys(t("<C-R>=UltiSnips#JumpBackwards()<CR>"))
-                elseif vim.fn.pumvisible() == 1 then
-                    vim.fn.feedkeys(t("<C-p>"), "n")
-                else
-                    fallback()
-                end
-            end,
-            {
-                "i",
-                "s"
-            }
-        )
+    float = {
+        enabled = false,
+        text = "💡",
+        win_opts = {},
     },
-    sources = {
-        {
-            name = "ultisnips",
-            max_item_count = 3
-        },
-        {
-            name = "nvim_lsp",
-            max_item_count = 3
-        },
-        {
-            name = "buffer",
-            max_item_count = 3
-        },
-        {
-            name = "nvim_lua",
-            max_item_count = 2
-        },
-        {
-            name = "path",
-            max_item_count = 3
-        },
-        {
-            name = "cmp_tabnine",
-            max_item_count = 3
-        },
-        {
-            name = "nuspell",
-            max_item_count = 2
-        },
-        {
-            name = "calc",
-            max_item_count = 2
-        },
-        {
-            name = "conjure",
-            max_item_count = 2
-        },
-        {
-            name = "latex_symbols",
-            max_item_count = 2
-        },
-        {
-            name = "vim-dadbod-completion",
-            max_item_count = 2
-        },
-        {
-            name = "emoji",
-            max_item_count = 3
-        },
-        {
-            name = "spell"
-        },
-        {
-            name = "treesitter",
-            max_item_count = 3
-        }
+    virtual_text = {
+        enabled = true,
+        text = "💡",
     },
-    formatting = {
-        format = function(entry, vim_item)
-            -- fancy icons and a name of kind
-            vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
-
-            -- set a name for each source
-            vim_item.menu =
-                ({
-                buffer = "[Buffer]",
-                treesitter = "[TS]",
-                emoji = "[Emoji]",
-                ultisnips = "[UltiSnip]",
-                nvim_lsp = "[LSP]",
-                nvim_lua = "[Lua]",
-                cmp_tabnine = "[TN]",
-                calc = "[Calc]",
-                conjure = "[Conjure]",
-                spell = "[Spell]",
-                path = "[Path]",
-                vim_dadbod_completion = "[DB]",
-                latex_symbols = "[Latex]"
-            })[entry.source.name]
-            return vim_item
-        end
-    },
-    experimental = {
-        native_menu = false,
-        ghost_text = true
-    },
-    preselect = types.cmp.PreselectMode.Item,
-    completion = {
-        autocomplete = {
-            types.cmp.TriggerEvent.TextChanged
-        },
-        completeopt = "menu,menuone,noselect",
-        keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\)]],
-        keyword_length = 2,
-        get_trigger_characters = function(trigger_characters)
-            return trigger_characters
-        end
+    status_text = {
+        enabled = false,
+        text = "💡",
+        text_unavailable = ""
     }
 }
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
-require("lspconfig").lua.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
 
-require("lspconfig").python.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+require'lspinstall'.setup() -- important
+
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{}
+end
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = true,
+})
+
+vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+local border = {
+      {"╭", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"╮", "FloatBorder"},
+      {"│", "FloatBorder"},
+      {"╯", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"╰", "FloatBorder"},
+      {"│", "FloatBorder"},
 }
-require("lspconfig").ccls.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require("lspconfig").texlab.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require("lspconfig").html.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require("lspconfig").sqls.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require("lspconfig").pylsp.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require("lspconfig").go.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
+vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border})
+
+require "lsp_signature".on_attach()
+require "lsp_signature".setup({
+    bind = true, -- This is mandatory, otherwise border config won't get registered.
+    doc_lines = 8, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
+    floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
+    fix_pos = false,  -- set to true, the floating window will not auto-close until finish all parameters
+    hint_enable = true, -- virtual hint enable
+    hint_prefix = "𝓒 ",
+    hint_scheme = "String",
+    hi_parameter = "Search", -- how your parameter will be highlight
+    max_height = 15, -- max height of signature floating_window, if content is more than max_height, you can scroll down
+    max_width = 100, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+    transpancy = 10, -- set this value if you want the floating windows to be transpant (100 fully transpant), nil to disable(default)
+    handler_opts = {
+        border = "single"   -- double, single, shadow, none
+    },
+
+    trigger_on_newline = false, -- set to true if you need multiple line parameter, sometime show signature on new line can be confusing, set it to false for #58
+    extra_trigger_chars = {}, -- Array of extra characters that will trigger signature completion, e.g., {"(", ","}
+    zindex = 200, -- by default it will be on top of all floating windows, set to 50 send it to bottom
+    debug = false, -- set to true to enable debug logging
+    log_path = "debug_log_file_path", -- debug log path
+    padding = '', -- character to pad on left and right of signature can be ' ', or '|'  etc
+    shadow_blend = 36, -- if you using shadow as border use this set the opacity
+    shadow_guibg = 'Black', -- if you using shadow as border use this set the color e.g. 'Green' or '#121315'
+    toggle_key = "<M-x>" -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
+})
+
+
+vim.g.symbols_outline = {
+    highlight_hovered_item = true,
+    show_guides = true,
+    auto_preview = false,
+    position = 'right',
+    width = 15,
+    show_numbers = true,
+    show_relative_numbers = true,
+    show_symbol_details = true,
+    keymaps = { -- These keymaps can be a string or a table for multiple keys
+        close = {"<Esc>", "q"},
+        goto_location = "<Cr>",
+        focus_location = "o",
+        hover_symbol = "<C-t>",
+        toggle_preview = "K",
+        rename_symbol = "r",
+        code_actions = "a",
+    },
+    lsp_blacklist = {},
+    symbol_blacklist = {},
+    symbols = {
+        File = {icon = "", hl = "TSURI"},
+        Module = {icon = "", hl = "TSNamespace"},
+        Namespace = {icon = "", hl = "TSNamespace"},
+        Package = {icon = "", hl = "TSNamespace"},
+        Class = {icon = "𝓒", hl = "TSType"},
+        Method = {icon = "ƒ", hl = "TSMethod"},
+        Property = {icon = "", hl = "TSMethod"},
+        Field = {icon = "", hl = "TSField"},
+        Constructor = {icon = "", hl = "TSConstructor"},
+        Enum = {icon = "ℰ", hl = "TSType"},
+        Interface = {icon = "ﰮ", hl = "TSType"},
+        Function = {icon = "", hl = "TSFunction"},
+        Variable = {icon = "", hl = "TSConstant"},
+        Constant = {icon = "", hl = "TSConstant"},
+        String = {icon = "𝓐", hl = "TSString"},
+        Number = {icon = "#", hl = "TSNumber"},
+        Boolean = {icon = "⊨", hl = "TSBoolean"},
+        Array = {icon = "", hl = "TSConstant"},
+        Object = {icon = "⦿", hl = "TSType"},
+        Key = {icon = "🔐", hl = "TSType"},
+        Null = {icon = "NULL", hl = "TSType"},
+        EnumMember = {icon = "", hl = "TSField"},
+        Struct = {icon = "𝓢", hl = "TSType"},
+        Event = {icon = "🗲", hl = "TSType"},
+        Operator = {icon = "+", hl = "TSOperator"},
+        TypeParameter = {icon = "𝙏", hl = "TSParameter"}
+    }
 }

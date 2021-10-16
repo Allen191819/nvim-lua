@@ -26,7 +26,6 @@ require('settings')
 -- Lsp
 require('nv-lsp-conf')
 require('lsp.lua-ls')
-require('lsp.py-ls')
 require('lsp.java-ls')
 require('lsp.ccls-ls')
 require('lsp.sql-ls')

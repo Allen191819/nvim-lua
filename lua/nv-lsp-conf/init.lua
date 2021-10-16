@@ -66,6 +66,7 @@ saga.init_lsp_saga {
     server_filetype_map = {metals = {'sbt', 'scala'}},
 }
 
+
 -- Lightbulb
 require'nvim-lightbulb'.update_lightbulb {
     sign = {
@@ -106,7 +107,21 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
     update_in_insert = true,
 })
 
+vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
+local border = {
+      {"╭", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"╮", "FloatBorder"},
+      {"│", "FloatBorder"},
+      {"╯", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"╰", "FloatBorder"},
+      {"│", "FloatBorder"},
+}
+vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
+vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border})
 
 require "lsp_signature".on_attach()
 require "lsp_signature".setup({
@@ -115,14 +130,14 @@ require "lsp_signature".setup({
     floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
     fix_pos = false,  -- set to true, the floating window will not auto-close until finish all parameters
     hint_enable = true, -- virtual hint enable
-    hint_prefix = "🐼 ",  -- Panda for parameter
+    hint_prefix = "𝓒 ",
     hint_scheme = "String",
     hi_parameter = "Search", -- how your parameter will be highlight
-    max_height = 12, -- max height of signature floating_window, if content is more than max_height, you can scroll down
-    max_width = 120, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+    max_height = 15, -- max height of signature floating_window, if content is more than max_height, you can scroll down
+    max_width = 100, -- max_width of signature floating_window, line will be wrapped if exceed max_width
     transpancy = 10, -- set this value if you want the floating windows to be transpant (100 fully transpant), nil to disable(default)
     handler_opts = {
-        border = "shadow"   -- double, single, shadow, none
+        border = "single"   -- double, single, shadow, none
     },
 
     trigger_on_newline = false, -- set to true if you need multiple line parameter, sometime show signature on new line can be confusing, set it to false for #58
@@ -133,7 +148,7 @@ require "lsp_signature".setup({
     padding = '', -- character to pad on left and right of signature can be ' ', or '|'  etc
     shadow_blend = 36, -- if you using shadow as border use this set the opacity
     shadow_guibg = 'Black', -- if you using shadow as border use this set the color e.g. 'Green' or '#121315'
-    toggle_key = nil -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
+    toggle_key = "<M-x>" -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
 })
 
 

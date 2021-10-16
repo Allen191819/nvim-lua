@@ -192,9 +192,6 @@ require("lspconfig").lua.setup {
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 
-require("lspconfig").python.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
 require("lspconfig").ccls.setup {
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
@@ -207,7 +204,7 @@ require("lspconfig").html.setup {
 require("lspconfig").sqls.setup {
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
-require("lspconfig").pylsp.setup {
+require("lspconfig").python.setup {
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 require("lspconfig").go.setup {
