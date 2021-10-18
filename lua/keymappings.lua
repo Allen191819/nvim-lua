@@ -63,14 +63,13 @@ vim.api.nvim_set_keymap('n',   '<leader>tv',  ':ToggleTerm size=100 direction=ve
 vim.api.nvim_set_keymap('n',   'W',           ':Autoformat<Cr>:w<Cr>',                                                           { silent=true })
 vim.api.nvim_set_keymap('n',   'Q',           ':q<Cr>',                                                                          { silent=true })
 
--- vim.api.nvim_set_keymap('n',   'M',          '<Plug>TranslateW',                                                                { silent=true })
--- vim.api.nvim_set_keymap('v',   'M',          '<Plug>TranslateWV',                                                               { silent=true })
-vim.api.nvim_set_keymap('n',   'M',          ':<C-u>Ydc<CR>',                                                               { silent=true })
-vim.api.nvim_set_keymap('v',   'M',          ':<C-u>Ydv<CR>',                                                               { silent=true })
-vim.api.nvim_set_keymap('n',   'E',          ':<C-u>Yde<CR>',                                                               { silent=true })
+vim.api.nvim_set_keymap('n',   'M',          ':<C-u>Ydc<CR>',																	{ silent=true })
+vim.api.nvim_set_keymap('v',   'M',          ':<C-u>Ydv<CR>',																	{ silent=true })
+vim.api.nvim_set_keymap('n',   'E',          ':<C-u>Yde<CR>',																	{ silent=true })
 
 vim.api.nvim_set_keymap('i',   '<c-p>',       '<Esc>/<++><CR>:nohlsearch<CR>"_c4l',                                              { silent=true,noremap=true })
 vim.api.nvim_set_keymap('n',   '<c-p>',       '<Esc>/<++><CR>:nohlsearch<CR>"_c4l',                                              { silent=true,noremap=true })
+
 -- Lsp
 vim.api.nvim_set_keymap('n',   'gh',          '<cmd>lua require\'lspsaga.provider\'.lsp_finder()<CR>',                           { silent=true, noremap=true })
 vim.api.nvim_set_keymap('n',   '<leader>ca',  ':Lspsaga code_action<CR>',                                                        { silent=true, noremap=true })
@@ -86,14 +85,13 @@ vim.api.nvim_set_keymap('n',   'g[',          ':Lspsaga diagnostic_jump_prev<CR>
 vim.api.nvim_set_keymap('n',   'g]',          ':Lspsaga diagnostic_jump_next<CR>',                                               { silent=true, noremap=true })
 vim.api.nvim_set_keymap('n',   'dc',          '<cmd>lua vim.lsp.buf.declaration()<CR>',                                          { silent=true,noremap=true})
 vim.api.nvim_set_keymap('n',   'gd',          '<cmd>lua vim.lsp.buf.definition()<CR>',                                           { silent=true,noremap=true})
-vim.api.nvim_set_keymap('n',   'gi',          '<cmd>lua vim.lsp.buf.implementation()<CR>',                                       { silent=true,noremap=true})
-vim.api.nvim_set_keymap('n',   ',wa',         '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',                            { silent=true,noremap=true})
-vim.api.nvim_set_keymap('n',   ',wr',         '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',                         { silent=true,noremap=true})
-vim.api.nvim_set_keymap('n',   ',wl',         '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',      { silent=true,noremap=true})
-vim.api.nvim_set_keymap('n',   '<space>D',    '<cmd>lua vim.lsp.buf.type_definition()<CR>',                                      { silent=true,noremap=true})
 vim.api.nvim_set_keymap('n',   'gr',          '<cmd>lua vim.lsp.buf.references()<CR>',                                           { silent=true,noremap=true})
-vim.api.nvim_set_keymap('n',   ',q',          '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',                               { silent=true,noremap=true})
-vim.api.nvim_set_keymap('n',   ',f',          '<cmd>lua vim.lsp.buf.formatting()<CR>',                                       { silent=true,noremap=true})
+vim.api.nvim_set_keymap('n',   'gi',          '<cmd>lua vim.lsp.buf.implementation()<CR>',                                       { silent=true,noremap=true})
+vim.api.nvim_set_keymap('n',   ',wa',         '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',								{ silent=true,noremap=true})
+vim.api.nvim_set_keymap('n',   ',wr',         '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',                         	{ silent=true,noremap=true})
+vim.api.nvim_set_keymap('n',   ',wl',         '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',      	{ silent=true,noremap=true})
+vim.api.nvim_set_keymap('n',   '<space>d',    '<cmd>lua vim.lsp.buf.type_definition()<CR>',                                      { silent=true,noremap=true})
+vim.api.nvim_set_keymap('n',   ',q',          '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',									{ silent=true,noremap=true})
 
 -- DashBoard / Telescope
 vim.api.nvim_set_keymap('n',   '<Leader>fh',  ':DashboardFindHistory<CR>',                                                       { noremap = true , silent = false })
@@ -111,7 +109,7 @@ vim.api.nvim_set_keymap('n',   '<Leader>fm',  ':Telescope media_files<CR>',     
 
 --Markdown
 vim.api.nvim_set_keymap('n',   '<Leader>mi',  ':PasteImg<Cr>',                                                                   { noremap = true , silent = false })
-vim.api.nvim_set_keymap('n',   '<Leader>md',  ':e /home/allen/MyNote/index.md<Cr>',                                          { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n',   '<Leader>md',  ':e /home/allen/MyNote/index.md<Cr>',												{ noremap = true , silent = false })
 vim.api.nvim_set_keymap('n',   '<Leader>ms',  ':lua require "simple-wiki".search()<Cr>',                                         { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n',   '<Leader>mc',  ':lua require "simple-wiki".open_or_create()<Cr>',                                 { noremap = true , silent = false })
 vim.api.nvim_set_keymap('n',   '<Leader>mv',  ':lua require "simple-wiki".create(true)<Cr>',                                     { noremap = true , silent = false })
@@ -123,13 +121,13 @@ vim.api.nvim_set_keymap('n',   '<A-r>',       ':Glow<Cr>',                      
 vim.api.nvim_set_keymap('n',   '<F5>',        ':lua require("nabla").action()<CR>',                                              { noremap = true , silent = true})
 
 -- Easy swap
-vim.api.nvim_set_keymap('n',   '<A-w>',         ':ISwap<Cr>',                                                                  { noremap = true , silent = false })
-vim.api.nvim_set_keymap('n',   '<A-q>',         ':ISwapWith<Cr>',                                                              { noremap = true , silent = false })
+vim.api.nvim_set_keymap('n',   '<A-w>',         ':ISwap<Cr>',																	{ noremap = true , silent = false })
+vim.api.nvim_set_keymap('n',   '<A-q>',         ':ISwapWith<Cr>',																{ noremap = true , silent = false })
 
 -- Snip run
-vim.api.nvim_set_keymap('n',   ',sr',         ':SnipRun<Cr>',                                                                { noremap=true,silent=true })
-vim.api.nvim_set_keymap('v',   ',sr',         ':\'<,\'>SnipRun<Cr>',                                                         { noremap=true,silent=true })
-vim.api.nvim_set_keymap('n',   ',sl',         ':SnipClose<Cr>',                                                              { noremap=true,silent=true })
+vim.api.nvim_set_keymap('n',   ',sr',         ':SnipRun<Cr>',																	{ noremap=true,silent=true })
+vim.api.nvim_set_keymap('v',   ',sr',         ':\'<,\'>SnipRun<Cr>',															{ noremap=true,silent=true })
+vim.api.nvim_set_keymap('n',   ',sl',         ':SnipClose<Cr>',																	{ noremap=true,silent=true })
 
 -- Add header
 vim.api.nvim_set_keymap('n',   '<F3>',        ':AddHeader<Cr>',                                                                  { noremap=true,silent=true })
@@ -148,7 +146,7 @@ vim.api.nvim_set_keymap('n',   ',tx',          ':r !figlet',                    
 
 
 vim.api.nvim_set_keymap('n',   '<up>',          ':res +5<CR>',                                                                     { noremap=true,silent=true })
-vim.api.nvim_set_keymap('n',   '<down>',          ':res -5<CR>',                                                                     { noremap=true,silent=true })
-vim.api.nvim_set_keymap('n',   '<left>',          ':vertical resize-5<CR>',                                                                     { noremap=true,silent=true })
-vim.api.nvim_set_keymap('n',   '<right>',          ':vertical resize+5<CR>',                                                                     { noremap=true,silent=true })
+vim.api.nvim_set_keymap('n',   '<down>',        ':res -5<CR>',                                                                     { noremap=true,silent=true })
+vim.api.nvim_set_keymap('n',   '<left>',        ':vertical resize-5<CR>',                                                           { noremap=true,silent=true })
+vim.api.nvim_set_keymap('n',   '<right>',       ': vertical resize+5<CR>',                                                          { noremap=true,silent=true })
 

@@ -16,7 +16,6 @@ func! CompileRunGcc()
 	elseif &filetype == 'sh'
 		:!time bash %
 	elseif &filetype == 'python'
-		set splitbelow
 		:FloatermNew python3 %
 	elseif &filetype == 'markdown'
 		exec "MarkdownPreview"

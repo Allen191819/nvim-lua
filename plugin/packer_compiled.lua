@@ -222,10 +222,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-hlchunk"
   },
-  ["nvim-lightbulb"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-lightbulb"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"

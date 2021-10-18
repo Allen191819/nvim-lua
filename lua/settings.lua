@@ -47,15 +47,12 @@ vim.o.writebackup    = true
 vim.o.mouse          = 'a'
 vim.o.wildmenu       = true
 vim.o.whichwrap      = vim.o.whichwrap..'<,>,h,l'
---vim.o.iskeyword    = vim.o.iskeyword..'_,$,@,%,#,-'
 vim.o.selection      = 'exclusive'
 vim.o.selectmode     = 'mouse,key'
 vim.o.completeopt    = "menuone,noselect"
 vim.o.showmatch      = true
 vim.o.matchtime      = 1
 vim.o.shortmess      = vim.o.shortmess..'c'
-
---vim.o.t_Co         = '256'
 vim.o.conceallevel   = 1
 vim.o.termguicolors  = true
 vim.o.backupdir      = '/home/allen/.config/nvim/tmp/backup'
@@ -64,6 +61,7 @@ vim.o.directory      = '/home/allen/.config/nvim/tmp/backup'
 --vim.cmd('silent !mkdir -p ~/.config/nvim/tmp/backup')
 --vim.cmd('silent !mkdir -p ~/.config/nvim/tmp/undo')
 --vim.cmd('silent !mkdir -p ~/.config/nvim/tmp/sessions')
+
 if vim.fn.has('persistent_undo')
 then
 	vim.o.undofile=true

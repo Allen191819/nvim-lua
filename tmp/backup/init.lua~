@@ -1,6 +1,6 @@
 -- Lspkind
 require('lspkind').init({
-    with_text = false,
+    with_text = true,
     preset = 'codicons',
     symbol_map = {
         TreeSitter = "侮",
@@ -31,6 +31,7 @@ require('lspkind').init({
         TypeParameter = "ﰧ"
     },
 })
+
 
 -- Lspsaga
 local saga = require 'lspsaga'
@@ -65,32 +66,6 @@ saga.init_lsp_saga {
     rename_prompt_prefix = '➤',
     server_filetype_map = {metals = {'sbt', 'scala'}},
 }
-
-
--- Lightbulb
-require'nvim-lightbulb'.update_lightbulb {
-    sign = {
-        enabled = true,
-        -- Priority of the gutter sign
-        priority = 10,
-    },
-    float = {
-        enabled = false,
-        text = "💡",
-        win_opts = {},
-    },
-    virtual_text = {
-        enabled = true,
-        text = "💡",
-    },
-    status_text = {
-        enabled = false,
-        text = "💡",
-        text_unavailable = ""
-    }
-}
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-
 
 
 require'lspinstall'.setup() -- important

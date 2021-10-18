@@ -26,7 +26,6 @@ return require("packer").startup(
         use "neovim/nvim-lspconfig"
         use "onsails/lspkind-nvim"
         use {'jasonrhansen/lspsaga.nvim',branch='finder-preview-fixes'}
-        use "kosayoda/nvim-lightbulb"
         use "kabouzeid/nvim-lspinstall"
 
         -- Complete of nvim
@@ -40,11 +39,7 @@ return require("packer").startup(
         use 'ray-x/cmp-treesitter'
         use "hrsh7th/cmp-calc"
         use "quangnguyen30192/cmp-nvim-ultisnips"
-        -- use "PaterJason/cmp-conjure"
-        -- use "Olical/conjure"
         use {"kdheepak/cmp-latex-symbols"}
-        -- use {'f3fora/cmp-nuspell', rocks={'lua-nuspell'}}
-        -- use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
         -- Notify
         use "rcarriga/nvim-notify"
@@ -57,7 +52,6 @@ return require("packer").startup(
         use { 'Allen191819/vim-snippets',rtp='.' }
 
         -- Colorscheme
-        -- use 'marko-cerovac/material.nvim'
         use "folke/tokyonight.nvim"
 
         -- Switch Surround thing
@@ -159,7 +153,6 @@ return require("packer").startup(
         use {"ellisonleao/glow.nvim", run = function()
                 require("glow").download_glow()
             end}
-        -- use {"brymer-meneses/grammar-guard.nvim"}
         use 'mzlogin/vim-markdown-toc'
 
         -- Talex
@@ -167,7 +160,6 @@ return require("packer").startup(
         use "lervag/vimtex"
 
         -- Translate
-        --use "voldikss/vim-translator"
         use "ianva/vim-youdao-translater"
 
         -- Smoothly scroll
@@ -204,8 +196,6 @@ return require("packer").startup(
         -- Database
         use "tpope/vim-dadbod"
         use "kristijanhusak/vim-dadbod-ui"
-        -- use "kristijanhusak/vim-dadbod-completion"
-        -- use 'pbogut/vim-dadbod-ssh'
 
         -- project
         use "ahmedkhalf/project.nvim"

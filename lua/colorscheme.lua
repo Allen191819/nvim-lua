@@ -7,6 +7,7 @@
 -- vim.g.material_contrast = true
 -- vim.g.material_borders = true
 -- vim.g.material_disable_background = false
+
 vim.cmd[[colorscheme tokyonight]]
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_sidebars = {'NvimTree','vista_kind','dbui','packer','undotree','toggleterm','Outline'}
