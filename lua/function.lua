@@ -10,11 +10,11 @@ func! CompileRunGcc()
 		exec "!g++ -std=c++11 % -Wall -o %< -g"
 		:FloatermNew time ./%<
 	elseif &filetype == 'java'
-		:FloatermNew javac % && time java %<
+		:FloatermNew javac % && java %<
     elseif &filetype == 'lua'
-		:FloatermNew time lua %
+		:FloatermNew lua %
 	elseif &filetype == 'sh'
-		:!time bash %
+		:FloatermNew bash %
 	elseif &filetype == 'python'
 		:FloatermNew python3 %
 	elseif &filetype == 'markdown'
@@ -28,6 +28,8 @@ func! CompileRunGcc()
 		:FloatermNew export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
 	elseif &filetype == 'go'
 		:FloatermNew go run %
+	elseif &filetype == 'csv'
+        silent! exec "lua require('nvim-preview-csv').preview()"
 	endif
 endfunc
 ]]

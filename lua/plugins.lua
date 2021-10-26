@@ -26,7 +26,8 @@ return require("packer").startup(
         use "neovim/nvim-lspconfig"
         use "onsails/lspkind-nvim"
         use {'jasonrhansen/lspsaga.nvim',branch='finder-preview-fixes'}
-        use "kabouzeid/nvim-lspinstall"
+        use 'williamboman/nvim-lsp-installer'
+        --use "kabouzeid/nvim-lspinstall"
 
         -- Complete of nvim
         use "hrsh7th/nvim-cmp"
@@ -198,7 +199,7 @@ return require("packer").startup(
         use "kristijanhusak/vim-dadbod-ui"
 
         -- project
-        use "ahmedkhalf/project.nvim"
+        --use "ahmedkhalf/project.nvim"
 
         -- Jump livly
         use "nacro90/numb.nvim"
@@ -206,6 +207,8 @@ return require("packer").startup(
         -- Bookmark
         use "MattesGroeger/vim-bookmarks"
 
+        -- Csv
+		use "Nguyen-Hoang-Nam/nvim-preview-csv"
         -- Debugger
         -- use 'puremourning/vimspector'
         -- use 'mfussenegger/nvim-dap'

@@ -32,6 +32,16 @@ require('lspkind').init({
     },
 })
 
+-- Lsp installer
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+
+    server:setup(opts)
+    vim.cmd [[ do User LspAttachBuffers ]]
+end)
+
 
 -- Lspsaga
 local saga = require 'lspsaga'
@@ -68,12 +78,6 @@ saga.init_lsp_saga {
 }
 
 
-require'lspinstall'.setup() -- important
-
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{}
-end
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,

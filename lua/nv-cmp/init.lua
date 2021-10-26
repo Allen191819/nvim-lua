@@ -188,32 +188,55 @@ cmp.setup {
     }
 }
 
-local lspkind = require('lspkind')
+local lspkind = require("lspkind")
 cmp.setup {
-  formatting = {
-    format = lspkind.cmp_format({with_text = true, maxwidth = 50})
-  }
+    formatting = {
+        format = lspkind.cmp_format({with_text = true, maxwidth = 50})
+    }
 }
 
-require("lspconfig").lua.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(
+    function(sumneko_lua)
+        sumneko_lua:setup {
+            capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        }
+    end
+)
+lsp_installer.on_server_ready(
+    function(pyright)
+        pyright:setup {
+            capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        }
+    end
+)
+lsp_installer.on_server_ready(
+    function(html)
+        html:setup {
+            capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        }
+    end
+)
+lsp_installer.on_server_ready(
+    function(gopls)
+        gopls:setup {
+            capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        }
+    end
+)
+lsp_installer.on_server_ready(
+    function(jdtls)
+        jdtls:setup {
+            capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        }
+    end
+)
 require("lspconfig").ccls.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require("lspconfig").texlab.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require("lspconfig").html.setup {
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 require("lspconfig").sqls.setup {
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
-require("lspconfig").python.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require("lspconfig").go.setup {
+require("lspconfig").texlab.setup {
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
