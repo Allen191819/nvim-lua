@@ -138,6 +138,7 @@ return require("packer").startup(
 
         -- AutoFormat
         use "Chiel92/vim-autoformat"
+        use "lukas-reineke/format.nvim"
 
         -- Better f & t
         use "hrsh7th/vim-eft"
