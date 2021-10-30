@@ -17,3 +17,4 @@ require("lspconfig").grammar_guard.setup({
 		},
 	},
 })
+

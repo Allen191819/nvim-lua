@@ -1,17 +1,6 @@
 local tree_cb = require "nvim-tree.config".nvim_tree_callback
 require "nvim-tree".setup {
-    update_focused_file = { enable = true,
-        update_cwd = true,
-        ignore_list = {".git", "node_modules", ".cache"}
-    },
     auto_close = true,
-    disable_netrw = true,
-    hijack_netrw = true,
-    open_on_setup = false,
-    ignore_ft_on_setup = {},
-    open_on_tab = true,
-    hijack_cursor = false,
-    update_cwd = true,
     view = {
         width = 30,
         side = "left",
@@ -56,3 +45,4 @@ require "nvim-tree".setup {
     }
 }
 
+vim.g.nvim_tree_indent_markers = 1
