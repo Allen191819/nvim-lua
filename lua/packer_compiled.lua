@@ -101,11 +101,8 @@ _G.packer_plugins = {
     path = "/home/allen/.local/share/nvim/site/pack/packer/opt/cmp-emoji"
   },
   ["cmp-latex-symbols"] = {
-    after_files = { "/home/allen/.local/share/nvim/site/pack/packer/opt/cmp-latex-symbols/after/plugin/cmp_latex.lua" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/cmp-latex-symbols"
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-latex-symbols"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -463,8 +460,7 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'cmp-emoji', 'cmp-latex-symbols'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType latex ++once lua require("packer.load")({'cmp-latex-symbols'}, { ft = "latex" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'cmp-emoji'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
