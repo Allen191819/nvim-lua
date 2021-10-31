@@ -39,6 +39,7 @@ return require("packer").startup(
             use "hrsh7th/cmp-nvim-lsp"
             use "hrsh7th/cmp-path"
             use "hrsh7th/cmp-nvim-lua"
+            -- use {"hrsh7th/cmp-emoji", ft={'markdown'}}
             use "f3fora/cmp-spell"
             use "ray-x/cmp-treesitter"
             use "hrsh7th/cmp-calc"
