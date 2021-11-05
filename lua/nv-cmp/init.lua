@@ -165,7 +165,8 @@ cmp.setup {
                 spell = "[Spell]",
                 path = "[Path]",
                 vim_dadbod_completion = "[DB]",
-                latex_symbols = "[Latex]"
+                latex_symbols = "[Latex]",
+                cmdline = "[Cmd]"
             })[entry.source.name]
             return vim_item
         end

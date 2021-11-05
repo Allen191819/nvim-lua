@@ -93,6 +93,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-calc"
   },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-cmdline"
+  },
   ["cmp-emoji"] = {
     after_files = { "/home/allen/.local/share/nvim/site/pack/packer/opt/cmp-emoji/after/plugin/cmp_emoji.lua" },
     loaded = false,
