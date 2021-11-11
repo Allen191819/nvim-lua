@@ -105,3 +105,9 @@ require("telescope").load_extension("ultisnips")
 require("telescope").load_extension("dbcli")
 --require("telescope").load_extension("projects")
 require("telescope").load_extension("vim_bookmarks")
+
+
+
+
+
+

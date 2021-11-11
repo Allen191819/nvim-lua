@@ -3,7 +3,7 @@
 " Maintainer:	Tom Picton <tom@tompicton.co.uk>
 " Previous Maintainer: James Sully <sullyj3@gmail.com>
 " Previous Maintainer: Johannes Zellner <johannes@zellner.org>
-" Last Change:	Mon, 5 October 2020
+" Last Change:	Wed, 8 September 2021
 " https://github.com/tpict/vim-ftplugin-python
 
 if exists("b:did_ftplugin") | finish | endif
@@ -87,6 +87,7 @@ endif
 if !exists('*<SID>Python_jump')
   fun! <SID>Python_jump(mode, motion, flags, count, ...) range
       let l:startofline = (a:0 >= 1) ? a:1 : 1
+      normal m'
 
       if a:mode == 'x'
           normal! gv
@@ -97,7 +98,6 @@ if !exists('*<SID>Python_jump')
       endif
 
       let cnt = a:count
-      mark '
       while cnt > 0
           call search(a:motion, a:flags)
           let cnt = cnt - 1

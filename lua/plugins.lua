@@ -81,6 +81,7 @@ return require("packer").startup(
             use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
             use "fhill2/telescope-ultisnips.nvim"
             use {"mark-coyle/telescope-dbcli.nvim"}
+            use 'nvim-telescope/telescope-symbols.nvim'
             use "tom-anders/telescope-vim-bookmarks.nvim"
 
             -- Dev icons
