@@ -105,6 +105,8 @@ vim.api.nvim_set_keymap("n", "<Leader>fr", ":Telescope lsp_workspace_diagnostics
 vim.api.nvim_set_keymap("n", "<Leader>fm", ":Telescope media_files<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>fs", ":Telescope symbol<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>ds", ":Telescope lsp_document_symbols<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "<Leader>dr", ":Telescope registers<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "//", ":Telescope current_buffer_fuzzy_find<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>sl", ":<C-u>SessionLoad<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>cn", ":DashboardNewFile<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>tc", ":DashboardChangeColorscheme<CR>", {noremap = true, silent = false})
