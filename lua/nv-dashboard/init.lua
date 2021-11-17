@@ -8,7 +8,6 @@ vim.g.dashboard_session_directory = '~/.config/nvim/tmp/session'
 vim.g.dashboard_default_executive ='telescope'
 
 
--- 老婆 嘿嘿～～
 vim.g.dashboard_custom_header={
     '',
     '',

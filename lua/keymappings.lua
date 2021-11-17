@@ -77,11 +77,9 @@ vim.api.nvim_set_keymap("n", "<c-p>", '<Esc>/<++><CR>:nohlsearch<CR>"_c4l', {sil
 
 -- Lsp
 vim.api.nvim_set_keymap("n","gh","<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>",{silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>ca", ":Lspsaga code_action<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("v", "<leader>ca", ":<C-U>Lspsaga range_code_action<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>ac", ":Telescope lsp_code_actions<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>rc", ":Telescope lsp_range_code_actions<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<[>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<]>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>r", ":Lspsaga rename<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gp", ":Lspsaga preview_definition<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>cd", "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", {silent = true, noremap = true})
@@ -90,8 +88,8 @@ vim.api.nvim_set_keymap("n", "g[", ":Lspsaga diagnostic_jump_prev<CR>", {silent 
 vim.api.nvim_set_keymap("n", "g]", ":Lspsaga diagnostic_jump_next<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "dc", "<cmd>lua vim.lsp.buf.declaration()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "gr", ":Telescope lsp_references<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "gi", ":Telescope lsp_implementations<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", ",wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", ",wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", ",wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", {silent = true, noremap = true})
@@ -99,14 +97,18 @@ vim.api.nvim_set_keymap("n", "<space>d", "<cmd>lua vim.lsp.buf.type_definition()
 vim.api.nvim_set_keymap("n", ",q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", {silent = true, noremap = true})
 
 -- DashBoard / Telescope
-vim.api.nvim_set_keymap("n", "<Leader>fh", ":DashboardFindHistory<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "<Leader>fh", ":Telescope oldfiles<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "<Leader>fa", ":Telescope grep_string<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "<Leader>fb", ":Telescope vim-bookmarks<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "<Leader>ff", ":Telescope find_files<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "<Leader>fr", ":Telescope lsp_workspace_diagnostics<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "<Leader>fm", ":Telescope media_files<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "<Leader>fs", ":Telescope symbol<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "<Leader>ds", ":Telescope lsp_document_symbols<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>sl", ":<C-u>SessionLoad<CR>", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "<Leader>fa", ":DashboardFindWord<CR>", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "<Leader>fb", ":DashboardJumpMark<CR>", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "<Leader>ff", ":DashboardFindFile<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>cn", ":DashboardNewFile<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>tc", ":DashboardChangeColorscheme<CR>", {noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "<Leader>fm", ":Telescope media_files<CR>", {noremap = true, silent = false})
+
 
 -- Debugger
 --vim.api.nvim_set_keymap('n', 'M',           ':e .vimspector.json<Cr> :r! cat /home/allen/.config/nvim/sample_vimspector_json', { silent=true })

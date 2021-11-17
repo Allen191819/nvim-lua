@@ -1,113 +1,195 @@
-require("telescope").setup {
-    defaults = {
-        vimgrep_arguments = {
-            "rg",
-            "--color=never",
-            "--no-heading",
-            "--with-filename",
-            "--line-number",
-            "--column",
-            "--smart-case"
-        }
-    },
-    extensions = {
-        media_files = {
-            -- filetypes whitelist
-            -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-            filetypes = {"png", "webp", "jpg", "jpeg", "pdf", "mp4"},
-            find_cmd = "fd" -- find command (defaults to `fd`)
-        },
-        fzf = {
-            fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = false, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case" -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
-        },
-        dbcli = {
-            pgcli = {
-                prompt_title = "Pgcli History",
-                history_file = os.getenv("HOME") .. "/.config/pgcli/history"
-            },
-            mssql_cli = {
-                prompt_title = "Mssql-cli History",
-                history_file = os.getenv("HOME") .. "/.config/mssqlcli/history"
-            },
-            on_query_select = {
-                open_in_scratch_buffer = true,
-                add_query_to_register = false
-            }
-        }
-    },
-    prompt_prefix = "> ",
-    selection_caret = "> ",
-    entry_prefix = "  ",
-    initial_mode = "insert",
-    selection_strategy = "reset",
-    sorting_strategy = "descending",
-    layout_strategy = "horizontal",
-    layout_config = {
-        horizontal = {
-            mirror = false
-        },
-        vertical = {
-            mirror = false
-        }
-    },
-    file_sorter = require "telescope.sorters".get_fuzzy_file,
-    file_ignore_patterns = {},
-    generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
-    winblend = 0,
-    border = {},
-    borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
-    color_devicons = true,
-    use_less = true,
-    path_display = {},
-    set_env = {["COLORTERM"] = "truecolor"}, -- default = nil,
-    file_previewer = require "telescope.previewers".vim_buffer_cat.new,
-    grep_previewer = require "telescope.previewers".vim_buffer_vimgrep.new,
-    qflist_previewer = require "telescope.previewers".vim_buffer_qflist.new,
-    -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker
-}
-require("neoclip").setup(
+-- Lspkind
+require("lspkind").init(
     {
-        history = 1000,
-        filter = nil,
-        enable_persistant_history = false,
-        db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
-        preview = true,
-        default_register = '"',
-        content_spec_column = false,
-        on_paste = {
-            set_reg = false
-        },
-        keys = {
-            i = {
-                select = "<cr>",
-                paste = "<c-p>",
-                paste_behind = "<c-k>",
-                custom = {}
-            },
-            n = {
-                select = "<cr>",
-                paste = "p",
-                paste_behind = "P",
-                custom = {}
-            }
+        with_text = true,
+        preset = "codicons",
+        symbol_map = {
+            TreeSitter = "侮",
+            Text = "",
+            Method = "",
+            Function = "",
+            Constructor = "",
+            Field = "ﰠ",
+            Variable = "",
+            Class = "ﴯ",
+            Interface = "",
+            Module = "",
+            Property = "ﰠ",
+            Unit = "塞",
+            Value = "",
+            Enum = "",
+            Keyword = "",
+            Snippet = "",
+            Color = "",
+            File = "",
+            Reference = "",
+            Folder = "",
+            EnumMember = "",
+            Constant = "",
+            Struct = "ﴯפּ",
+            Event = "",
+            Operator = "",
+            TypeParameter = "ﰧ"
         }
     }
 )
-require("telescope").load_extension("media_files")
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("neoclip")
-require("telescope").load_extension("ultisnips")
-require("telescope").load_extension("dbcli")
---require("telescope").load_extension("projects")
-require("telescope").load_extension("vim_bookmarks")
 
+-- Lsp installer
+local lsp_installer = require("nvim-lsp-installer")
 
+lsp_installer.on_server_ready(
+    function(server)
+        local opts = {}
 
+        server:setup(opts)
+        vim.cmd [[ do User LspAttachBuffers ]]
+    end
+)
 
+-- Lspsaga
+local saga = require "lspsaga"
+saga.init_lsp_saga {
+    use_saga_diagnostic_sign = true,
+    error_sign = "✗",
+    warn_sign = "",
+    hint_sign = "",
+    infor_sign = "",
+    dianostic_header_icon = "   ",
+    code_action_icon = " ",
+    code_action_prompt = {
+        enable = true,
+        sign = true,
+        sign_priority = 20,
+        virtual_text = true
+    },
+    finder_definition_icon = "  ",
+    finder_reference_icon = "  ",
+    max_preview_lines = 13, -- preview lines of lsp_finder and definition preview
+    finder_action_keys = {
+        open = "o",
+        vsplit = "s",
+        split = "i",
+        quit = "q",
+        scroll_down = "<M-f>",
+        scroll_up = "<M-b>" -- quit can be a table
+    },
+    code_action_keys = {
+        quit = "q",
+        exec = "<CR>"
+    },
+    rename_action_keys = {
+        quit = "<C-c>",
+        exec = "<CR>" -- quit can be a table
+    },
+    definition_preview_icon = " ",
+    border_style = "plus",
+    rename_prompt_prefix = "➤",
+    server_filetype_map = {metals = {"sbt", "scala"}}
+}
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = true
+    }
+)
 
+vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+local border = {
+    {"╭", "FloatBorder"},
+    {"─", "FloatBorder"},
+    {"╮", "FloatBorder"},
+    {"│", "FloatBorder"},
+    {"╯", "FloatBorder"},
+    {"─", "FloatBorder"},
+    {"╰", "FloatBorder"},
+    {"│", "FloatBorder"}
+}
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = border})
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = border})
+
+require "lsp_signature".on_attach()
+require "lsp_signature".setup(
+    {
+        bind = true, -- This is mandatory, otherwise border config won't get registered.
+        doc_lines = 8, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
+        floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
+        fix_pos = false, -- set to true, the floating window will not auto-close until finish all parameters
+        hint_enable = true, -- virtual hint enable
+        hint_prefix = "𝓒 ",
+        hint_scheme = "String",
+        hi_parameter = "Search", -- how your parameter will be highlight
+        max_height = 15, -- max height of signature floating_window, if content is more than max_height, you can scroll down
+        max_width = 100, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+        transpancy = 10, -- set this value if you want the floating windows to be transpant (100 fully transpant), nil to disable(default)
+        handler_opts = {
+            border = "single" -- double, single, shadow, none
+        },
+        trigger_on_newline = false, -- set to true if you need multiple line parameter, sometime show signature on new line can be confusing, set it to false for #58
+        extra_trigger_chars = {}, -- Array of extra characters that will trigger signature completion, e.g., {"(", ","}
+        zindex = 200, -- by default it will be on top of all floating windows, set to 50 send it to bottom
+        debug = false, -- set to true to enable debug logging
+        log_path = "debug_log_file_path", -- debug log path
+        padding = "", -- character to pad on left and right of signature can be ' ', or '|'  etc
+        shadow_blend = 36, -- if you using shadow as border use this set the opacity
+        shadow_guibg = "Black", -- if you using shadow as border use this set the color e.g. 'Green' or '#121315'
+        toggle_key = "<M-x>" -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
+    }
+)
+
+vim.g.symbols_outline = {
+    highlight_hovered_item = true,
+    show_guides = true,
+    auto_preview = false,
+    position = "right",
+    width = 18,
+    show_numbers = false,
+    show_relative_numbers = false,
+    show_symbol_details = true,
+    keymaps = {
+        -- These keymaps can be a string or a table for multiple keys
+        close = {"<Esc>", "q"},
+        goto_location = "<Cr>",
+        focus_location = "o",
+        hover_symbol = "<C-t>",
+        toggle_preview = "K",
+        rename_symbol = "r",
+        code_actions = "a"
+    },
+    lsp_blacklist = {},
+    symbol_blacklist = {},
+    symbols = {
+        File = {icon = "", hl = "TSURI"},
+        Module = {icon = "", hl = "TSNamespace"},
+        Namespace = {icon = "", hl = "TSNamespace"},
+        Package = {icon = "", hl = "TSNamespace"},
+        Class = {icon = "𝓒", hl = "TSType"},
+        Method = {icon = "ƒ", hl = "TSMethod"},
+        Property = {icon = "", hl = "TSMethod"},
+        Field = {icon = "", hl = "TSField"},
+        Constructor = {icon = "", hl = "TSConstructor"},
+        Enum = {icon = "ℰ", hl = "TSType"},
+        Interface = {icon = "ﰮ", hl = "TSType"},
+        Function = {icon = "", hl = "TSFunction"},
+        Variable = {icon = "", hl = "TSConstant"},
+        Constant = {icon = "", hl = "TSConstant"},
+        String = {icon = "𝓐", hl = "TSString"},
+        Number = {icon = "#", hl = "TSNumber"},
+        Boolean = {icon = "⊨", hl = "TSBoolean"},
+        Array = {icon = "", hl = "TSConstant"},
+        Object = {icon = "⦿", hl = "TSType"},
+        Key = {icon = "🔐", hl = "TSType"},
+        Null = {icon = "NULL", hl = "TSType"},
+        EnumMember = {icon = "", hl = "TSField"},
+        Struct = {icon = "𝓢", hl = "TSType"},
+        Event = {icon = "🗲", hl = "TSType"},
+        Operator = {icon = "+", hl = "TSOperator"},
+        TypeParameter = {icon = "𝙏", hl = "TSParameter"}
+    }
+}
