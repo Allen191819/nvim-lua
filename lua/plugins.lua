@@ -81,7 +81,7 @@ return require("packer").startup(
             use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
             use "fhill2/telescope-ultisnips.nvim"
             use {"mark-coyle/telescope-dbcli.nvim"}
-            use 'nvim-telescope/telescope-symbols.nvim'
+            use "nvim-telescope/telescope-symbols.nvim"
             use "tom-anders/telescope-vim-bookmarks.nvim"
 
             -- Dev icons
@@ -168,7 +168,16 @@ return require("packer").startup(
 
             -- Talex
             use "jbyuki/nabla.nvim"
-            use "lervag/vimtex"
+            use {
+                "aspeddro/tex.nvim",
+                config = function()
+                    require "tex".setup {
+                        engine = "xelatex",
+                        viewer = "zathura" -- your pdf viewer or 'xdg-open' to open default viewer
+                    }
+                end
+            }
+            -- use "lervag/vimtex"
 
             -- Translate
             use "ianva/vim-youdao-translater"
