@@ -4,7 +4,7 @@ vim.cmd(
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
-		exec "!g++ % -o %< -g"
+		exec "!gcc % -o %< -g"
 		:FloatermNew time ./%<
 	elseif &filetype == 'cpp'
 		exec "!g++ -std=c++11 % -Wall -o %< -g"
@@ -22,8 +22,6 @@ func! CompileRunGcc()
 	elseif &filetype == 'tex'
         silent! exec "TexKill"
         silent! exec "TexCompile"
-        silent! exec "sleep 3"
-		silent! exec "TexViewer"
 	elseif &filetype == 'html'
 		silent! exec "!".g:mkdp_browser." % &"
 	elseif &filetype == 'javascript'
@@ -36,4 +34,3 @@ func! CompileRunGcc()
 endfunc
 ]]
 )
-

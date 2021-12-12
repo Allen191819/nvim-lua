@@ -30,7 +30,6 @@ require("nv-lsp-conf")
 require("lsp.ccls-ls")
 require("lsp.lua-ls")
 require("lsp.sql-ls")
-require("lsp.tex-ls")
 
 -- Plugins
 require("nv-autopair")

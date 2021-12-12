@@ -9,15 +9,31 @@ Last Modified Date: 08.09.2021
 --     max_num_results = 5;
 --     sort = true;
 -- })
-
 vim.g.UltiSnipsRemoveSelectModeMappings = 0
+require("cmp_nvim_ultisnips").setup {
+    show_snippets = "all"
+}
+local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 local types = require("cmp.types")
 local cmp = require "cmp"
+vim.api.nvim_exec([[
+autocmd BufWritePost *.snippets :CmpUltisnipsReloadSnippets
+]], true)
 
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
+local has_any_words_before = function()
+    if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+        return false
+    end
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
+local press = function(key)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true)
+end
 local check_back_space = function()
     local col = vim.fn.col(".") - 1
     return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
@@ -27,66 +43,6 @@ cmp.setup {
         expand = function(args)
             vim.fn["UltiSnips#Anon"](args.body)
         end
-    },
-    mapping = {
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-e>"] = cmp.mapping.close(),
-        ["<CR>"] = cmp.mapping.confirm({select = true}),
-        ["<C-Space>"] = cmp.mapping(
-            function(fallback)
-                if vim.fn.pumvisible() == 1 then
-                    if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-                        return vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
-                    end
-                    vim.fn.feedkeys(t("<C-n>"), "n")
-                elseif check_back_space() then
-                    vim.fn.feedkeys(t("<cr>"), "n")
-                else
-                    fallback()
-                end
-            end,
-            {
-                "i",
-                "s"
-            }
-        ),
-        ["<Tab>"] = cmp.mapping(
-            function(fallback)
-                if vim.fn.complete_info()["selected"] == -1 and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-                    vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
-                elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.fn.feedkeys(t("<ESC>:call UltiSnips#JumpForwards()<CR>"))
-                elseif vim.fn.pumvisible() == 1 then
-                    vim.fn.feedkeys(t("<C-n>"), "n")
-                elseif check_back_space() then
-                    vim.fn.feedkeys(t("<tab>"), "n")
-                else
-                    fallback()
-                end
-            end,
-            {
-                "i",
-                "s"
-            }
-        ),
-        ["<S-Tab>"] = cmp.mapping(
-            function(fallback)
-                if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.fn.feedkeys(t("<C-R>=UltiSnips#JumpBackwards()<CR>"))
-                elseif vim.fn.pumvisible() == 1 then
-                    vim.fn.feedkeys(t("<C-p>"), "n")
-                else
-                    fallback()
-                end
-            end,
-            {
-                "i",
-                "s"
-            }
-        )
     },
     sources = {
         {
@@ -145,6 +101,27 @@ cmp.setup {
             max_item_count = 3
         }
     },
+    mapping = {
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping.confirm({select = true}),
+        ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
+        ["<Tab>"] = cmp.mapping(
+            function(fallback)
+                cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+            end,
+            {"i", "s", "c"}
+        ),
+        ["<S-Tab>"] = cmp.mapping(
+            function(fallback)
+                cmp_ultisnips_mappings.jump_backwards(fallback)
+            end,
+            {"i", "s", "c"}
+        )
+    },
     formatting = {
         format = function(entry, vim_item)
             -- fancy icons and a name of kind
@@ -189,6 +166,28 @@ cmp.setup {
     }
 }
 
+cmp.setup.cmdline(
+    "/",
+    {
+        sources = {
+            {name = "buffer"}
+        }
+    }
+)
+
+cmp.setup.cmdline(
+    ":",
+    {
+        sources = cmp.config.sources(
+            {
+                {name = "path"}
+            },
+            {
+                {name = "cmdline"}
+            }
+        )
+    }
+)
 local lspkind = require("lspkind")
 cmp.setup {
     formatting = {
@@ -236,8 +235,5 @@ require("lspconfig").ccls.setup {
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 require("lspconfig").sqls.setup {
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require("lspconfig").texlab.setup {
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }

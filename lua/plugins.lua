@@ -29,7 +29,6 @@ return require("packer").startup(
             -- Config my lsp
             use "neovim/nvim-lspconfig"
             use "onsails/lspkind-nvim"
-            use {"jasonrhansen/lspsaga.nvim", branch = "finder-preview-fixes"}
             use "williamboman/nvim-lsp-installer"
             --use "kabouzeid/nvim-lspinstall"
 
@@ -39,7 +38,7 @@ return require("packer").startup(
             use "hrsh7th/cmp-nvim-lsp"
             use "hrsh7th/cmp-path"
             use "hrsh7th/cmp-nvim-lua"
-            --            use "hrsh7th/cmp-cmdline"
+            use "hrsh7th/cmp-cmdline"
             use {"hrsh7th/cmp-emoji"}
             use "f3fora/cmp-spell"
             use "ray-x/cmp-treesitter"

@@ -23,4 +23,3 @@ vim.api.nvim_command('hi StatusLine guibg='..'#202328')
 vim.api.nvim_exec([[
 autocmd VimEnter * hi HLIndentLine ctermfg=244
 ]], true)
-

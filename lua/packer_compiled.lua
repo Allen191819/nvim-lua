@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -98,6 +98,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-calc",
     url = "https://github.com/hrsh7th/cmp-calc"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-emoji"] = {
     loaded = true,
@@ -415,6 +420,12 @@ _G.packer_plugins = {
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tex.nvim"] = {
+    config = { "\27LJ\1\2V\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\2\vengine\fxelatex\vviewer\fzathura\nsetup\btex\frequire\0" },
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/tex.nvim",
+    url = "https://github.com/aspeddro/tex.nvim"
+  },
   ["todo-comments.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
@@ -534,11 +545,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-youdao-translater",
     url = "https://github.com/ianva/vim-youdao-translater"
-  },
-  vimtex = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vimtex",
-    url = "https://github.com/lervag/vimtex"
   }
 }
 
@@ -551,6 +557,10 @@ time([[Runtimepath customization]], false)
 time([[Config for markdown-preview.nvim]], true)
 vim.call('mkdp#util#install')
 time([[Config for markdown-preview.nvim]], false)
+-- Config for: tex.nvim
+time([[Config for tex.nvim]], true)
+try_loadstring("\27LJ\1\2V\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\2\vengine\fxelatex\vviewer\fzathura\nsetup\btex\frequire\0", "config", "tex.nvim")
+time([[Config for tex.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

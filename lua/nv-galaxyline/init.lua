@@ -14,7 +14,7 @@ local colors={
     magenta = '#c678dd',
     blue = '#51afef';
     red = '#ec5f67';
-    transparent = '#1f2335';
+    transparent = '#16161e';
 }
 gl.short_line_list = {'NvimTree','vista_kind','dbui','packer','undotree','toggleterm','Outline'}
 

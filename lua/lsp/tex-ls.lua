@@ -1,11 +1,11 @@
-require'lspconfig'.texlab.setup{
+require "lspconfig".texlab.setup {
     cmd = {"texlab"},
     filetypes = {"tex", "bib"},
     settings = {
         texlab = {
             rootDirectory = nil,
             build = {
-                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                args = {"-pdf", "-interaction=nonstopmode", "-synctex=1", "%f"},
                 executable = "xelatex",
                 forwardSearchAfter = false,
                 onSave = false
@@ -22,7 +22,7 @@ require'lspconfig'.texlab.setup{
             latexFormatter = "latexindent",
             latexindent = {
                 modifyLineBreaks = false
-            },
+            }
         },
         forwardSearch = {
             executable = "evince",
