@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap("n", "Rh", ":call CompileRunGccH()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "RR", ":call CompileRunGccH()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "Rf", ":call CompileRunGccF()<CR>", {silent = true, noremap = true})
 vim.cmd(
     [[
@@ -21,8 +21,8 @@ func! CompileRunGccH()
 	elseif &filetype == 'markdown'
 		exec "MarkdownPreview"
 	elseif &filetype == 'tex'
-        silent! exec "TexKill"
-        silent! exec "TexCompile"
+        silent! exec "VimtexStopAll"
+        silent! exec "VimtexCompile"
 	elseif &filetype == 'html'
 		silent! exec "!".g:mkdp_browser." % &"
 	elseif &filetype == 'javascript'
@@ -54,19 +54,10 @@ func! CompileRunGccF()
 		:FloatermNew bash %
 	elseif &filetype == 'python'
 		:FloatermNew python3 %
-	elseif &filetype == 'markdown'
-		exec "MarkdownPreview"
-	elseif &filetype == 'tex'
-        silent! exec "TexKill"
-        silent! exec "TexCompile"
-	elseif &filetype == 'html'
-		silent! exec "!".g:mkdp_browser." % &"
 	elseif &filetype == 'javascript'
 		:FloatermNew export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
 	elseif &filetype == 'go'
 		:FloatermNew go run %
-	elseif &filetype == 'csv'
-        silent! exec "lua require('nvim-preview-csv').preview()"
 	endif
 endfunc
 ]]

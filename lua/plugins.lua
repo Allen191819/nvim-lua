@@ -88,6 +88,7 @@ return require("packer").startup(
 
             -- Statusline
             use {"glepnir/galaxyline.nvim", branch = "main"}
+			-- use 'nvim-lualine/lualine.nvim'
 
             -- Bufferline
             use "akinsho/bufferline.nvim"
@@ -166,19 +167,18 @@ return require("packer").startup(
             use "mzlogin/vim-markdown-toc"
 
             -- Talex
-            use "jbyuki/nabla.nvim"
-            use {
-                "aspeddro/tex.nvim",
-                config = function()
-                    require "tex".setup {
-                        engine = "xelatex",
-                        viewer = "zathura" -- your pdf viewer or 'xdg-open' to open default viewer
-                    }
-                end
-            }
-            -- use "lervag/vimtex"
+            use "lervag/vimtex"
+            --             use {
+            --                 "aspeddro/tex.nvim",
+            --                 config = function()
+            --                     require "tex".setup {
+            --                         engine = "xelatex",
+            --                         viewer = "zathura" -- your pdf viewer or 'xdg-open' to open default viewer
+            --                     }
+            --                 end
+            --             }
 
-            -- Translate
+            --             -- Translate
             use "ianva/vim-youdao-translater"
 
             -- Smoothly scroll
