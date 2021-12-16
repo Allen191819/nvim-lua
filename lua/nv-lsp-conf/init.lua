@@ -33,7 +33,6 @@ require("lspkind").init(
         }
     }
 )
-
 -- Lsp installer
 local lsp_installer = require("nvim-lsp-installer")
 
@@ -133,7 +132,7 @@ cfg = {
     bind = true, -- This is mandatory, otherwise border config won't get registered.
     doc_lines = 8, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
     floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
-    fix_pos = false, -- set to true, the floating window will not auto-close until finish all parameters
+    fix_pos = true, -- set to true, the floating window will not auto-close until finish all parameters
     floating_window_above_cur_line = true,
     hint_enable = true, -- virtual hint enable
     hint_prefix = "𝓒 ",
@@ -143,10 +142,9 @@ cfg = {
     max_width = 100, -- max_width of signature floating_window, line will be wrapped if exceed max_width
     transpancy = 10, -- set this value if you want the floating windows to be transpant (100 fully transpant), nil to disable(default)
     handler_opts = {
-        border = "single" -- double, single, shadow, none
+        border = "double" -- double, single, shadow, none
     },
     trigger_on_newline = false, -- set to true if you need multiple line parameter, sometime show signature on new line can be confusing, set it to false for #58
-    extra_trigger_chars = {}, -- Array of extra characters that will trigger signature completion, e.g., {"(", ","}
     zindex = 200, -- by default it will be on top of all floating windows, set to 50 send it to bottom
     debug = false, -- set to true to enable debug logging
     log_path = "debug_log_file_path", -- debug log path
