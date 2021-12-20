@@ -73,9 +73,9 @@ require("telescope").setup {
 require("neoclip").setup(
     {
         history = 1000,
-        filter = nil,
         enable_persistant_history = false,
         db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
+        filter = nil,
         preview = true,
         default_register = '"',
         content_spec_column = false,
@@ -83,16 +83,24 @@ require("neoclip").setup(
             set_reg = false
         },
         keys = {
-            i = {
-                select = "<cr>",
-                paste = "<c-p>",
-                paste_behind = "<c-k>",
-                custom = {}
+            telescope = {
+                i = {
+                    select = "<cr>",
+                    paste = "<c-p>",
+                    paste_behind = "<c-k>",
+                    custom = {}
+                },
+                n = {
+                    select = "<cr>",
+                    paste = "p",
+                    paste_behind = "P",
+                    custom = {}
+                }
             },
-            n = {
-                select = "<cr>",
-                paste = "p",
-                paste_behind = "P",
+            fzf = {
+                select = "default",
+                paste = "ctrl-p",
+                paste_behind = "ctrl-k",
                 custom = {}
             }
         }
@@ -105,9 +113,5 @@ require("telescope").load_extension("ultisnips")
 require("telescope").load_extension("dbcli")
 --require("telescope").load_extension("projects")
 require("telescope").load_extension("vim_bookmarks")
-
-
-
-
-
+require('telescope').load_extension('aerial')
 

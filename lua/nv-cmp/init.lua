@@ -15,7 +15,7 @@ tabnine:setup(
         max_lines = 200,
         max_num_results = 20,
         sort = true,
-        run_on_every_keystroke = true,
+        run_on_every_keystroke = true
     }
 )
 vim.g.UltiSnipsRemoveSelectModeMappings = 0

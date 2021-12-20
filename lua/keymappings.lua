@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap("n", "<leader>h", ":set hlsearch!<CR>", {noremap = true,
 -- explore tree
 vim.api.nvim_set_keymap("n", "L", ":UndotreeToggle<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>b", ":SymbolsOutline<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>b", ":AerialToggle<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>y", ":Telescope neoclip<CR>", {silent = true})
 
 -- window movement
@@ -106,6 +106,7 @@ vim.api.nvim_set_keymap("n", "<Leader>fm", ":Telescope media_files<CR>", {norema
 vim.api.nvim_set_keymap("n", "<Leader>fs", ":Telescope symbol<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>ds", ":Telescope lsp_document_symbols<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>dr", ":Telescope registers<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "N", ":Telescope aerial<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "//", ":Telescope current_buffer_fuzzy_find<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>sl", ":<C-u>SessionLoad<CR>", {noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>cn", ":DashboardNewFile<CR>", {noremap = true, silent = false})

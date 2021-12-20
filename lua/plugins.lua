@@ -4,18 +4,51 @@ Date              : 01.09.2021
 Last Modified Date: 01.09.2021
 --]] --
 
-local execute = vim.api.nvim_command
 local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-local packer = require("packer")
 
+-- Automatically install packer
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path})
-    execute "packadd packer.nvim"
+    PACKER_BOOTSTRAP =
+        fn.system {
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path
+    }
+    print "Installing packer close and reopen Neovim..."
+    vim.cmd [[packadd packer.nvim]]
 end
-return require("packer").startup(
+
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
+
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+    return
+end
+
+-- Have packer use a popup window
+packer.init {
+    display = {
+        open_fn = function()
+            return require("packer.util").float {border = "rounded"}
+        end
+    }
+}
+-- Install your plugins here
+return packer.startup(
     {
-        function()
+        function(use)
+            -- My plugins here
             -- Packer can manage itself
             use "wbthomason/packer.nvim"
             use "lewis6991/impatient.nvim"
@@ -41,7 +74,7 @@ return require("packer").startup(
             use "hrsh7th/cmp-cmdline"
             use {"hrsh7th/cmp-emoji"}
             use "f3fora/cmp-spell"
-            use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+            use {"tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp"}
             use "ray-x/cmp-treesitter"
             use "hrsh7th/cmp-calc"
             use "quangnguyen30192/cmp-nvim-ultisnips"
@@ -89,7 +122,7 @@ return require("packer").startup(
 
             -- Statusline
             use {"glepnir/galaxyline.nvim", branch = "main"}
-			-- use 'nvim-lualine/lualine.nvim'
+            -- use 'nvim-lualine/lualine.nvim'
 
             -- Bufferline
             use "akinsho/bufferline.nvim"
@@ -193,7 +226,8 @@ return require("packer").startup(
             use {"michaelb/sniprun", run = "bash ./install.sh 1"}
 
             -- Tagbar
-            use "simrat39/symbols-outline.nvim"
+            -- use "simrat39/symbols-outline.nvim"
+            use {"stevearc/aerial.nvim"}
 
             -- Mulit cursors
             use "mg979/vim-visual-multi"
@@ -233,6 +267,9 @@ return require("packer").startup(
             -- use 'mfussenegger/nvim-dap'
             -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
             -- use "Pocco81/DAPInstall.nvim"
+            if PACKER_BOOTSTRAP then
+                require("packer").sync()
+            end
         end,
         config = {
             -- Move to lua dir so impatient.nvim can cache it
