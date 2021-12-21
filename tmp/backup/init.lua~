@@ -1,117 +1,66 @@
-require("telescope").setup {
-    defaults = {
-        vimgrep_arguments = {
-            "rg",
-            "--color=never",
-            "--no-heading",
-            "--with-filename",
-            "--line-number",
-            "--column",
-            "--smart-case"
-        }
-    },
-    extensions = {
-        media_files = {
-            -- filetypes whitelist
-            -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-            filetypes = {"png", "webp", "jpg", "jpeg", "pdf", "mp4"},
-            find_cmd = "fd" -- find command (defaults to `fd`)
-        },
-        fzf = {
-            fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = false, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case" -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
-        },
-        dbcli = {
-            pgcli = {
-                prompt_title = "Pgcli History",
-                history_file = os.getenv("HOME") .. "/.config/pgcli/history"
-            },
-            mssql_cli = {
-                prompt_title = "Mssql-cli History",
-                history_file = os.getenv("HOME") .. "/.config/mssqlcli/history"
-            },
-            on_query_select = {
-                open_in_scratch_buffer = true,
-                add_query_to_register = false
-            }
-        }
-    },
-    prompt_prefix = "> ",
-    selection_caret = "> ",
-    entry_prefix = "  ",
-    initial_mode = "insert",
-    selection_strategy = "reset",
-    sorting_strategy = "descending",
-    layout_strategy = "horizontal",
-    layout_config = {
-        horizontal = {
-            mirror = false
-        },
-        vertical = {
-            mirror = false
-        }
-    },
-    file_sorter = require "telescope.sorters".get_fuzzy_file,
-    file_ignore_patterns = {},
-    generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
-    winblend = 0,
-    border = {},
-    borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
-    color_devicons = true,
-    use_less = true,
-    path_display = {},
-    set_env = {["COLORTERM"] = "truecolor"}, -- default = nil,
-    file_previewer = require "telescope.previewers".vim_buffer_cat.new,
-    grep_previewer = require "telescope.previewers".vim_buffer_vimgrep.new,
-    qflist_previewer = require "telescope.previewers".vim_buffer_qflist.new,
-    -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker
-}
-require("neoclip").setup(
-    {
-        history = 1000,
-        enable_persistant_history = false,
-        db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
-        filter = nil,
-        preview = true,
-        default_register = '"',
-        content_spec_column = false,
-        on_paste = {
-            set_reg = false
-        },
-        keys = {
-            telescope = {
-                i = {
-                    select = "<cr>",
-                    paste = "<c-p>",
-                    paste_behind = "<c-k>",
-                    custom = {}
-                },
-                n = {
-                    select = "<cr>",
-                    paste = "p",
-                    paste_behind = "P",
-                    custom = {}
-                }
-            },
-            fzf = {
-                select = "default",
-                paste = "ctrl-p",
-                paste_behind = "ctrl-k",
-                custom = {}
-            }
-        }
-    }
-)
-require("telescope").load_extension("media_files")
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("neoclip")
-require("telescope").load_extension("ultisnips")
-require("telescope").load_extension("dbcli")
---require("telescope").load_extension("projects")
-require("telescope").load_extension("vim_bookmarks")
+--[[--
+File              : init.lua
+Date              : 08.09.2021
+Last Modified Date: 08.09.2021
+--]] --
+--[[
+--
+      ________   _______   ________  ___      ___ ___  _____ _______
+     |\   ___  \|\  ___ \ |\   __  \|\  \    /  /|\  \|\   _ \  _   \
+     \ \  \\ \  \ \   __/|\ \  \|\  \ \  \  /  / | \  \ \  \\\__\ \  \
+      \ \  \\ \  \ \  \_|/_\ \  \\\  \ \  \/  / / \ \  \ \  \\|__| \  \
+       \ \  \\ \  \ \  \_|\ \ \  \\\  \ \    / /   \ \  \ \  \    \ \  \
+	    \ \__\\ \__\ \_______\ \_______\ \__/ /     \ \__\ \__\    \ \__\
+	     \|__| \|__|\|_______|\|_______|\|__|/       \|__|\|__|     \|__|
 
+-- ]]
+-- TODO: Add debug in future
+-- INFO: It very nice!
+-- General
+require("impatient")
+require "impatient".enable_profile()
+require("plugins")
+require("keymappings")
+require("colorscheme")
+require("function")
+require("settings")
 
+-- Lsp
+require("nv-lsp-conf")
+require("lsp.ccls-ls")
+require("lsp.lua-ls")
+require("lsp.sql-ls")
+
+-- Plugins
+require("nv-autopair")
+require("nv-bufferline")
+require("nv-coderun")
+require("nv-colorizer")
+require("nv-commenter")
+require("nv-cmp")
+require("nv-csv")
+require("nv-dadbod")
+require("nv-dashboard")
+-- require('nv-debugger')
+require("nv-diffview")
+require("nv-easymotion")
+require("nv-floaterm")
+require("nv-folder")
+require("nv-format")
+-- require("nv-galaxyline")
+require("nv-git")
+require("nv-header")
+require("nv-hlchunk")
+require("nv-indent-blankline")
+require("nv-iswap")
+require("nv-latex")
+require("nv-markdown")
+require("nv-notify")
+require("nv-numb")
+require("nv-nvim-tree")
+-- require('nv-project')
+require("nv-neoscroll")
+require("nv-telescope")
+require("nv-treesitter")
+require("nv-undotree")
+require("nv-venn")

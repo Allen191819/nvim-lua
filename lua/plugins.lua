@@ -78,7 +78,7 @@ return packer.startup(
             use "ray-x/cmp-treesitter"
             use "hrsh7th/cmp-calc"
             use "quangnguyen30192/cmp-nvim-ultisnips"
-            use {"kdheepak/cmp-latex-symbols"}
+            -- use {"kdheepak/cmp-latex-symbols"}
 
             -- Notify
             use "rcarriga/nvim-notify"
@@ -91,7 +91,9 @@ return packer.startup(
             use {"Allen191819/vim-snippets", rtp = "."}
 
             -- Colorscheme
-            use "folke/tokyonight.nvim"
+            -- use "folke/tokyonight.nvim"
+            -- use "Mofiqul/dracula.nvim"
+            use "marko-cerovac/material.nvim"
 
             -- Switch Surround thing
             use "tpope/vim-surround"
@@ -121,8 +123,9 @@ return packer.startup(
             use "kyazdani42/nvim-web-devicons"
 
             -- Statusline
-            use {"glepnir/galaxyline.nvim", branch = "main"}
-            -- use 'nvim-lualine/lualine.nvim'
+            -- use {"glepnir/galaxyline.nvim", branch = "main"}
+            use "nvim-lualine/lualine.nvim"
+            use "arkav/lualine-lsp-progress"
 
             -- Bufferline
             use "akinsho/bufferline.nvim"
