@@ -102,7 +102,6 @@ return packer.startup(
             use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
             use "nvim-treesitter/playground"
             use "nvim-treesitter/nvim-treesitter-refactor"
-            use "nvim-treesitter/nvim-treesitter-textobjects"
             use "andymass/vim-matchup"
             use "romgrk/nvim-treesitter-context"
             use "p00f/nvim-ts-rainbow"
@@ -143,7 +142,7 @@ return packer.startup(
             use "mbbill/undotree"
 
             -- Floaterm
-            use {"akinsho/nvim-toggleterm.lua"}
+            -- use {"akinsho/nvim-toggleterm.lua"}
             use "voldikss/vim-floaterm"
 
             -- Easymotion
@@ -205,17 +204,6 @@ return packer.startup(
 
             -- Talex
             use "lervag/vimtex"
-            --             use {
-            --                 "aspeddro/tex.nvim",
-            --                 config = function()
-            --                     require "tex".setup {
-            --                         engine = "xelatex",
-            --                         viewer = "zathura" -- your pdf viewer or 'xdg-open' to open default viewer
-            --                     }
-            --                 end
-            --             }
-
-            --             -- Translate
             use "ianva/vim-youdao-translater"
 
             -- Smoothly scroll

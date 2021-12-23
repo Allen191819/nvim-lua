@@ -26,12 +26,7 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", {silent = true})
 vim.api.nvim_set_keymap("v", "<", "<gv", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("v", ">", ">gv", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("i", "<Cr>", "<CR>x<BS>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap(
-    "n",
-    "o",
-    'o<cmd>lua require("smart-cursor").indent_cursor()<cr>',
-    {silent = true, noremap = true}
-)
+vim.api.nvim_set_keymap( "n", "o", 'o<cmd>lua require("smart-cursor").indent_cursor()<cr>', {silent = true, noremap = true})
 
 -- switch
 vim.api.nvim_set_keymap("n", "<TAB>", ":bnext<CR>", {noremap = true, silent = true})
@@ -61,9 +56,13 @@ vim.api.nvim_set_keymap("n", "T", "<Plug>(eft-T)", {silent = true})
 vim.api.nvim_set_keymap("x", "T", "<Plug>(eft-T)", {silent = true})
 vim.api.nvim_set_keymap("o", "T", "<Plug>(eft-T)", {silent = true})
 
+-- Easy selection
+vim.api.nvim_set_keymap("v", "v", "<Plug>(expand_region_expand)", {silent = true})
+vim.api.nvim_set_keymap("v", "V", "<Plug>(expand_region_shrink)", {silent = true})
+
 -- Easy term
-vim.api.nvim_set_keymap("n", "<leader>th", ":ToggleTerm size=20 direction=horizontal<Cr>", {silent = true})
-vim.api.nvim_set_keymap("n", "<leader>tv", ":ToggleTerm size=100 direction=vertical<Cr>", {silent = true})
+vim.api.nvim_set_keymap("n", "<leader>th", ":FloatermNew --wintype=split --height=0.40<Cr>", {silent = true})
+vim.api.nvim_set_keymap("n", "<leader>tv", ":FloatermNew --wintype=vsplit --width=0.40<Cr>", {silent = true})
 
 -- Shortcut
 vim.api.nvim_set_keymap("n", "W", ":Autoformat<Cr>:w<Cr>", {silent = true})
@@ -75,7 +74,7 @@ vim.api.nvim_set_keymap("n", "E", ":<C-u>Yde<CR>", {silent = true})
 
 vim.api.nvim_set_keymap("i", "<c-p>", '<Esc>/<++><CR>:nohlsearch<CR>"_c4l', {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<c-p>", '<Esc>/<++><CR>:nohlsearch<CR>"_c4l', {silent = true, noremap = true})
-vim.api.nvim_set_keymap("i", ",p", '<++>', {silent = true, noremap = true})
+vim.api.nvim_set_keymap("i", ":p", '<++>', {silent = true, noremap = true})
 
 -- Lsp
 vim.api.nvim_set_keymap("n", "<leader>ac", ":Telescope lsp_code_actions<CR>", {silent = true, noremap = true})
