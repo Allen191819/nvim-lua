@@ -190,6 +190,13 @@ lsp_installer.on_server_ready(
     end
 )
 lsp_installer.on_server_ready(
+    function(clangd)
+        clangd:setup {
+            capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        }
+    end
+)
+lsp_installer.on_server_ready(
     function(pylsp)
         pylsp:setup {
             capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())

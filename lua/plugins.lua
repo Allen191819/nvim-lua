@@ -24,10 +24,10 @@ end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost plugins.lua source <afile> | PackerSync
+augroup end
 ]]
 
 -- Use a protected call so we don't error out on first use
@@ -51,9 +51,11 @@ return packer.startup(
             -- My plugins here
             -- Packer can manage itself
             use "wbthomason/packer.nvim"
+
+            -- Lazy load
             use "lewis6991/impatient.nvim"
 
-            -- Simple plugins can be specified as strings
+            -- Nvimtree
             use "cseickel/nvim-tree.lua"
 
             -- Troublu integration
@@ -63,7 +65,6 @@ return packer.startup(
             use "neovim/nvim-lspconfig"
             use "onsails/lspkind-nvim"
             use "williamboman/nvim-lsp-installer"
-            --use "kabouzeid/nvim-lspinstall"
 
             -- Complete of nvim
             use "hrsh7th/nvim-cmp"
@@ -78,7 +79,6 @@ return packer.startup(
             use "ray-x/cmp-treesitter"
             use "hrsh7th/cmp-calc"
             use "quangnguyen30192/cmp-nvim-ultisnips"
-            -- use {"kdheepak/cmp-latex-symbols"}
 
             -- Notify
             use "rcarriga/nvim-notify"
@@ -91,9 +91,9 @@ return packer.startup(
             use {"Allen191819/vim-snippets", rtp = "."}
 
             -- Colorscheme
-            -- use "folke/tokyonight.nvim"
-            -- use "Mofiqul/dracula.nvim"
             use "marko-cerovac/material.nvim"
+            use "olimorris/onedarkpro.nvim"
+            use "rebelot/kanagawa.nvim"
 
             -- Switch Surround thing
             use "tpope/vim-surround"
@@ -105,6 +105,9 @@ return packer.startup(
             use "andymass/vim-matchup"
             use "romgrk/nvim-treesitter-context"
             use "p00f/nvim-ts-rainbow"
+
+            -- Hightlight for code blocks
+            use "lukas-reineke/headlines.nvim"
 
             -- Telescope
             use "nvim-lua/popup.nvim"
@@ -122,7 +125,6 @@ return packer.startup(
             use "kyazdani42/nvim-web-devicons"
 
             -- Statusline
-            -- use {"glepnir/galaxyline.nvim", branch = "main"}
             use "nvim-lualine/lualine.nvim"
             use "arkav/lualine-lsp-progress"
 
@@ -142,7 +144,6 @@ return packer.startup(
             use "mbbill/undotree"
 
             -- Floaterm
-            -- use {"akinsho/nvim-toggleterm.lua"}
             use "voldikss/vim-floaterm"
 
             -- Easymotion
@@ -150,8 +151,13 @@ return packer.startup(
             use "haya14busa/incsearch-easymotion.vim"
             use "Lokaltog/vim-easymotion"
 
-            -- Region
+            -- Region expand
             use "Allen191819/vim-expand-region"
+
+            -- Textobj
+            use "kana/vim-textobj-user"
+            use "sgur/vim-textobj-parameter"
+            use "kana/vim-textobj-line"
 
             -- Automatically pair
             use "jiangmiao/auto-pairs"
@@ -191,7 +197,7 @@ return packer.startup(
             -- Plugins for markdown
             use "dhruvasagar/vim-table-mode"
             use {"yaocccc/markdown-preview.nvim", config = "vim.call('mkdp#util#install')"}
-            use "520Matches/fcitx5.vim"
+            use "h-hg/fcitx.nvim"
             use "ekickx/clipboard-image.nvim"
             use "rafcamlet/simple-wiki.nvim"
             use {
@@ -202,8 +208,10 @@ return packer.startup(
             }
             use "mzlogin/vim-markdown-toc"
 
-            -- Talex
+            -- Latex
             use "lervag/vimtex"
+
+            -- Translater
             use "ianva/vim-youdao-translater"
 
             -- Smoothly scroll
@@ -217,7 +225,6 @@ return packer.startup(
             use {"michaelb/sniprun", run = "bash ./install.sh 1"}
 
             -- Tagbar
-            -- use "simrat39/symbols-outline.nvim"
             use {"stevearc/aerial.nvim"}
 
             -- Mulit cursors
@@ -227,7 +234,7 @@ return packer.startup(
             use "brooth/far.vim"
 
             -- Startup time
-            use "dstein64/vim-startuptime"
+            -- use "dstein64/vim-startuptime"
 
             -- Easy swap
             use "mizlan/iswap.nvim"
@@ -235,15 +242,9 @@ return packer.startup(
             -- File header
             use "alpertuna/vim-header"
 
-            -- Draw
-            use "jbyuki/venn.nvim"
-
             -- Database
             use "tpope/vim-dadbod"
             use "kristijanhusak/vim-dadbod-ui"
-
-            -- project
-            --use "ahmedkhalf/project.nvim"
 
             -- Jump livly
             use "nacro90/numb.nvim"
@@ -253,11 +254,7 @@ return packer.startup(
 
             -- Csv
             use "Nguyen-Hoang-Nam/nvim-preview-csv"
-            -- Debugger
-            -- use 'puremourning/vimspector'
-            -- use 'mfussenegger/nvim-dap'
-            -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-            -- use "Pocco81/DAPInstall.nvim"
+
             if PACKER_BOOTSTRAP then
                 require("packer").sync()
             end

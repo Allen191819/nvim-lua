@@ -111,7 +111,6 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("neoclip")
 require("telescope").load_extension("ultisnips")
 require("telescope").load_extension("dbcli")
---require("telescope").load_extension("projects")
 require("telescope").load_extension("vim_bookmarks")
 require('telescope').load_extension('aerial')
 

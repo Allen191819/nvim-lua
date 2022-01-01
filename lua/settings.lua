@@ -58,20 +58,19 @@ vim.o.termguicolors = true
 vim.o.backupdir = "/home/allen/.config/nvim/tmp/backup"
 vim.o.directory = "/home/allen/.config/nvim/tmp/backup"
 
---vim.cmd('silent !mkdir -p ~/.config/nvim/tmp/backup')
---vim.cmd('silent !mkdir -p ~/.config/nvim/tmp/undo')
---vim.cmd('silent !mkdir -p ~/.config/nvim/tmp/sessions')
-
 if vim.fn.has("persistent_undo") then
     vim.o.undofile = true
     vim.o.undodir = "/home/allen/.config/nvim/tmp/undo"
 end
 
+
 vim.cmd([[
 set fillchars=eob:\ ,vert:\┊
 set guifont=mononoki\ Nerd\ Font:h8:ib8
+set list
+set listchars=tab:\|\ ,trail:▫
 ]])
---vim.g.python_host_skip_check=1
---vim.g.python_host_prog="/usr/bin/python2"
---vim.g.python3_host_skip_check=1
---vim.g.python3_host_prog="/home/allen/.miniconda/bin/python3"
+
+vim.cmd [[
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+]]

@@ -20,7 +20,7 @@ vim.api.nvim_set_keymap("", "zg/", "<Plug>(incsearch-easymotion-stay)", {silent 
 
 vim.cmd [[
 let g:expand_region_text_objects = {
-      \ 'iw'  :1,
+      \ 'iw'  :0,
       \ 'iW'  :0,
       \ 'i"'  :1,
       \ 'i''' :1,
@@ -28,5 +28,7 @@ let g:expand_region_text_objects = {
       \ 'ib'  :1, 
       \ 'iB'  :1, 
       \ 'ip'  :1,
+	  \ 'i,'  :1,
+	  \ 'il'  :1
       \ }
 ]]

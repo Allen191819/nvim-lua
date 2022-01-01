@@ -20,36 +20,3 @@ vim.g.vimtex_syntax_conceal = {
     sections = 1,
     styles = 1
 }
--- require "tex".setup {
---     engine = "xelatex", -- tex engine
---     compile = {
---         events = {"BufWritePost"}, -- compile when buffer is saved
---         watchlist = true -- enable feature to compile file when any file from watch list is changed
---     },
---     viewer = "zathura",
---     engines = {
---         -- engines config
---         tectonic = {},
---         latexmk = {
---             args = {
---                 "-pdf",
---                 ["-interaction"] = "nonstopmode"
---             }
---         },
---         pdflatex = {
---             args = {
---                 ["-interaction"] = "nonstopmode"
---             }
---         },
---         xelatex = {
---             args = {
---                 ["-interaction"] = "nonstopmode"
---             }
---         },
---         lualatex = {
---             args = {
---                 ["-interaction"] = "nonstopmode"
---             }
---         }
---     }
--- }

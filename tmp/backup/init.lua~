@@ -1,55 +1,62 @@
-require "treesitter-context.config".setup {
-    enable = true -- Enable this plugin (Can be enabled/disabled later via commands)
-}
-require "nvim-treesitter.configs".setup {
-    refactor = {
-        highlight_definitions = {
-            enable = true,
-            disable = {"html"}
-        },
-        smart_rename = {
-            enable = false,
-            keymaps = {
-                smart_rename = "grr"
-            }
-        }
-    },
-    matchup = {
-        enable = true, -- mandatory, false will disable the whole extension
-        disable = {"html"} -- optional, list of language that will be disabled
-    },
-    highlight = {
-        enable = true,
-        disable = {"latex"},
-        custom_captures = {
-            -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-            ["foo.bar"] = "Identifier"
-        }
-    },
-    rainbow = {
-        enable = true,
-        extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-        max_file_lines = 200 -- Do not enable for files with more than 1000 lines, int
-    },
-    playground = {
-        enable = true,
-        disable = {"html"},
-        updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-        persist_queries = false, -- Whether the query persists across vim sessions
-        keybindings = {
-            toggle_query_editor = "o",
-            toggle_hl_groups = "i",
-            toggle_injected_languages = "t",
-            toggle_anonymous_nodes = "a",
-            toggle_language_display = "I",
-            focus_language = "f",
-            unfocus_language = "F",
-            update = "R",
-            goto_node = "<cr>",
-            show_help = "?"
-        }
-    },
-    indent = {
-        enable = true
-    }
-}
+--[[--
+File              : init.lua
+Date              : 08.09.2021
+Last Modified Date: 08.09.2021
+--]] --
+--[[
+--
+      ________   _______   ________  ___      ___ ___  _____ _______
+     |\   ___  \|\  ___ \ |\   __  \|\  \    /  /|\  \|\   _ \  _   \
+     \ \  \\ \  \ \   __/|\ \  \|\  \ \  \  /  / | \  \ \  \\\__\ \  \
+      \ \  \\ \  \ \  \_|/_\ \  \\\  \ \  \/  / / \ \  \ \  \\|__| \  \
+       \ \  \\ \  \ \  \_|\ \ \  \\\  \ \    / /   \ \  \ \  \    \ \  \
+	    \ \__\\ \__\ \_______\ \_______\ \__/ /     \ \__\ \__\    \ \__\
+	     \|__| \|__|\|_______|\|_______|\|__|/       \|__|\|__|     \|__|
+
+-- ]]
+-- TODO: Add debug in future
+-- INFO: It very nice!
+-- General
+require("impatient")
+require "impatient".enable_profile()
+require("plugins")
+require("keymappings")
+require("colorscheme")
+require("function")
+require("settings")
+
+-- Lsp
+require("nv-lsp-conf")
+require("lsp.lua-ls")
+require("lsp.sql-ls")
+
+-- Plugins
+require("nv-autopair")
+require("nv-bufferline")
+require("nv-coderun")
+require("nv-colorizer")
+require("nv-commenter")
+require("nv-cmp")
+require("nv-csv")
+require("nv-dadbod")
+require("nv-dashboard")
+require("nv-diffview")
+require("nv-easymotion")
+require("nv-floaterm")
+require("nv-folder")
+require("nv-format")
+require("nv-git")
+require("nv-header")
+require("nv-hlchunk")
+require("nv-indent-blankline")
+require("nv-iswap")
+require("nv-latex")
+require("nv-lualine")
+require("nv-markdown")
+require("nv-notify")
+require("nv-numb")
+require("nv-nvim-tree")
+require("nv-neoscroll")
+require("nv-telescope")
+require("nv-treesitter")
+require("nv-undotree")
