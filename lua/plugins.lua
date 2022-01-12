@@ -114,7 +114,6 @@ return packer.startup(
             use "nvim-lua/plenary.nvim"
             use "nvim-telescope/telescope.nvim"
             use "nvim-telescope/telescope-media-files.nvim"
-            use "AckslD/nvim-neoclip.lua"
             use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
             use "fhill2/telescope-ultisnips.nvim"
             use {"mark-coyle/telescope-dbcli.nvim"}

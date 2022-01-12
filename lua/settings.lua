@@ -33,7 +33,7 @@ vim.o.wrap = true
 vim.o.gdefault = true
 vim.o.encoding = "utf-8"
 vim.o.fencs = "utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936"
-vim.o.fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1"
+vim.o.fileencodings = "utf-8,ucs-bom,cp936,gb18030,big5,euc-jp,euc-kr,latin1"
 vim.o.laststatus = 2
 vim.o.showtabline = 2
 vim.o.cmdheight = 1
@@ -63,12 +63,12 @@ if vim.fn.has("persistent_undo") then
     vim.o.undodir = "/home/allen/.config/nvim/tmp/undo"
 end
 
+-- set listchars=tab:\|\ ,trail:▫
+-- set guifont=mononoki\ Nerd\ Font:h8:ib8
+-- set list
 
 vim.cmd([[
 set fillchars=eob:\ ,vert:\┊
-set guifont=mononoki\ Nerd\ Font:h8:ib8
-set list
-set listchars=tab:\|\ ,trail:▫
 ]])
 
 vim.cmd [[

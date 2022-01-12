@@ -70,45 +70,8 @@ require("telescope").setup {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker
 }
-require("neoclip").setup(
-    {
-        history = 1000,
-        enable_persistant_history = false,
-        db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
-        filter = nil,
-        preview = true,
-        default_register = '"',
-        content_spec_column = false,
-        on_paste = {
-            set_reg = false
-        },
-        keys = {
-            telescope = {
-                i = {
-                    select = "<cr>",
-                    paste = "<c-p>",
-                    paste_behind = "<c-k>",
-                    custom = {}
-                },
-                n = {
-                    select = "<cr>",
-                    paste = "p",
-                    paste_behind = "P",
-                    custom = {}
-                }
-            },
-            fzf = {
-                select = "default",
-                paste = "ctrl-p",
-                paste_behind = "ctrl-k",
-                custom = {}
-            }
-        }
-    }
-)
 require("telescope").load_extension("media_files")
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("neoclip")
 require("telescope").load_extension("ultisnips")
 require("telescope").load_extension("dbcli")
 require("telescope").load_extension("vim_bookmarks")

@@ -300,11 +300,6 @@ _G.packer_plugins = {
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-neoclip.lua"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-neoclip.lua",
-    url = "https://github.com/AckslD/nvim-neoclip.lua"
-  },
   ["nvim-notify"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-notify",
