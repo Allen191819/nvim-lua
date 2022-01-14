@@ -1,9 +1,3 @@
---[[--
-File              : plugins.lua
-Date              : 01.09.2021
-Last Modified Date: 01.09.2021
---]] --
-
 local fn = vim.fn
 
 -- Automatically install packer
@@ -71,10 +65,10 @@ return packer.startup(
             use "hrsh7th/cmp-buffer"
             use "hrsh7th/cmp-nvim-lsp"
             use "hrsh7th/cmp-path"
-            use "hrsh7th/cmp-nvim-lua"
+            use {"hrsh7th/cmp-nvim-lua"}
             use "hrsh7th/cmp-cmdline"
-            use {"hrsh7th/cmp-emoji"}
-            use "f3fora/cmp-spell"
+            use {"hrsh7th/cmp-emoji" }
+            use {"f3fora/cmp-spell"}
             use {"tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp"}
             use "ray-x/cmp-treesitter"
             use "hrsh7th/cmp-calc"
@@ -92,8 +86,6 @@ return packer.startup(
 
             -- Colorscheme
             use "marko-cerovac/material.nvim"
-            use "olimorris/onedarkpro.nvim"
-            use "rebelot/kanagawa.nvim"
 
             -- Switch Surround thing
             use "tpope/vim-surround"
@@ -113,11 +105,11 @@ return packer.startup(
             use "nvim-lua/popup.nvim"
             use "nvim-lua/plenary.nvim"
             use "nvim-telescope/telescope.nvim"
-            use "nvim-telescope/telescope-media-files.nvim"
-            use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
+            use {"nvim-telescope/telescope-media-files.nvim"}
+            use {"nvim-telescope/telescope-fzf-native.nvim"}
             use "fhill2/telescope-ultisnips.nvim"
             use {"mark-coyle/telescope-dbcli.nvim"}
-            use "nvim-telescope/telescope-symbols.nvim"
+            use {"nvim-telescope/telescope-symbols.nvim"}
             use "tom-anders/telescope-vim-bookmarks.nvim"
 
             -- Dev icons
@@ -194,21 +186,27 @@ return packer.startup(
             use "xiyaowong/nvim-cursorword"
 
             -- Plugins for markdown
-            use "dhruvasagar/vim-table-mode"
-            use {"yaocccc/markdown-preview.nvim", config = "vim.call('mkdp#util#install')"}
-            use "h-hg/fcitx.nvim"
-            use "ekickx/clipboard-image.nvim"
-            use "rafcamlet/simple-wiki.nvim"
+            use {"dhruvasagar/vim-table-mode", opt = true }
+            use {
+                "yaocccc/markdown-preview.nvim",
+                opt = true,
+                config = "vim.call('mkdp#util#install')",
+                cmd = "MarkdownPreview"
+            }
+            use {"h-hg/fcitx.nvim", opt = true}
+            use {"ekickx/clipboard-image.nvim"}
             use {
                 "ellisonleao/glow.nvim",
+                opt = true,
+                ft = {"markdown"},
                 run = function()
                     require("glow").download_glow()
                 end
             }
-            use "mzlogin/vim-markdown-toc"
+            use {"mzlogin/vim-markdown-toc"}
 
             -- Latex
-            use "lervag/vimtex"
+            use {"lervag/vimtex"}
 
             -- Translater
             use "ianva/vim-youdao-translater"
@@ -233,7 +231,7 @@ return packer.startup(
             use "brooth/far.vim"
 
             -- Startup time
-            -- use "dstein64/vim-startuptime"
+            use "dstein64/vim-startuptime"
 
             -- Easy swap
             use "mizlan/iswap.nvim"
@@ -244,6 +242,7 @@ return packer.startup(
             -- Database
             use "tpope/vim-dadbod"
             use "kristijanhusak/vim-dadbod-ui"
+            use "kristijanhusak/vim-dadbod-completion"
 
             -- Jump livly
             use "nacro90/numb.nvim"
@@ -257,10 +256,6 @@ return packer.startup(
             if PACKER_BOOTSTRAP then
                 require("packer").sync()
             end
-        end,
-        config = {
-            -- Move to lua dir so impatient.nvim can cache it
-            compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua"
-        }
+        end
     }
 )

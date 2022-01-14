@@ -1,3 +1,4 @@
+local data_path = vim.fn.stdpath "data"
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
@@ -55,13 +56,10 @@ vim.o.matchtime = 1
 vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.conceallevel = 1
 vim.o.termguicolors = true
-vim.o.backupdir = "/home/allen/.config/nvim/tmp/backup"
-vim.o.directory = "/home/allen/.config/nvim/tmp/backup"
-
-if vim.fn.has("persistent_undo") then
-    vim.o.undofile = true
-    vim.o.undodir = "/home/allen/.config/nvim/tmp/undo"
-end
+vim.o.undofile = true
+vim.o.backupdir = data_path .. "/backup"
+vim.o.directory = data_path .. "/backup"
+vim.o.undodir = data_path .. "/undo"
 
 -- set listchars=tab:\|\ ,trail:▫
 -- set guifont=mononoki\ Nerd\ Font:h8:ib8

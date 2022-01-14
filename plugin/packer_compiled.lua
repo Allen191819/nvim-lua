@@ -90,8 +90,10 @@ _G.packer_plugins = {
     url = "https://github.com/akinsho/bufferline.nvim"
   },
   ["clipboard-image.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/clipboard-image.nvim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/clipboard-image.nvim",
     url = "https://github.com/ekickx/clipboard-image.nvim"
   },
   ["cmp-buffer"] = {
@@ -110,8 +112,11 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-emoji"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-emoji",
+    after_files = { "/home/allen/.local/share/nvim/site/pack/packer/opt/cmp-emoji/after/plugin/cmp_emoji.lua" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/cmp-emoji",
     url = "https://github.com/hrsh7th/cmp-emoji"
   },
   ["cmp-nvim-lsp"] = {
@@ -120,8 +125,11 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-nvim-lua"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    after_files = { "/home/allen/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua",
     url = "https://github.com/hrsh7th/cmp-nvim-lua"
   },
   ["cmp-nvim-ultisnips"] = {
@@ -135,8 +143,11 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["cmp-spell"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/cmp-spell",
+    after_files = { "/home/allen/.local/share/nvim/site/pack/packer/opt/cmp-spell/after/plugin/cmp-spell.lua" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/cmp-spell",
     url = "https://github.com/f3fora/cmp-spell"
   },
   ["cmp-tabnine"] = {
@@ -165,8 +176,10 @@ _G.packer_plugins = {
     url = "https://github.com/brooth/far.vim"
   },
   ["fcitx.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/fcitx.nvim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/fcitx.nvim",
     url = "https://github.com/h-hg/fcitx.nvim"
   },
   ["format.nvim"] = {
@@ -180,19 +193,16 @@ _G.packer_plugins = {
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["glow.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/glow.nvim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/glow.nvim",
     url = "https://github.com/ellisonleao/glow.nvim"
   },
   ["headlines.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/headlines.nvim",
     url = "https://github.com/lukas-reineke/headlines.nvim"
-  },
-  ["impatient.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/impatient.nvim",
-    url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["incsearch-easymotion.vim"] = {
     loaded = true,
@@ -213,11 +223,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/iswap.nvim",
     url = "https://github.com/mizlan/iswap.nvim"
-  },
-  ["kanagawa.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
-    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lazygit.nvim"] = {
     loaded = true,
@@ -245,9 +250,12 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
+    commands = { "MarkdownPreview" },
     config = { "vim.call('mkdp#util#install')" },
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://github.com/yaocccc/markdown-preview.nvim"
   },
   ["material.nvim"] = {
@@ -340,11 +348,6 @@ _G.packer_plugins = {
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["onedarkpro.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/onedarkpro.nvim",
-    url = "https://github.com/olimorris/onedarkpro.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -365,11 +368,6 @@ _G.packer_plugins = {
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  ["simple-wiki.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/simple-wiki.nvim",
-    url = "https://github.com/rafcamlet/simple-wiki.nvim"
-  },
   ["smart-cursor.nvim"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/smart-cursor.nvim",
@@ -386,8 +384,10 @@ _G.packer_plugins = {
     url = "https://github.com/AndrewRadev/switch.vim"
   },
   ["telescope-dbcli.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-dbcli.nvim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/telescope-dbcli.nvim",
     url = "https://github.com/mark-coyle/telescope-dbcli.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
@@ -396,13 +396,17 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope-media-files.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/telescope-media-files.nvim",
     url = "https://github.com/nvim-telescope/telescope-media-files.nvim"
   },
   ["telescope-symbols.nvim"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/telescope-symbols.nvim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/telescope-symbols.nvim",
     url = "https://github.com/nvim-telescope/telescope-symbols.nvim"
   },
   ["telescope-ultisnips.nvim"] = {
@@ -491,8 +495,10 @@ _G.packer_plugins = {
     url = "https://github.com/alpertuna/vim-header"
   },
   ["vim-markdown-toc"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-markdown-toc",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc",
     url = "https://github.com/mzlogin/vim-markdown-toc"
   },
   ["vim-matchup"] = {
@@ -505,14 +511,21 @@ _G.packer_plugins = {
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-snippets/.",
     url = "https://github.com/Allen191819/vim-snippets"
   },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-startuptime",
+    url = "https://github.com/dstein64/vim-startuptime"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
   ["vim-table-mode"] = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vim-table-mode",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/vim-table-mode",
     url = "https://github.com/dhruvasagar/vim-table-mode"
   },
   ["vim-textobj-line"] = {
@@ -541,8 +554,10 @@ _G.packer_plugins = {
     url = "https://github.com/ianva/vim-youdao-translater"
   },
   vimtex = {
-    loaded = true,
-    path = "/home/allen/.local/share/nvim/site/pack/packer/start/vimtex",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/allen/.local/share/nvim/site/pack/packer/opt/vimtex",
     url = "https://github.com/lervag/vimtex"
   }
 }
@@ -552,10 +567,36 @@ time([[Defining packer_plugins]], false)
 time([[Runtimepath customization]], true)
 vim.o.runtimepath = vim.o.runtimepath .. ",/home/allen/.local/share/nvim/site/pack/packer/start/vim-snippets/."
 time([[Runtimepath customization]], false)
--- Config for: markdown-preview.nvim
-time([[Config for markdown-preview.nvim]], true)
-vim.call('mkdp#util#install')
-time([[Config for markdown-preview.nvim]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType lua ++once lua require("packer.load")({'cmp-nvim-lua'}, { ft = "lua" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-table-mode', 'cmp-spell', 'vim-markdown-toc', 'cmp-emoji', 'glow.nvim', 'telescope-media-files.nvim', 'telescope-symbols.nvim', 'fcitx.nvim', 'clipboard-image.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType sql ++once lua require("packer.load")({'telescope-dbcli.nvim'}, { ft = "sql" }, _G.packer_plugins)]]
+vim.cmd [[au FileType tex ++once lua require("packer.load")({'vim-table-mode', 'cmp-spell', 'vimtex', 'cmp-emoji', 'telescope-media-files.nvim', 'telescope-symbols.nvim', 'fcitx.nvim'}, { ft = "tex" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/allen/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]], true)
+vim.cmd [[source /home/allen/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]]
+time([[Sourcing ftdetect script at: /home/allen/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]], false)
+time([[Sourcing ftdetect script at: /home/allen/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]], true)
+vim.cmd [[source /home/allen/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]]
+time([[Sourcing ftdetect script at: /home/allen/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]], false)
+time([[Sourcing ftdetect script at: /home/allen/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], true)
+vim.cmd [[source /home/allen/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]]
+time([[Sourcing ftdetect script at: /home/allen/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], false)
+time([[Sourcing ftdetect script at: /home/allen/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]], true)
+vim.cmd [[source /home/allen/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]]
+time([[Sourcing ftdetect script at: /home/allen/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

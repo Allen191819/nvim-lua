@@ -128,7 +128,7 @@ vim.diagnostic.config(
         }
     }
 )
-cfg = {
+local cfg = {
     bind = true, -- This is mandatory, otherwise border config won't get registered.
     doc_lines = 8, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
     floating_window = true, -- show hint in a floating window, set to false for virtual text only mode

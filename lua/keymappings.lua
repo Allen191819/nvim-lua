@@ -74,14 +74,12 @@ vim.api.nvim_set_keymap("n", "E",           ":<C-u>Yde<CR>",                    
 
 vim.api.nvim_set_keymap("i", "<c-p>",       '<Esc>/<++><CR>:nohlsearch<CR>"_c4l',                                              { silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<c-p>",       '<Esc>/<++><CR>:nohlsearch<CR>"_c4l',                                              { silent = true, noremap = true})
-vim.api.nvim_set_keymap("i", ":p",          '<++>',                                                                            { silent = true, noremap = true})
 
 -- Lsp
 vim.api.nvim_set_keymap("n", "<leader>ac",  ":Telescope lsp_code_actions<CR>",                                                 { silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>rc",  ":Telescope lsp_range_code_actions<CR>",                                           { silent = true, noremap = true})
+vim.api.nvim_set_keymap("v", "<leader>ac",  ":Telescope lsp_range_code_actions<CR>",                                           { silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "K",           "<cmd>lua vim.lsp.buf.hover()<CR>",                                                { silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>r",   "<cmd>lua vim.lsp.buf.rename()<CR>",                                               { silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "gp",          ":Lspsaga preview_definition<CR>",                                                 { silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>cd",  "<cmd>lua vim.diagnostic.open_float()<CR>",                                        { silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>cc",  "<cmd>lua vim.diagnostic.setloclist()<CR>",                                        { silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "g[",          "<cmd>lua vim.diagnostic.goto_prev()<CR>",                                         { silent = true, noremap = true})
@@ -90,9 +88,9 @@ vim.api.nvim_set_keymap("n", "gD",          "<cmd>lua vim.lsp.buf.declaration()<
 vim.api.nvim_set_keymap("n", "gd",          "<cmd>lua vim.lsp.buf.definition()<CR>",                                           { silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gr",          ":Telescope lsp_references<CR>",                                                   { silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gi",          "<cmd>lua vim.lsp.buf.implementation()<CR>",                                       { silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", ",             wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",                            { silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", ",             wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",                         { silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", ",             wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",      { silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", ",wa",         "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",                            { silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", ",wr",         "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",                         { silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", ",wl",         "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",      { silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<space>d",    "<cmd>lua vim.lsp.buf.type_definition()<CR>",                                      { silent = true, noremap = true})
 
 -- DashBoard / Telescope
@@ -122,12 +120,10 @@ vim.api.nvim_set_keymap("n", "<Leader>md",  ":e /home/allen/MyNote/index.md<Cr>"
 vim.api.nvim_set_keymap("n", "<Leader>ms",  ':lua require "simple-wiki".search()<Cr>',                                         { noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>mc",  ':lua require "simple-wiki".open_or_create()<Cr>',                                 { noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>mv",  ':lua require "simple-wiki".create(true)<Cr>',                                     { noremap = true, silent = false})
-vim.api.nvim_set_keymap("n", "<Leader>mn",  ':lua require("nabla").action()<Cr>',                                              { noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<Leader>mt",  ":TableModeToggle<Cr>",                                                            { noremap = true, silent = false})
 vim.api.nvim_set_keymap("n", "<A-r>",       ":Glow<Cr>",                                                                       { noremap = true, silent = false})
 
 --Latex
-vim.api.nvim_set_keymap("n", "<F5>",        ':lua require("nabla").action()<CR>',                                              { noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<F2>",        ':TexViewer<Cr>',                                                                  { noremap = true, silent = true})
 
 -- Easy swap
@@ -135,9 +131,9 @@ vim.api.nvim_set_keymap("n", "<A-w>",       ":ISwap<Cr>",                       
 vim.api.nvim_set_keymap("n", "<A-q>",       ":ISwapWith<Cr>",                                                                  { noremap = true, silent = false})
 
 -- Snip run
-vim.api.nvim_set_keymap("n", ",             sr", ":SnipRun<Cr>",                                                               { noremap = true, silent = true})
-vim.api.nvim_set_keymap("v", ",             sr", ":'<,'>SnipRun<Cr>",                                                          { noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", ",             sl", ":SnipClose<Cr>",                                                             { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", ",sr", ":SnipRun<Cr>",                                                               { noremap = true, silent = true})
+vim.api.nvim_set_keymap("v", ",sr", ":'<,'>SnipRun<Cr>",                                                          { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", ",sl", ":SnipClose<Cr>",                                                             { noremap = true, silent = true})
 
 -- Add header
 vim.api.nvim_set_keymap("n", "<F3>",        ":AddHeader<Cr>",                                                                  { noremap = true, silent = true})
@@ -152,7 +148,7 @@ vim.api.nvim_set_keymap("n", "<F6>",        ":setlocal spell! spelllang=en_us<Cr
 vim.api.nvim_set_keymap("n", "lg",          ":LazyGit<CR>",                                                                    { noremap = true, silent = true})
 
 -- Interesting word
-vim.api.nvim_set_keymap("n", ",             tx", ":r !figlet",                                                                 { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", ",tx",         ":r !figlet",                                                                 { noremap = true, silent = true})
 
 vim.api.nvim_set_keymap("n", "<up>",        ":res +5<CR>",                                                                     { noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<down>",      ":res -5<CR>",                                                                     { noremap = true, silent = true})

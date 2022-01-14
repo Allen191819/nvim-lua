@@ -1,8 +1,11 @@
 # nvim-lua :shaved_ice:
+
 This is my nvim config in lua. :smile:
 
+本套 neovim 配置本人已不再使用
+
 ![](img/2021-12-23-11-13-27.png)
- 
+
 ![](img/2021-12-23-11-09-40.png)
 
 ![](img/2021-12-23-11-10-24.png)

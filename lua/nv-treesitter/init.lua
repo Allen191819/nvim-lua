@@ -21,13 +21,11 @@ require "nvim-treesitter.configs".setup {
 	highlight = {
 		enable = true,
 		disable = {"latex", "org"},
-		additional_vim_regex_highlighting = {"org"}, -- Required since TS highlighter doesn't support all syntax features (conceal)
 		custom_captures = {
 			-- Highlight the @foo.bar capture group with the "Identifier" highlight group.
 			["foo.bar"] = "Identifier"
 		}
 	},
-	ensure_installed = {"org"},
 	rainbow = {
 		enable = true,
 		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean

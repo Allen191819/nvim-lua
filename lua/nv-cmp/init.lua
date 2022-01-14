@@ -38,7 +38,6 @@ local source_menu = {
     nvim_lua = "[Lua]",
     cmp_tabnine = "[TN]",
     calc = "[Calc]",
-    conjure = "[Conjure]",
     spell = "[Spell]",
     path = "[Path]",
     vim_dadbod_completion = "[DB]",
@@ -82,10 +81,6 @@ cmp.setup {
             max_item_count = 2
         },
         {
-            name = "conjure",
-            max_item_count = 2
-        },
-        {
             name = "latex_symbols",
             max_item_count = 3
         },
@@ -98,7 +93,8 @@ cmp.setup {
             max_item_count = 3
         },
         {
-            name = "spell"
+            name = "spell",
+            max_item_count = 3
         },
         {
             name = "treesitter",

@@ -18,7 +18,6 @@ Last Modified Date: 08.09.2021
 -- INFO: It very nice!
 -- General
 require("impatient")
-require "impatient".enable_profile()
 require("plugins")
 require("keymappings")
 require("colorscheme")
