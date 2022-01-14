@@ -4,6 +4,8 @@ This is my nvim config in lua. :smile:
 
 本套 neovim 配置本人已不再使用
 
+当前使用的nvim配置在 https://github.com/Allen191819/neovim
+
 ![](img/2021-12-23-11-13-27.png)
 
 ![](img/2021-12-23-11-09-40.png)
